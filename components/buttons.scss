@@ -1,0 +1,16 @@
+@use '/base/variables.scss';
+
+.button-central {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: $text-color;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    font-family: $font-secondary;
+    font-size: 27px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    margin-top: 56px;
+}
