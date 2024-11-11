@@ -1,0 +1,29 @@
+@use '/base/variables.scss';
+
+//FOOTER
+.footer {
+    font-family: 'Raleway', sans-serif;
+    background-color: $background-color;
+    color: $text-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid $text-color;
+
+    .footer_links {
+        display: flex;
+        gap: 20px;
+
+        a {
+            color: $text-color;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+
+            &:hover {
+                color: #bbbbbb;
+            }
+        }
+    }
+}
