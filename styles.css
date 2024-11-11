@@ -106,9 +106,10 @@ body {
   transform: translate(-50%, -50%);
   color: #ffffff;
   font-family: "Cinzel Decorative", serif;
-  font-size: 22px;
+  font-size: 27px;
   text-align: center;
   z-index: 1;
+  margin-top: 56px;
 }
 
 @media (min-width: 768px) {
