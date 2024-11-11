@@ -1,8 +1,4 @@
-//VARIABLES
-$font-primary: 'Raleway', sans-serif;
-$font-secondary: 'Cinzel Decorative', serif;
-$background-color: #071325;
-$text-color: #ffffff;
+@use '/base/variables.scss';
 
 * {
     margin: 0;
