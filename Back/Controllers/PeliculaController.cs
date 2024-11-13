@@ -70,7 +70,7 @@ namespace Reto_Primera_Eva.Controllers
         // Método para inicializar datos
         public static void InicializarDatos()
         {
-            peliculas.Add(new Pelicula(1, "Interstellar", "Javier Plo", "Un grupo de astronautas viaja a través de un agujero de gusano.", 169, new DateTime(2024, 11, 10), "Accion"));
+            peliculas.Add(new Pelicula(1, "Venom: El último baile", "Kelly Marcel", "Eddie y Venom están a la fuga. Perseguidos por sus sendos mundos y cada vez más cercados, el dúo se ve abocado a tomar una decisión devastadora que hará que caiga el telón sobre el último baile de Venom y Eddie.", 108, new DateTime(2024, 10, 25), "Accion"));
             peliculas.Add(new Pelicula(2, "The Matrix", "Ruben Arnadillo", "Un hacker descubre que el mundo es una simulación.", 136, new DateTime(2024, 10, 19), "Miedo"));
         }
     }
