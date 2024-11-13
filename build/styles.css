@@ -1,12 +1,77 @@
-
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 6 \2502      background-color: $background-color;\d\a   \2502                        ^^^^^^^^^^^^^^^^^\a   \2575 \a   layout\\footer.scss 6:23  @use\a   source\\main.scss 2:1     root stylesheet";
+.footer {
+  font-family: "Raleway", sans-serif;
+  background-color: #071325;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #ffffff;
 }
+.footer .footer_links {
+  display: flex;
+  gap: 20px;
+}
+.footer .footer_links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+.footer .footer_links a:hover {
+  color: #bbbbbb;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #071325;
+  border-bottom: 1px solid #ffffff;
+  padding: 8px 10px;
+}
+.header .logo img {
+  width: 160px;
+  margin-left: 10px;
+}
+.header .nav_header {
+  font-family: "Cinzel Decorative", serif;
+}
+.header .nav_header .menu_header {
+  display: flex;
+  list-style: none;
+}
+.header .nav_header .menu_header .titulo_header a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 25px;
+  padding: 0 12px;
+}
+.header .cuenta_header {
+  display: flex;
+  align-items: center;
+}
+.header .cuenta_header .header_cuenta {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 8px;
+  font-size: 18px;
+}
+.header .cuenta_header .icono_usuario img {
+  width: 40px;
+  margin-right: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  background-color: #071325;
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=styles.css.map */
