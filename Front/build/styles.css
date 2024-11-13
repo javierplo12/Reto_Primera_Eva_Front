@@ -1,10 +1,10 @@
-/* Error: Can't find stylesheet to import.
+/* Error: Undefined variable.
  *   ,
- * 1 | @use '/base/variables.scss';
- *   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ * 6 |     background-color: $background-color;
+ *   |                       ^^^^^^^^^^^^^^^^^
  *   '
- *   layout\footer.scss 1:1  @use
- *   source\main.scss 2:1    root stylesheet */
+ *   layout\footer.scss 6:23  @use
+ *   source\main.scss 2:1     root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -14,5 +14,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @use '/base/variables.scss';\d\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   layout\\footer.scss 1:1  @use\a   source\\main.scss 2:1    root stylesheet";
+  content: "Error: Undefined variable.\a   \2577 \a 6 \2502      background-color: $background-color;\d\a   \2502                        ^^^^^^^^^^^^^^^^^\a   \2575 \a   layout\\footer.scss 6:23  @use\a   source\\main.scss 2:1     root stylesheet";
 }
