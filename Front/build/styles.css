@@ -1,10 +1,4 @@
-/* Error: Undefined variable.
- *   ,
- * 6 |     background-color: $background-color;
- *   |                       ^^^^^^^^^^^^^^^^^
- *   '
- *   layout\footer.scss 6:23  @use
- *   source\main.scss 2:1     root stylesheet */
+
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
