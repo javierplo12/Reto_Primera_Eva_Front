@@ -39,69 +39,62 @@
 
 .header {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   background-color: #071325;
-  border-bottom: 1px solid #ffffff;
   padding: 8px 10px;
+  border-bottom: 1px solid #ffffff;
 }
 .header .logo img {
   width: 120px;
-  margin-left: 10px;
 }
 .header .nav_header {
-  font-family: "Cinzel Decorative", serif;
-  margin-top: 10px;
+  display: none;
 }
-.header .nav_header .menu_header {
+.header .menu-icon {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  list-style: none;
-  padding: 0;
+  cursor: pointer;
 }
-.header .nav_header .menu_header .titulo_header a {
+.header .menu-icon .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+.header .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: #071325;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+.header .dropdown-menu a {
   color: #ffffff;
   text-decoration: none;
-  font-size: 20px;
   padding: 8px 0;
-}
-.header .cuenta_header {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-}
-.header .cuenta_header .header_cuenta {
-  color: #ffffff;
-  text-decoration: none;
   font-size: 16px;
-  margin-right: 8px;
+  display: block;
 }
-.header .cuenta_header .icono_usuario img {
-  width: 30px;
-  margin-right: 8px;
+.header .dropdown-menu a:hover {
+  background-color: black;
+  border-radius: 5px;
+}
+.header .dropdown-menu.show {
+  display: flex;
+  flex-direction: column;
 }
 @media (min-width: 768px) {
-  .header {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 8px 20px;
+  .header .nav_header {
+    display: flex;
   }
-  .header .logo img {
-    width: 160px;
-  }
-  .header .nav_header .menu_header {
-    flex-direction: row;
-  }
-  .header .nav_header .menu_header .titulo_header a {
-    font-size: 25px;
-    padding: 0 12px;
-  }
-  .header .cuenta_header .header_cuenta {
-    font-size: 18px;
-  }
-  .header .cuenta_header .icono_usuario img {
-    width: 40px;
+  .header .menu-icon, .header .dropdown-menu {
+    display: none;
   }
 }
 
@@ -171,13 +164,13 @@ body {
 
 .button-central {
   position: absolute;
-  top: 50%;
+  top: 33%;
   left: 50%;
   color: #ffffff;
   transform: translate(-50%, -50%);
   background: transparent;
   font-family: "Cinzel Decorative", serif;
-  font-size: 27px;
+  font-size: 21px;
   text-align: center;
   cursor: pointer;
   border: none;
