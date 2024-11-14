@@ -4,47 +4,85 @@
 //HEADER
 .header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     background-color: $background-color;
     border-bottom: 1px solid $text-color;
     padding: 8px 10px;
-
+  
     .logo img {
-        width: 160px;
-        margin-left: 10px;
+      width: 120px; // Ajuste para pantallas móviles
+      margin-left: 10px;
     }
-
+  
     .nav_header {
-        font-family: $font-secondary;
-
-        .menu_header {
-            display: flex;
-            list-style: none;
-
-            .titulo_header a {
-                color: $text-color;
-                text-decoration: none;
-                font-size: 25px;
-                padding: 0 12px;
-            }
-        }
-    }
-
-    .cuenta_header {
+      font-family: $font-secondary;
+      margin-top: 10px; // Espacio para separación en mobile
+  
+      .menu_header {
         display: flex;
+        flex-direction: column; // Columna en mobile
         align-items: center;
-
-        .header_cuenta {
-            color: $text-color;
-            text-decoration: none;
-            margin-right: 8px;
-            font-size: 18px;
+        list-style: none;
+        padding: 0;
+  
+        .titulo_header a {
+          color: $text-color;
+          text-decoration: none;
+          font-size: 20px; // Tamaño de fuente reducido para mobile
+          padding: 8px 0;
         }
-
-        .icono_usuario img {
-            width: 40px;
-            margin-right: 8px;
-        }
+      }
     }
-}
+  
+    .cuenta_header {
+      display: flex;
+      align-items: center;
+      margin-top: 10px; // Separación adicional en mobile
+  
+      .header_cuenta {
+        color: $text-color;
+        text-decoration: none;
+        font-size: 16px; // Tamaño de fuente reducido para mobile
+        margin-right: 8px;
+      }
+  
+      .icono_usuario img {
+        width: 30px; // Tamaño reducido para icono en mobile
+        margin-right: 8px;
+      }
+    }
+  
+    // Breakpoint para pantallas más grandes (tablet y escritorio)
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 8px 20px;
+  
+      .logo img {
+        width: 160px;
+      }
+  
+      .nav_header {
+        .menu_header {
+          flex-direction: row; // Fila en pantallas grandes
+  
+          .titulo_header a {
+            font-size: 25px;
+            padding: 0 12px;
+          }
+        }
+      }
+  
+      .cuenta_header {
+        .header_cuenta {
+          font-size: 18px;
+        }
+  
+        .icono_usuario img {
+          width: 40px;
+        }
+      }
+    }
+  }
+      

@@ -4,10 +4,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
+  }
+  
+  // Estilos base para mobile
+  body {
     font-family: $font-primary;
     background-color: $background-color;
     color: $text-color;
-}
+  }
+  
+  // Ajustes para pantallas más grandes (tablet y escritorio)
+  @media (min-width: 768px) {
+    body {
+      font-size: 1rem; // Ajuste de tamaño de fuente para mayor legibilidad en pantallas grandes
+      line-height: 1.6;
+    }
+  }
+  
