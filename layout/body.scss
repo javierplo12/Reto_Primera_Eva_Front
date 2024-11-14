@@ -12,6 +12,9 @@
     background-color: $background-color;
     color: $text-color;
   }
+  h2{
+    font-family: $font-primary;
+  }
   
   // Ajustes para pantallas más grandes (tablet y escritorio)
   @media (min-width: 768px) {

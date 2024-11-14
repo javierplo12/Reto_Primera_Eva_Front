@@ -18,6 +18,40 @@
     }
   }
 
+  .entrada_cine {
+    // Aseguramos que la imagen esté centrada en dispositivos móviles
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .texto_bajo_imagen {
+      margin-top: 20px; // Espaciado entre la imagen y el texto
+      text-align: center;
+      color: #fff;
+
+      h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+        max-width: 600px;  // Limita el ancho del texto para que no se extienda demasiado
+        margin: 0 auto;
+      }
+    }
+  }
+
   .imagen-centro {
     img {
       position: relative;

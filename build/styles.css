@@ -110,6 +110,10 @@ body {
   color: #ffffff;
 }
 
+h2 {
+  font-family: "Raleway", sans-serif;
+}
+
 @media (min-width: 768px) {
   body {
     font-size: 1rem;
@@ -131,6 +135,34 @@ body {
 .imagenes_home .imagen img {
   width: 100%;
   height: auto;
+}
+.imagenes_home .entrada_cine {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.imagenes_home .entrada_cine img {
+  max-width: 100%;
+  height: auto;
+}
+.imagenes_home .entrada_cine .texto_bajo_imagen {
+  margin-top: 20px;
+  text-align: center;
+  color: #fff;
+}
+.imagenes_home .entrada_cine .texto_bajo_imagen h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.imagenes_home .entrada_cine .texto_bajo_imagen p {
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
 }
 .imagenes_home .imagen-centro img {
   position: relative;
@@ -170,7 +202,7 @@ body {
   transform: translate(-50%, -50%);
   background: transparent;
   font-family: "Cinzel Decorative", serif;
-  font-size: 21px;
+  font-size: 23px;
   text-align: center;
   cursor: pointer;
   border: none;
