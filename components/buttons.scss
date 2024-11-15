@@ -1,0 +1,29 @@
+@use '../base/variables.scss';
+
+.button-central {
+    color: $text-color;
+    background: transparent;
+    font-family: $font-secondary;
+    font-size: 22px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    margin-bottom: 20px; 
+}
+
+.button-explora {
+    color: $text-color;
+    background-color: transparent;
+    border: 2px solid $text-color;
+    padding: 10px 20px;
+    font-family: $font-primary;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+        background-color: #007bff;
+    }
+}

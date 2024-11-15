@@ -3,48 +3,72 @@
 
 //HEADER
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: $background-color;
-    border-bottom: 1px solid $text-color;
-    padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $background-color;
+  padding: 8px 10px;
+  border-bottom: 1px solid $text-color;
 
-    .logo img {
-        width: 160px;
-        margin-left: 10px;
-    }
+  .logo img {
+      width: 150px;
+  }
 
-    .nav_header {
-        font-family: $font-secondary;
+  .nav_header {
+      display: none; // Ocultar en dispositivos móviles
+  }
 
-        .menu_header {
-            display: flex;
-            list-style: none;
+  .menu-icon {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      .bar {
+          width: 25px;
+          height: 3px;
+          background-color: $text-color;
+          margin: 4px 0;
+          transition: 0.3s;
+          margin-right: 20px;
+      }
+  }
 
-            .titulo_header a {
-                color: $text-color;
-                text-decoration: none;
-                font-size: 25px;
-                padding: 0 12px;
-            }
-        }
-    }
+  .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background-color: $background-color;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
 
-    .cuenta_header {
-        display: flex;
-        align-items: center;
+      a {
+          color: $text-color;
+          text-decoration: none;
+          padding: 8px 0;
+          font-size: 16px;
+          display: block;
+          &:hover {
+              background-color: darken($background-color, 10%);
+              border-radius: 5px;
+          }
+      }
+  }
 
-        .header_cuenta {
-            color: $text-color;
-            text-decoration: none;
-            margin-right: 8px;
-            font-size: 18px;
-        }
+  // Mostrar el menú desplegable con la clase "show"
+  .dropdown-menu.show {
+      display: flex;
+      flex-direction: column;
+  }
 
-        .icono_usuario img {
-            width: 40px;
-            margin-right: 8px;
-        }
-    }
+  // Configuración para pantallas más grandes
+  @media (min-width: 768px) {
+      .nav_header {
+          display: flex;
+      }
+      .menu-icon, .dropdown-menu {
+          display: none;
+      }
+  }
 }
