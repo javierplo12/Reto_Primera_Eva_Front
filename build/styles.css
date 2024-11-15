@@ -162,6 +162,7 @@ h2 {
 }
 .imagenes_home .entrada_cine .texto_bajo_imagen p {
   font-size: 16px;
+  font-weight: normal;
   line-height: 1.5;
   max-width: 600px;
   margin: 0 auto;
