@@ -9,7 +9,7 @@
 
   .imagen {
     position: relative;
-    width: 90%; // Ajuste para pantallas pequeñas
+    width: 90%;
     max-width: 280px;
 
     img {
@@ -19,13 +19,13 @@
   }
 
   .entrada_cine {
-    // Aseguramos que la imagen esté centrada en dispositivos móviles
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 95%;
     height: auto;
+    margin-top: 20px;
 
     img {
       max-width: 100%;
@@ -33,7 +33,7 @@
     }
 
     .texto_bajo_imagen {
-      margin-top: 20px; // Espaciado entre la imagen y el texto
+      margin-top: 20px; 
       text-align: center;
       color: #fff;
 
@@ -46,34 +46,34 @@
       p {
         font-size: 16px;
         line-height: 1.5;
-        max-width: 600px;  // Limita el ancho del texto para que no se extienda demasiado
+        max-width: 600px;  
         margin: 0 auto;
       }
     }
   }
 
   .imagen-centro {
+    position: relative; // Permite el posicionamiento absoluto de .overlay
+
     img {
-      position: relative;
       width: 100%;
       height: auto;
     }
-  }
 
-  .texto-central {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #ffffff;
-    font-family: "Cinzel Decorative", serif;
-    font-size: 20px; // Ajuste de tamaño de fuente para mobile
-    text-align: center;
-    z-index: 1;
-    margin-top: 56px;
-  }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+}
 
-  // Breakpoint para pantallas más grandes (tablet y escritorio)
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-evenly;

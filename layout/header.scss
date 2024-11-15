@@ -11,7 +11,7 @@
   border-bottom: 1px solid $text-color;
 
   .logo img {
-      width: 120px;
+      width: 150px;
   }
 
   .nav_header {
@@ -28,6 +28,7 @@
           background-color: $text-color;
           margin: 4px 0;
           transition: 0.3s;
+          margin-right: 20px;
       }
   }
 
