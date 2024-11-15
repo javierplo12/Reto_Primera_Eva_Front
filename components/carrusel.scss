@@ -1,0 +1,70 @@
+// Estilos para el contenedor principal del carrusel
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    overflow: hidden; // Evita que las imágenes se desborden
+    border-radius: 12px; // Bordes redondeados para un diseño más moderno
+  }
+  
+  // Estilos para las imágenes del carrusel
+  .carousel__track {
+    display: flex;
+    transition: transform 0.5s ease; // Desplazamiento suave
+  }
+  
+  .carousel__slide {
+    min-width: 100%; // Cada imagen ocupa el ancho completo del contenedor
+    height: 150px; // Altura fija para móviles (ajustable según el diseño)
+    flex-shrink: 0; // Previene que las imágenes se compriman
+    overflow: hidden; // Oculta cualquier contenido desbordado
+    position: relative;
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // Ajusta las imágenes para que se adapten sin deformarse
+    }
+  }
+  
+  // Estilos para los botones de navegación
+  .carousel__control {
+    position: absolute;
+    top: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    z-index: 10;
+    transform: translateY(-50%); // Centrar verticalmente
+    font-size: 18px;
+    border-radius: 50%; // Botones redondeados
+    transition: background 0.3s ease;
+  
+    &:hover {
+      background: rgba(0, 0, 0, 0.7); // Cambiar el fondo al pasar el mouse
+    }
+  }
+  
+  .carousel__control--prev {
+    left: 10px; // Posición del botón anterior
+  }
+  
+  .carousel__control--next {
+    right: 10px; // Posición del botón siguiente
+  }
+  
+  // Estilos adaptados para dispositivos móviles (Mobile First)
+  @media (max-width: 768px) {
+    .carousel__slide {
+      height: 120px; // Altura reducida para pantallas pequeñas
+    }
+  
+    .carousel__control {
+      font-size: 14px; // Flechas más pequeñas en pantallas pequeñas
+      padding: 6px;
+    }
+  }
+  
