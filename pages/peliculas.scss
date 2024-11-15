@@ -1,57 +1,54 @@
+// Estilos para el contenedor principal del carrusel
 .carousel {
   position: relative;
-  overflow: hidden;
-  width: 100%; // Ocupa el 100% del ancho disponible
-  max-width: 400px; // Máximo ancho para móviles
-  margin: auto;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden; // Para evitar que las imágenes se desborden
+}
 
-  &__track {
-    display: flex;
-    transition: transform 0.4s ease-in-out;
-  }
+// Estilos para las imágenes del carrusel
+.carousel__track {
+  display: flex;
+  transition: transform 0.5s ease; // Desplazamiento suave
+}
 
-  &__slide {
-    min-width: 100%;
-    flex-shrink: 0;
+.carousel__slide {
+  min-width: 100%;
+  flex-shrink: 0; // Asegura que las imágenes no se compriman
+}
 
-    img {
-      width: 100%; // Las imágenes ocupan todo el ancho del contenedor
-      height: auto; // La altura se ajusta automáticamente para mantener la proporción
-      display: block; // Elimina espacio extra alrededor de la imagen
-    }
-  }
-
-  &__control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: #fff;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-
-    &--prev {
-      left: 10px;
-    }
-
-    &--next {
-      right: 10px;
-    }
+// Estilos para los botones de navegación
+.carousel__control {
+  position: absolute;
+  top: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  transform: translateY(-50%); // Centrar verticalmente
+  font-size: 24px;
+  transition: background 0.3s ease;
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.7); // Cambiar el fondo al pasar el mouse
   }
 }
 
-/* Adaptaciones para pantallas más grandes */
-@media (min-width: 768px) {
-  .carousel {
-    max-width: 600px; // Más ancho en tablets
-  }
+.carousel__control--prev {
+  left: 10px; // Posición del botón anterior
 }
 
-@media (min-width: 1024px) {
-  .carousel {
-    max-width: 800px; // Más ancho en pantallas grandes
+.carousel__control--next {
+  right: 10px; // Posición del botón siguiente
+}
+
+// Estilos adaptados para dispositivos móviles (Mobile First)
+@media (max-width: 768px) {
+  .carousel__control {
+    font-size: 18px; // Flechas más pequeñas en pantallas pequeñas
+    padding: 8px;
   }
 }
+  
