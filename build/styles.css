@@ -186,6 +186,53 @@ h2 {
   justify-content: center;
   z-index: 1;
 }
+.imagenes_home .peliculas {
+  padding: 20px;
+  text-align: center;
+}
+.imagenes_home .peliculas h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Cinzel Decorative", serif;
+}
+.imagenes_home .peliculas .grid-peliculas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.imagenes_home .peliculas .grid-peliculas .pelicula {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.imagenes_home .peliculas .grid-peliculas .pelicula img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.imagenes_home .peliculas .grid-peliculas .pelicula h3 {
+  font-size: 18px;
+  margin: 10px 0;
+  font-family: "Raleway", sans-serif;
+}
+.imagenes_home .peliculas .grid-peliculas .pelicula p {
+  font-size: 14px;
+  color: #555;
+}
+@media (min-width: 768px) {
+  .imagenes_home .peliculas .grid-peliculas {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .imagenes_home .peliculas .grid-peliculas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media (min-width: 768px) {
   .imagenes_home {
     flex-direction: row;
@@ -196,6 +243,133 @@ h2 {
   }
   .imagenes_home .texto-central {
     font-size: 27px;
+  }
+}
+
+.imagenes_home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  background-color: #071325;
+}
+.imagenes_home .imagen {
+  position: relative;
+  width: 90%;
+  max-width: 280px;
+}
+.imagenes_home .imagen img {
+  width: 100%;
+  height: auto;
+}
+.imagenes_home .entrada_cine {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: auto;
+  margin-top: 20px;
+}
+.imagenes_home .entrada_cine img {
+  max-width: 100%;
+  height: auto;
+}
+.imagenes_home .entrada_cine .texto_bajo_imagen {
+  margin-top: 20px;
+  text-align: center;
+  color: #000000;
+}
+.imagenes_home .entrada_cine .texto_bajo_imagen h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.imagenes_home .entrada_cine .texto_bajo_imagen p {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.imagenes_home .imagen-centro {
+  position: relative;
+}
+.imagenes_home .imagen-centro img {
+  width: 100%;
+  height: auto;
+}
+.imagenes_home .imagen-centro .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+@media (min-width: 768px) {
+  .imagenes_home {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .imagenes_home .imagen {
+    width: 28%;
+  }
+  .imagenes_home .texto-central {
+    font-size: 27px;
+  }
+}
+
+.peliculas {
+  padding: 20px;
+  text-align: center;
+}
+.peliculas h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Cinzel Decorative", serif;
+}
+.peliculas .grid-peliculas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.peliculas .grid-peliculas .pelicula {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.peliculas .grid-peliculas .pelicula img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.peliculas .grid-peliculas .pelicula h3 {
+  font-size: 18px;
+  margin: 10px 0;
+  color: black;
+  font-family: "Raleway", sans-serif;
+}
+.peliculas .grid-peliculas .pelicula p {
+  font-size: 16px;
+  color: #000000;
+}
+@media (min-width: 768px) {
+  .peliculas .grid-peliculas {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .peliculas .grid-peliculas {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -230,7 +404,6 @@ h2 {
   position: relative;
   width: 100%;
   max-width: 100%;
-  height: 300px;
   overflow: hidden;
   border-radius: 12px;
 }
