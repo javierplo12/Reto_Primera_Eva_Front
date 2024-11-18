@@ -186,53 +186,6 @@ h2 {
   justify-content: center;
   z-index: 1;
 }
-.imagenes_home .peliculas {
-  padding: 20px;
-  text-align: center;
-}
-.imagenes_home .peliculas h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-family: "Cinzel Decorative", serif;
-}
-.imagenes_home .peliculas .grid-peliculas {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-.imagenes_home .peliculas .grid-peliculas .pelicula {
-  background: #fff;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-.imagenes_home .peliculas .grid-peliculas .pelicula img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-.imagenes_home .peliculas .grid-peliculas .pelicula h3 {
-  font-size: 18px;
-  margin: 10px 0;
-  font-family: "Raleway", sans-serif;
-}
-.imagenes_home .peliculas .grid-peliculas .pelicula p {
-  font-size: 14px;
-  color: #e9e9e9;
-}
-@media (min-width: 768px) {
-  .imagenes_home .peliculas .grid-peliculas {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (min-width: 1024px) {
-  .imagenes_home .peliculas .grid-peliculas {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 @media (min-width: 768px) {
   .imagenes_home {
     flex-direction: row;
@@ -278,7 +231,7 @@ h2 {
 .imagenes_home .entrada_cine .texto_bajo_imagen {
   margin-top: 20px;
   text-align: center;
-  color: #000000;
+  color: #ffffff;
 }
 .imagenes_home .entrada_cine .texto_bajo_imagen h2 {
   font-size: 24px;
