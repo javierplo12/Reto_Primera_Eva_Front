@@ -43,11 +43,11 @@
     <section class="pelicula-detalle">
         <div class="pelicula">
             <div class="pelicula-imagen">
-                <img src="/img/peliculas/Gladiator2.jpg" alt="Borderlands">
+                <img src="/img/peliculas/La Infiltrada.jpg" alt="Borderlands">
             </div>
             <div class="pelicula-info">
-                <h2>Gladiator 2</h2>
-                <p>
+                <h2>La Infiltrada</h2>
+                <p class="movie-description">
                     Basada en la popular franquicia de videojuegos, Borderlands sigue las aventuras de un grupo de
                     cazadores de cámaras
                     que buscan un tesoro enigmático en el planeta Pandora, enfrentándose a enemigos despiadados y una IA
@@ -55,12 +55,9 @@
                 </p>
                 <div class="pelicula-botones">
                     <!-- Botones que muestran horarios y salas -->
-                    <button class="btn-opcion"
-                        onclick="mostrarHorarioSala('09:00 AM', 'Sala 2: Pantalla gigante')">09:00 AM - Sala 2</button>
-                    <button class="btn-opcion" onclick="mostrarHorarioSala('01:00 PM', 'Sala 3: Sala Deluxe')">01:00 PM
-                        - Sala 3</button>
-                    <button class="btn-opcion" onclick="mostrarHorarioSala('04:00 PM', 'Sala 4: Dolby Atmos')">04:00 PM
-                        - Sala 4</button>
+                    <button class="btn-opcion" onclick="mostrarHorarioSala('11:00 AM', 'Sala 1: Pantalla gigante')">11:00 AM - Sala 1</button>
+                    <button class="btn-opcion" onclick="mostrarHorarioSala('02:00 PM', 'Sala 2: Sala Deluxe')">02:00 PM - Sala 2</button>
+                    <button class="btn-opcion" onclick="mostrarHorarioSala('06:00 PM', 'Sala 3: Dolby Atmos')">06:00 PM - Sala 3</button>
                 </div>
             </div>
         </div>
@@ -68,7 +65,7 @@
 
     <!-- Modal para mostrar información -->
     <div class="modal" id="modal-info">
-        <div class="modal-content"> 
+        <div class="modal-content">
             <h3 id="info-horario">Horario</h3>
             <p id="info-sala">Sala</p>
             <button class="btn-cerrar" onclick="cerrarModal()">Cerrar</button>
