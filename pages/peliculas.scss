@@ -106,6 +106,10 @@
     grid-template-columns: 1fr; // Una columna en móvil
     gap: 20px;
 
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr); // Dos columnas en pantallas más grandes
+    }
+
     .pelicula {
       background: #fff;
       padding: 15px;
@@ -114,11 +118,25 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center;
 
-      img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        margin-bottom: 10px;
+      .img-button {
+        display: block;
+        border: none;
+        background: none;
+        padding: 0;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+          margin-bottom: 10px;
+        }
       }
 
       h3 {
@@ -134,16 +152,16 @@
       }
     }
   }
+}
 
-  @media (min-width: 768px) {
-    .grid-peliculas {
-      grid-template-columns: 1fr 1fr; // Dos columnas en tablet y escritorio
-    }
+@media (min-width: 768px) {
+  .grid-peliculas {
+    grid-template-columns: 1fr 1fr; // Dos columnas en tablet y escritorio
   }
+}
 
-  @media (min-width: 1024px) {
-    .grid-peliculas {
-      grid-template-columns: repeat(2, 1fr); // Mantener dos columnas
-    }
+@media (min-width: 1024px) {
+  .grid-peliculas {
+    grid-template-columns: repeat(2, 1fr); // Mantener dos columnas
   }
 }

@@ -221,7 +221,7 @@ h2 {
 }
 .imagenes_home .peliculas .grid-peliculas .pelicula p {
   font-size: 14px;
-  color: #555;
+  color: #e9e9e9;
 }
 @media (min-width: 768px) {
   .imagenes_home .peliculas .grid-peliculas {
@@ -338,6 +338,11 @@ h2 {
   grid-template-columns: 1fr;
   gap: 20px;
 }
+@media (min-width: 768px) {
+  .peliculas .grid-peliculas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 .peliculas .grid-peliculas .pelicula {
   background: #fff;
   padding: 15px;
@@ -346,7 +351,19 @@ h2 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
-.peliculas .grid-peliculas .pelicula img {
+.peliculas .grid-peliculas .pelicula .img-button {
+  display: block;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.peliculas .grid-peliculas .pelicula .img-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.peliculas .grid-peliculas .pelicula .img-button img {
   width: 100%;
   height: auto;
   border-radius: 8px;
@@ -362,17 +379,17 @@ h2 {
   font-size: 16px;
   color: #000000;
 }
+
 @media (min-width: 768px) {
-  .peliculas .grid-peliculas {
+  .grid-peliculas {
     grid-template-columns: 1fr 1fr;
   }
 }
 @media (min-width: 1024px) {
-  .peliculas .grid-peliculas {
+  .grid-peliculas {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 .button-central {
   color: #ffffff;
   background: transparent;
