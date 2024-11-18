@@ -42,10 +42,10 @@
     <section class="pelicula-detalle">
         <div class="pelicula">
             <div class="pelicula-imagen">
-                <img src="/img/peliculas/Borderlands.jpg" alt="Borderlands">
+                <img src="/img/peliculas/Gladiator2.jpg" alt="Borderlands">
             </div>
             <div class="pelicula-info">
-                <h2>Borderlands</h2>
+                <h2>Gladiator 2</h2>
                 <p>
                     Basada en la popular franquicia de videojuegos, Borderlands sigue las aventuras de un grupo de cazadores de cámaras 
                     que buscan un tesoro enigmático en el planeta Pandora, enfrentándose a enemigos despiadados y una IA con sentido del humor.
@@ -65,10 +65,8 @@
         <div class="modal-content">
             <h3 id="info-horario">Horario</h3>
             <p id="info-sala">Sala</p>
-            <div class="modal-botones">
-                <button class="btn-cerrar" onclick="cerrarModal()">Cerrar</button>
-                <button class="btn-comprar" onclick="comprarEntrada()">Comprar</button>
-            </div>
+            <button class="btn-cerrar" onclick="cerrarModal()">Cerrar</button>
+            <button class="btn-comprar" onclick="comprarEntrada()">Comprar</button>
         </div>
     </div>
 
@@ -83,12 +81,6 @@
             document.querySelectorAll('.modal').forEach(modal => {
                 modal.classList.remove('mostrar');
             });
-        }
-
-        function comprarEntrada() {
-            alert('Redirigiendo a la página de compra...');
-            // Cambia "comprar.html" a la página que deseas abrir
-            window.location.href = 'comprar.html';
         }
     </script>
 
