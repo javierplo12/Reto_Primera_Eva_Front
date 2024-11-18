@@ -343,6 +343,130 @@ h2 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+.pelicula-detalle {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+.pelicula-detalle .pelicula {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.pelicula-detalle .pelicula .pelicula-imagen {
+  width: 100%;
+  max-width: 300px;
+}
+.pelicula-detalle .pelicula .pelicula-imagen img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.pelicula-detalle .pelicula .pelicula-info {
+  text-align: center;
+  margin-top: 15px;
+}
+.pelicula-detalle .pelicula .pelicula-info h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+.pelicula-detalle .pelicula .pelicula-info p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 15px;
+}
+.pelicula-detalle .pelicula .pelicula-info .pelicula-botones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pelicula-detalle .pelicula .pelicula-info .pelicula-botones button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #071325;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.pelicula-detalle .pelicula .pelicula-info .pelicula-botones button:hover {
+  background-color: #4169b8;
+}
+.pelicula-detalle .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+.pelicula-detalle .modal.mostrar {
+  display: flex;
+}
+.pelicula-detalle .modal .modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.pelicula-detalle .modal .modal-content h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.pelicula-detalle .modal .modal-content ul {
+  list-style: none;
+  padding: 0;
+}
+.pelicula-detalle .modal .modal-content ul li {
+  font-size: 16px;
+  margin: 5px 0;
+  color: black;
+}
+.pelicula-detalle .modal .modal-content .btn-cerrar {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.pelicula-detalle .modal .modal-content .btn-cerrar:hover {
+  background-color: #c0392b;
+}
+@media (min-width: 768px) {
+  .pelicula-detalle .pelicula {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .pelicula-detalle .pelicula .pelicula-imagen {
+    max-width: 40%;
+  }
+  .pelicula-detalle .pelicula .pelicula-info {
+    text-align: left;
+    margin-top: 0;
+    margin-left: 20px;
+  }
+  .pelicula-detalle .pelicula .pelicula-info .pelicula-botones {
+    flex-direction: row;
+    gap: 15px;
+  }
+}
+
 .button-central {
   color: #ffffff;
   background: transparent;

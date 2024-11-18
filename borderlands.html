@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Deluxe</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Raleway:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/build/styles.css">
+    <script src="/Js/home.js"></script>
+    <script src="/Js/carrusel.js"></script>
+</head>
+
+<body>
+    <section class="pelicula-detalle">
+        <div class="pelicula">
+          <div class="pelicula-imagen">
+            <img src="/img/peliculas/Borderlands.jpg" alt="Borderlands">
+          </div>
+          <div class="pelicula-info">
+            <h2>Borderlands</h2>
+            <p>En un mundo postapocalíptico, un grupo de héroes lucha por encontrar un arma legendaria y salvar Pandora.</p>
+            <div class="pelicula-botones">
+              <button class="btn-horario" onclick="mostrarHorarios()">Horario</button>
+              <button class="btn-salas" onclick="mostrarSalas()">Salas</button>
+            </div>
+          </div>
+        </div>
+        <!-- Modal para horarios -->
+        <div class="modal" id="modal-horarios">
+          <div class="modal-content">
+            <h3>Horarios disponibles</h3>
+            <ul>
+              <li>10:00 AM</li>
+              <li>12:30 PM</li>
+              <li>03:00 PM</li>
+              <li>05:30 PM</li>
+              <li>08:00 PM</li>
+            </ul>
+            <button class="btn-cerrar" onclick="cerrarModal()">Cerrar</button>
+          </div>
+        </div>
+        <!-- Modal para salas -->
+        <div class="modal" id="modal-salas">
+          <div class="modal-content">
+            <h3>Salas disponibles</h3>
+            <ul>
+              <li>Sala 1: Pantalla gigante</li>
+              <li>Sala 2: Sala Deluxe</li>
+              <li>Sala 3: Dolby Atmos</li>
+            </ul>
+            <button class="btn-cerrar" onclick="cerrarModal()">Cerrar</button>
+          </div>
+        </div>
+      </section>
+    
+      <script>
+        function mostrarHorarios() {
+          document.getElementById('modal-horarios').classList.add('mostrar');
+        }
+    
+        function mostrarSalas() {
+          document.getElementById('modal-salas').classList.add('mostrar');
+        }
+    
+        function cerrarModal() {
+          document.querySelectorAll('.modal').forEach(modal => {
+            modal.classList.remove('mostrar');
+          });
+        }
+      </script> 
+    
+
+
+
+    <footer class="footer">
+        <div class="footer_links">
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Cookies</a>
+            <a href="#">Aviso Legal</a>
+
+        </div>
+    </footer>
+</body>
+
+</html>
