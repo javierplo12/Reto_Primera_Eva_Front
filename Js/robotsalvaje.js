@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(pelicula => {
+            document.querySelector(".pelicula-imagen img").src = pelicula.imagen;
             document.querySelector(".pelicula-info h2").textContent = pelicula.nombre;
             document.querySelector(".pelicula-info .director").innerHTML = pelicula.director;
             document.querySelector(".pelicula-info .descripcion").innerHTML = pelicula.sinopsis;
