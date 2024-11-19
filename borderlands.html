@@ -79,24 +79,50 @@
         </div>
     </div>
 
+
     <script>
-        function mostrarHorarioSala(horario, sala) {
-            document.getElementById('info-horario').textContent = `Horario: ${horario}`;
-            document.getElementById('info-sala').textContent = `Sala: ${sala}`;
-            document.getElementById('modal-info').classList.add('mostrar');
+        function mostrarModal(horario, sala) {
+            // Configurar el contenido del modal dinámicamente
+            document.getElementById("info-horario").innerText = `Horario: ${horario}`;
+            document.getElementById("info-sala").innerText = `Sala: ${sala}`;
+
+            // Mostrar el modal
+            const modal = document.getElementById("modal-info");
+            modal.classList.add("mostrar");
+
+            // Guardar la información en los atributos de datos del botón "Comprar"
+            const btnComprar = document.querySelector(".btn-comprar");
+            btnComprar.setAttribute("data-horario", horario);
+            btnComprar.setAttribute("data-sala", sala);
         }
 
         function cerrarModal() {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.classList.remove('mostrar');
-            });
+            // Cerrar el modal
+            const modal = document.getElementById("modal-info");
+            modal.classList.remove("mostrar");
         }
 
         function comprarEntrada() {
-            alert('Redirigiendo a la página de compra...');
-            // Cambia "comprar.html" a la página que deseas abrir
-            window.location.href = 'comprar.html';
+            // Obtener datos del horario y sala seleccionados
+            const horario = document.querySelector(".btn-comprar").getAttribute("data-horario");
+            const sala = document.querySelector(".btn-comprar").getAttribute("data-sala");
+
+            // Redirigir a otra página con los datos como parámetros de URL
+            const url = `compra.html?horario=${encodeURIComponent(horario)}&sala=${encodeURIComponent(sala)}`;
+            window.location.href = url; // Redirección
         }
+
+        // Asignar eventos a los botones de horarios
+        const botonesHorarios = document.querySelectorAll(".btn-opcion");
+        botonesHorarios.forEach((boton) => {
+            boton.addEventListener("click", () => {
+                const horario = boton.getAttribute("data-horario");
+                const sala = boton.getAttribute("data-sala");
+                mostrarModal(horario, sala);
+            });
+        });
+
+
     </script>
 
     <footer class="footer">

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .footer {
   font-family: "Raleway", sans-serif;
   background-color: #071325;
@@ -343,6 +344,57 @@ h2 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+.pelicula-detalle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #071325;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 0 auto;
+}
+.pelicula-detalle .pelicula-imagen img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.pelicula-detalle .pelicula-info {
+  margin-top: 15px;
+  text-align: center;
+}
+.pelicula-detalle .pelicula-info h2 {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.pelicula-detalle .pelicula-info p {
+  font-size: 16px;
+  color: #d1d1d1;
+  margin-bottom: 8px;
+}
+.pelicula-detalle .pelicula-info p.director::before {
+  content: "Director: ";
+  font-weight: bold;
+}
+.pelicula-detalle .pelicula-info p.descripcion::before {
+  content: "Descripción: ";
+  font-weight: bold;
+}
+.pelicula-detalle .pelicula-info p.duracion::before {
+  content: "Duración: ";
+  font-weight: bold;
+}
+.pelicula-detalle .pelicula-info p.fecha-estreno::before {
+  content: "Estreno: ";
+  font-weight: bold;
+}
+.pelicula-detalle .pelicula-info p.genero::before {
+  content: "Género: ";
+  font-weight: bold;
+}
+
 .pelicula-botones {
   display: flex;
   flex-direction: column;
@@ -353,7 +405,7 @@ h2 {
   padding: 12px 20px;
   font-size: 16px;
   color: #fff;
-  background-color: #071325;
+  background-color: #4169b8;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -361,7 +413,7 @@ h2 {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .pelicula-botones .btn-opcion:hover {
-  background-color: #4169b8;
+  background-color: #274b7a;
   transform: scale(1.05);
 }
 .pelicula-botones .btn-opcion:active {
@@ -375,7 +427,7 @@ h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 1000;
   justify-content: center;
   align-items: center;
@@ -386,11 +438,11 @@ h2 {
 .modal .modal-content {
   background: #fff;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   text-align: center;
   width: 90%;
   max-width: 400px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 .modal .modal-content h3 {
   font-size: 20px;
@@ -412,6 +464,9 @@ h2 {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+.modal .modal-content .btn-cerrar:hover {
+  background-color: #c0392b;
+}
 .modal .modal-content .btn-comprar {
   padding: 10px 20px;
   font-size: 14px;
@@ -421,163 +476,42 @@ h2 {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+.modal .modal-content .btn-comprar:hover {
+  background-color: #45b414;
 }
 
 @media (min-width: 768px) {
+  .pelicula-detalle {
+    flex-direction: row;
+    max-width: 600px;
+  }
+  .pelicula-detalle .pelicula-imagen {
+    flex: 1;
+  }
+  .pelicula-detalle .pelicula-imagen img {
+    max-width: 100%;
+  }
+  .pelicula-detalle .pelicula-info {
+    flex: 1;
+    margin-left: 20px;
+    text-align: left;
+  }
+  .pelicula-detalle .pelicula-info h2 {
+    font-size: 28px;
+  }
+  .pelicula-detalle .pelicula-info p {
+    font-size: 18px;
+  }
   .pelicula-botones {
     flex-direction: row;
-    justify-content: space-between;
   }
   .pelicula-botones .btn-opcion {
     flex: 1;
     margin: 0 10px;
   }
 }
-.pelicula-detalle {
-  padding: 20px;
-  font-family: "Raleway", Arial, sans-serif;
-  background: linear-gradient(135deg, #071325, #2c3e50);
-  color: #fff;
-}
-.pelicula-detalle .pelicula {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(135deg, #ffffff, #f9f9f9);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-.pelicula-detalle .pelicula:hover {
-  transform: scale(1.03);
-}
-.pelicula-detalle .pelicula .pelicula-imagen {
-  width: 100%;
-  max-width: 350px;
-  overflow: hidden;
-  border-radius: 12px;
-}
-.pelicula-detalle .pelicula .pelicula-imagen img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-}
-.pelicula-detalle .pelicula .pelicula-imagen img:hover {
-  transform: scale(1.1);
-}
-.pelicula-detalle .pelicula .pelicula-info {
-  text-align: center;
-  margin-top: 20px;
-}
-.pelicula-detalle .pelicula .pelicula-info h2 {
-  font-size: 24px;
-  font-weight: 700;
-  color: #071325;
-  margin-bottom: 10px;
-}
-.pelicula-detalle .pelicula .pelicula-info p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #555;
-  margin-bottom: 20px;
-}
-.pelicula-detalle .pelicula .pelicula-info .pelicula-botones {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-.pelicula-detalle .pelicula .pelicula-info .pelicula-botones button {
-  padding: 12px 25px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff;
-  background: linear-gradient(135deg, #071325, #4169b8);
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-.pelicula-detalle .pelicula .pelicula-info .pelicula-botones button:hover {
-  background: linear-gradient(135deg, #4169b8, #071325);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-.pelicula-detalle .modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-  transition: opacity 0.3s ease;
-}
-.pelicula-detalle .modal.mostrar {
-  display: flex;
-  opacity: 1;
-}
-.pelicula-detalle .modal .modal-content {
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-.pelicula-detalle .modal .modal-content h3 {
-  font-size: 22px;
-  margin-bottom: 20px;
-  color: #071325;
-}
-.pelicula-detalle .modal .modal-content ul {
-  list-style: none;
-  padding: 0;
-}
-.pelicula-detalle .modal .modal-content ul li {
-  font-size: 18px;
-  margin: 10px 0;
-  color: #333;
-}
-.pelicula-detalle .modal .modal-content .btn-cerrar {
-  margin-top: 20px;
-  padding: 12px 25px;
-  font-size: 16px;
-  background: #e74c3c;
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-.pelicula-detalle .modal .modal-content .btn-cerrar:hover {
-  background-color: #c0392b;
-  transform: scale(1.05);
-}
-@media (min-width: 768px) {
-  .pelicula-detalle .pelicula {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-  .pelicula-detalle .pelicula .pelicula-imagen {
-    max-width: 45%;
-  }
-  .pelicula-detalle .pelicula .pelicula-info {
-    text-align: left;
-    margin-top: 0;
-    margin-left: 25px;
-  }
-  .pelicula-detalle .pelicula .pelicula-info .pelicula-botones {
-    flex-direction: row;
-    gap: 20px;
-  }
-}
-
 .button-central {
   color: #ffffff;
   background: transparent;
@@ -620,7 +554,6 @@ h2 {
 
 .carousel__slide {
   min-width: 100%;
-  height: 150px;
   flex-shrink: 0;
   overflow: hidden;
   position: relative;
@@ -659,7 +592,7 @@ h2 {
 
 @media (max-width: 768px) {
   .carousel__slide {
-    height: 120px;
+    height: 184px;
   }
   .carousel__control {
     font-size: 14px;
