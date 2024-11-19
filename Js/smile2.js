@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(pelicula => {
             document.querySelector(".pelicula-imagen img").src = pelicula.imagen;
-            document.querySelector(".pelicula-info h2").textContent = pelicula.nombre;
+            document.querySelector(".pelicula-info h2").innerHTML = pelicula.nombre;
             document.querySelector(".pelicula-info .director").innerHTML = pelicula.director;
             document.querySelector(".pelicula-info .descripcion").innerHTML = pelicula.sinopsis;
             document.querySelector(".pelicula-info .duracion").innerHTML = `${pelicula.duracion} minutos`;
