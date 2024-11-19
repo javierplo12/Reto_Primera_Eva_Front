@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(pelicula => {
-            document.querySelector(".pelicula-info h2").textContent = pelicula.nombre;
-            document.querySelector(".pelicula-info .director").innerHTML = `<strong>Director:</strong> ${pelicula.director}`;
-            document.querySelector(".pelicula-info .descripcion").innerHTML = `<strong>Director:</strong> ${pelicula.sinopsis}`;
-            document.querySelector(".pelicula-info .duracion").innerHTML = `<strong>Duración:</strong> ${pelicula.duracion} minutos`;
-            document.querySelector(".pelicula-info .fecha-estreno").innerHTML = `<strong>Fecha de estreno:</strong> ${new Date(pelicula.fechaEstreno).toLocaleDateString()}`;
-            document.querySelector(".pelicula-info .genero").innerHTML = `<strong>Género:</strong> ${pelicula.genero}`;
+            document.querySelector(".pelicula-info h2").innerHTML = pelicula.nombre;
+            document.querySelector(".pelicula-info .director").innerHTML = pelicula.director;
+            document.querySelector(".pelicula-info .descripcion").innerHTML = pelicula.sinopsis;
+            document.querySelector(".pelicula-info .duracion").innerHTML = `${pelicula.duracion} minutos`;
+            document.querySelector(".pelicula-info .fecha-estreno").innerHTML = new Date(pelicula.fechaEstreno).toLocaleDateString();
+            document.querySelector(".pelicula-info .genero").innerHTML = pelicula.genero;
         })
         });
 ;
