@@ -2,115 +2,147 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine Deluxe</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Raleway:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/build/styles.css">
-    <script src="/Js/home.js"></script>
-    <script src="/Js/carrusel.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cine Deluxe</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Raleway:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/build/styles.css">
+  <script src="/Js/home.js"></script>
+  <script src="/Js/carrusel.js"></script>
 </head>
 
 <body>
-    <header class="header">
-        <div class="logo">
-          <a href="home.html">
-            <img src="/img/LogoBlanco_SinFondo.png" alt="Cine Deluxe">
-        </a>
-        </div>
-        <nav class="nav_header">
-            <ul class="menu_header">
-                <li class="titulo_header"><a href="#">Cartelera</a></li>
-                <li class="titulo_header"><a href="#">Próximos Estrenos</a></li>
-            </ul>
-        </nav>
-        <div class="cuenta_header">
-            <div class="menu-icon" onclick="toggleMenu()">
-                <!-- Boton desplegable -->
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <!-- Menú desplegable -->
-            <div class="dropdown-menu">
-                <a href="#">Iniciar sesión</a>
-                <a href="#">Registrarse</a>
-                <a href="#">Cartelera</a>
-                <a href="#">Próximos Estrenos</a>
-            </div>
-        </div>
-    </header>
-    <div class="carousel">
-        <div class="carousel__track">
-            <div class="carousel__slide"><img src="/img/banner/GladiatorBanner.jpg" alt="Imagen 1"></div>
-            <div class="carousel__slide"><img src="/img/banner/Terrifier3Banner.jpg" alt="Imagen 2"></div>
-            <div class="carousel__slide"><img src="/img/banner/Vaiana2Banner.jpg" alt="Imagen 3"></div>
-            <div class="carousel__slide"><img src="/img/banner/VenomBanner.jpg" alt="Imagen 3"></div>
-        </div>
-        <button class="carousel__control carousel__control--prev">❮</button>
-        <button class="carousel__control carousel__control--next">❯</button>
+  <header class="header">
+    <div class="logo">
+      <a href="home.html">
+        <img src="/img/LogoBlanco_SinFondo.png" alt="Cine Deluxe">
+      </a>
     </div>
-    
-    
-    
-    <section class="peliculas">
-        <h2>Nuestra Selección de Películas</h2>
-        <div class="grid-peliculas">
-          <div class="pelicula">
-            <button class="img-button" onclick="window.location.href='borderlands.html'">
-              <img src="/img/peliculas/Borderlands.jpg" alt="Película 1">
-            </button>
-            <h3>Borderlands</h3>
-            
-          </div>
-          <div class="pelicula">
-            <button class="img-button" onclick="window.location.href='gladiator2.html'">
-              <img src="/img/peliculas/Gladiator2.jpg" alt="Película 2">
-            </button>
-            <h3>Gladiator II</h3>
-        
-          </div>
-          <div class="pelicula">
-            <button class="img-button" onclick="window.location.href='smile2.html'">
-              <img src="/img/peliculas/Smile2.PNG" alt="Película 3">
-            </button>
-            <h3>Smile 2</h3>
-        
-          </div>
-          <div class="pelicula">
-            <button class="img-button" onclick="window.location.href='la-infiltrada.html'">
-              <img src="/img/peliculas/La%20Infiltrada.jpg" alt="Película 4">
-            </button>
-            <h3>La Infiltrada</h3>
-
-          </div>
-            <div class="pelicula">
-              <button class="img-button" onclick="window.location.href='venom.html'">
-                <img src="/img/peliculas/Venom.jpg" alt="Película 5">
-              </button>
-              <h3>Venom: El último baile</h3>
-           
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      
-    
-    
+    <nav class="nav_header">
+      <ul class="menu_header">
+        <li class="titulo_header"><a href="#">Cartelera</a></li>
+        <li class="titulo_header"><a href="#">Próximos Estrenos</a></li>
+      </ul>
+    </nav>
+    <div class="cuenta_header">
+      <div class="menu-icon" onclick="toggleMenu()">
+        <!-- Boton desplegable -->
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <!-- Menú desplegable -->
+      <div class="dropdown-menu">
+        <a href="#">Iniciar sesión</a>
+        <a href="#">Registrarse</a>
+        <a href="#">Cartelera</a>
+        <a href="#">Próximos Estrenos</a>
+      </div>
+    </div>
+  </header>
+  <div class="carousel">
+    <div class="carousel__track">
+      <div class="carousel__slide"><img src="/img/banner/GladiatorBanner.jpg" alt="Imagen 1"></div>
+      <div class="carousel__slide"><img src="/img/banner/Terrifier3Banner.jpg" alt="Imagen 2"></div>
+      <div class="carousel__slide"><img src="/img/banner/Vaiana2Banner.jpg" alt="Imagen 3"></div>
+      <div class="carousel__slide"><img src="/img/banner/VenomBanner.jpg" alt="Imagen 3"></div>
+    </div>
+    <button class="carousel__control carousel__control--prev">❮</button>
+    <button class="carousel__control carousel__control--next">❯</button>
+  </div>
 
 
 
-    <footer class="footer">
-        <div class="footer_links">
-            <a href="#">Política de Privacidad</a>
-            <a href="#">Cookies</a>
-            <a href="#">Aviso Legal</a>
+  <section class="peliculas">
+    <h2>Nuestra Selección de Películas</h2>
+    <div class="grid-peliculas">
+      <div class="pelicula">
+        <button class="img-button" onclick="window.location.href='borderlands.html'">
+          <img src="/img/peliculas/Borderlands.jpg" alt="Película 1">
+        </button>
+        <h3>Borderlands</h3>
 
-        </div>
-    </footer>
+      </div>
+      <div class="pelicula">
+        <button class="img-button" onclick="window.location.href='gladiator2.html'">
+          <img src="/img/peliculas/Gladiator2.jpg" alt="Película 2">
+        </button>
+        <h3>Gladiator II</h3>
+
+      </div>
+      <div class="pelicula">
+        <button class="img-button" onclick="window.location.href='smile2.html'">
+          <img src="/img/peliculas/Smile2.PNG" alt="Película 3">
+        </button>
+        <h3>Smile 2</h3>
+
+      </div>
+      <div class="pelicula">
+        <button class="img-button" onclick="window.location.href='la-infiltrada.html'">
+          <img src="/img/peliculas/La%20Infiltrada.jpg" alt="Película 4">
+        </button>
+        <h3>La Infiltrada</h3>
+
+      </div>
+      <div class="pelicula">
+        <button class="img-button" onclick="window.location.href='venom.html'">
+          <img src="/img/peliculas/Venom.jpg" alt="Película 5">
+        </button>
+        <h3>Venom: El último baile</h3>
+
+      </div>
+    </div>
+    <div class="pelicula">
+      <button class="img-button" onclick="window.location.href='gru4.html'">
+        <img src="/img/peliculas/Gru4.PNG" alt="Película 6">
+      </button>
+      <h3>Gru 4 Mi villano favorito</h3>
+
+    </div>
+    </div>
+    <div class="pelicula">
+      <button class="img-button" onclick="window.location.href='venom.html'">
+        <img src="/img/peliculas/RedOne.jpg" alt="Película 7">
+      </button>
+      <h3>Red One</h3>
+
+    </div>
+    </div>
+    <div class="pelicula">
+      <button class="img-button" onclick="window.location.href='venom.html'">
+        <img src="/img/peliculas/RobotSalvaje.jpg" alt="Película 8">
+      </button>
+      <h3>Robot Salvaje</h3>
+
+    </div>
+    </div>
+    <div class="pelicula">
+      <button class="img-button" onclick="window.location.href='venom.html'">
+        <img src="/img/peliculas/Terrifier3.jpg" alt="Película 9">
+      </button>
+      <h3>Terrifier 3</h3>
+
+    </div>
+    </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <footer class="footer">
+    <div class="footer_links">
+      <a href="#">Política de Privacidad</a>
+      <a href="#">Cookies</a>
+      <a href="#">Aviso Legal</a>
+
+    </div>
+  </footer>
 </body>
 
 </html>
