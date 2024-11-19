@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine Deluxe - Smile 2</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Raleway:wght@400;700&display=swap"
+    <title>Cine Deluxe - Terrifier 3</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Raleway:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/build/styles.css">
     <script src="/Js/home.js"></script>
-    <script src="/Js/smile2.js"></script>
+    <script src="/Js/terrifier3.js"></script>
 </head>
 
 <body>
@@ -43,7 +44,7 @@
     <section class="pelicula-detalle">
         <div class="pelicula">
             <div class="pelicula-imagen">
-                <img src="/img/peliculas/Smile2.PNG" alt="Smile 2">
+                <img src="/img/peliculas/Terrifier3.jpg" alt="Terrifier3">
             </div>
             <div class="pelicula-info">
                 <h2></h2>
@@ -54,9 +55,12 @@
                 <p class="genero"></p>
                 <div class="pelicula-botones">
                     <!-- Botones que muestran horarios y salas -->
-                    <button class="btn-opcion" onclick="mostrarHorarioSala('12:30 PM', 'Sala 4: Pantalla gigante')">12:30 PM - Sala 4</button>
-                    <button class="btn-opcion" onclick="mostrarHorarioSala('03:30 PM', 'Sala 5: Sala Deluxe')">03:30 PM - Sala 5</button>
-                    <button class="btn-opcion" onclick="mostrarHorarioSala('07:30 PM', 'Sala 1: Dolby Atmos')">07:30 PM - Sala 1</button>
+                    <button class="btn-opcion"
+                        onclick="mostrarHorarioSala('09:00 AM', 'Sala 2: Pantalla gigante')">09:00 AM - Sala 2</button>
+                    <button class="btn-opcion" onclick="mostrarHorarioSala('01:00 PM', 'Sala 3: Sala Deluxe')">01:00 PM
+                        - Sala 3</button>
+                    <button class="btn-opcion" onclick="mostrarHorarioSala('04:00 PM', 'Sala 4: Dolby Atmos')">04:00 PM
+                        - Sala 4</button>
                 </div>
             </div>
         </div>
@@ -64,13 +68,11 @@
 
     <!-- Modal para mostrar información -->
     <div class="modal" id="modal-info">
-        <div class="modal-content">
+        <div class="modal-content"> 
             <h3 id="info-horario">Horario</h3>
             <p id="info-sala">Sala</p>
-            <div class="modal-botones">
-                <button class="btn-cerrar" onclick="cerrarModal()">Cerrar</button>
-                <button class="btn-comprar" onclick="comprarEntrada()">Comprar</button>
-            </div>
+            <button class="btn-cerrar" onclick="cerrarModal()">Cerrar</button>
+            <button class="btn-comprar" onclick="comprarEntrada()">Comprar</button>
         </div>
     </div>
 
@@ -85,12 +87,6 @@
             document.querySelectorAll('.modal').forEach(modal => {
                 modal.classList.remove('mostrar');
             });
-        }
-
-        function comprarEntrada() {
-            alert('Redirigiendo a la página de compra...');
-            // Cambia "comprar.html" a la página que deseas abrir
-            window.location.href = 'comprar.html';
         }
     </script>
 
