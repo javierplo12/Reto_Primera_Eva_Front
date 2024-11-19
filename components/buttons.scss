@@ -27,3 +27,36 @@
         background-color: #007bff;
     }
 }
+
+.button-atras {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #4169e1, #1e3a8a);
+    border: none;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .button-atras:hover {
+    background: linear-gradient(135deg, #1e3a8a, #4169e1);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .button-atras:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  

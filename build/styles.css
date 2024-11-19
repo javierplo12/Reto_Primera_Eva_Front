@@ -349,75 +349,85 @@ h2 {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #071325;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
-  margin: 0 auto;
+  background: linear-gradient(145deg, #0a1a38, #061026);
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  max-width: 450px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+.pelicula-detalle .pelicula-imagen {
+  width: 100%;
 }
 .pelicula-detalle .pelicula-imagen img {
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 .pelicula-detalle .pelicula-info {
-  margin-top: 15px;
+  margin-top: 20px;
   text-align: center;
+  padding: 10px 15px;
 }
 .pelicula-detalle .pelicula-info h2 {
-  font-size: 24px;
-  color: #fff;
-  margin-bottom: 10px;
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 .pelicula-detalle .pelicula-info p {
-  font-size: 16px;
-  color: #d1d1d1;
-  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #bfc5d3;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.pelicula-detalle .pelicula-info p::before {
+  font-weight: bold;
+  color: #ffffff;
 }
 .pelicula-detalle .pelicula-info p.director::before {
-  content: "Director: ";
-  font-weight: bold;
+  content: "🎬 Director: ";
 }
 .pelicula-detalle .pelicula-info p.descripcion::before {
-  content: "Descripción: ";
-  font-weight: bold;
+  content: "📖 Descripción: ";
 }
 .pelicula-detalle .pelicula-info p.duracion::before {
-  content: "Duración: ";
-  font-weight: bold;
+  content: "⏱ Duración: ";
 }
 .pelicula-detalle .pelicula-info p.fecha-estreno::before {
-  content: "Estreno: ";
-  font-weight: bold;
+  content: "📅 Estreno: ";
 }
 .pelicula-detalle .pelicula-info p.genero::before {
-  content: "Género: ";
-  font-weight: bold;
+  content: "🎭 Género: ";
 }
 
 .pelicula-botones {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-top: 20px;
+  margin-top: 25px;
+  padding-bottom: 20px;
 }
 .pelicula-botones .btn-opcion {
-  padding: 12px 20px;
-  font-size: 16px;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
   color: #fff;
-  background-color: #4169b8;
+  background: linear-gradient(145deg, #2d6cdf, #1e4c9f);
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   text-align: center;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .pelicula-botones .btn-opcion:hover {
-  background-color: #274b7a;
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(45, 108, 223, 0.4);
 }
 .pelicula-botones .btn-opcion:active {
-  transform: scale(0.95);
+  transform: translateY(2px);
 }
 
 .modal {
@@ -427,7 +437,7 @@ h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 1000;
   justify-content: center;
   align-items: center;
@@ -436,56 +446,56 @@ h2 {
   display: flex;
 }
 .modal .modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
   text-align: center;
   width: 90%;
-  max-width: 400px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: 450px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 .modal .modal-content h3 {
-  font-size: 20px;
-  color: #333;
+  font-size: 1.5rem;
+  color: #333333;
   margin-bottom: 15px;
 }
 .modal .modal-content p {
-  font-size: 16px;
-  color: #555;
+  font-size: 1rem;
+  color: #555555;
   margin-bottom: 20px;
 }
 .modal .modal-content .btn-cerrar {
   padding: 10px 20px;
-  font-size: 14px;
+  font-size: 1rem;
   color: #fff;
-  background-color: #e74c3c;
+  background: #e74c3c;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 .modal .modal-content .btn-cerrar:hover {
-  background-color: #c0392b;
+  background: #c0392b;
 }
 .modal .modal-content .btn-comprar {
   padding: 10px 20px;
-  font-size: 14px;
+  font-size: 1rem;
   color: #fff;
-  background-color: #57d11e;
+  background: #2ecc71;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
   margin-left: 10px;
+  transition: background-color 0.3s ease;
 }
 .modal .modal-content .btn-comprar:hover {
-  background-color: #45b414;
+  background: #27ae60;
 }
 
 @media (min-width: 768px) {
   .pelicula-detalle {
     flex-direction: row;
-    max-width: 600px;
+    max-width: 700px;
   }
   .pelicula-detalle .pelicula-imagen {
     flex: 1;
@@ -499,10 +509,10 @@ h2 {
     text-align: left;
   }
   .pelicula-detalle .pelicula-info h2 {
-    font-size: 28px;
+    font-size: 2rem;
   }
   .pelicula-detalle .pelicula-info p {
-    font-size: 18px;
+    font-size: 1.1rem;
   }
   .pelicula-botones {
     flex-direction: row;
@@ -537,6 +547,38 @@ h2 {
 }
 .button-explora:hover {
   background-color: #007bff;
+}
+
+.button-atras {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #4169e1, #1e3a8a);
+  border: none;
+  border-radius: 8px;
+  margin-left: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.button-atras:hover {
+  background: linear-gradient(135deg, #1e3a8a, #4169e1);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.button-atras:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .carousel {

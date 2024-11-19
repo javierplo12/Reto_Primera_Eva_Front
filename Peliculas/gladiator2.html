@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine Deluxe - La Infiltrada</title>
+    <title>Cine Deluxe - Galdiator II</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Raleway:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/build/styles.css">
     <script src="/Js/home.js"></script>
-    <script src="/Js/la-infiltrada.js"></script>
+    <script src="/Js/gladiator2.js"></script>
+    <script src="/Js/funcioncompra.js"></script>
 </head>
 
 <body>
@@ -40,11 +41,12 @@
             </div>
         </div>
     </header>
+    <a href="/peliculas.html" class="button-atras">← Atrás</a>
 
     <section class="pelicula-detalle">
         <div class="pelicula">
             <div class="pelicula-imagen">
-                <img src="/img/peliculas/La Infiltrada.jpg" alt="La Infiltrada">
+                <img src="/img/peliculas/Gladiator2.jpg" alt="Gladiator2">
             </div>
             <div class="pelicula-info">
                 <h2></h2>
@@ -55,9 +57,12 @@
                 <p class="genero"></p>
                 <div class="pelicula-botones">
                     <!-- Botones que muestran horarios y salas -->
-                    <button class="btn-opcion" onclick="mostrarHorarioSala('11:00 AM', 'Sala 1: Pantalla gigante')">11:00 AM - Sala 1</button>
-                    <button class="btn-opcion" onclick="mostrarHorarioSala('02:00 PM', 'Sala 2: Sala Deluxe')">02:00 PM - Sala 2</button>
-                    <button class="btn-opcion" onclick="mostrarHorarioSala('06:00 PM', 'Sala 3: Dolby Atmos')">06:00 PM - Sala 3</button>
+                    <button class="btn-opcion"
+                        onclick="mostrarHorarioSala('09:00 AM', 'Sala 2: Pantalla gigante')">09:00 AM - Sala 2</button>
+                    <button class="btn-opcion" onclick="mostrarHorarioSala('01:00 PM', 'Sala 3: Sala Deluxe')">01:00 PM
+                        - Sala 3</button>
+                    <button class="btn-opcion" onclick="mostrarHorarioSala('04:00 PM', 'Sala 4: Dolby Atmos')">04:00 PM
+                        - Sala 4</button>
                 </div>
             </div>
         </div>
@@ -65,7 +70,7 @@
 
     <!-- Modal para mostrar información -->
     <div class="modal" id="modal-info">
-        <div class="modal-content">
+        <div class="modal-content"> 
             <h3 id="info-horario">Horario</h3>
             <p id="info-sala">Sala</p>
             <button class="btn-cerrar" onclick="cerrarModal()">Cerrar</button>
@@ -73,20 +78,7 @@
         </div>
     </div>
 
-    <script>
-        function mostrarHorarioSala(horario, sala) {
-            document.getElementById('info-horario').textContent = `Horario: ${horario}`;
-            document.getElementById('info-sala').textContent = `Sala: ${sala}`;
-            document.getElementById('modal-info').classList.add('mostrar');
-        }
-
-        function cerrarModal() {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.classList.remove('mostrar');
-            });
-        }
-    </script>
-
+    
     <footer class="footer">
         <div class="footer_links">
             <a href="#">Política de Privacidad</a>

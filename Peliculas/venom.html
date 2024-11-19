@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine Deluxe - Terrifier 3</title>
+    <title>Cine Deluxe - Venom: El último baile</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Raleway:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/build/styles.css">
     <script src="/Js/home.js"></script>
-    <script src="/Js/terrifier3.js"></script>
+    <script src="/Js/venom.js"></script>
+    <script src="/Js/funcioncompra.js"></script>
 </head>
 
 <body>
@@ -40,11 +41,12 @@
             </div>
         </div>
     </header>
+    <a href="/peliculas.html" class="button-atras">← Atrás</a>
 
     <section class="pelicula-detalle">
         <div class="pelicula">
             <div class="pelicula-imagen">
-                <img src="/img/peliculas/Terrifier3.jpg" alt="Terrifier3">
+                <img src="/img/peliculas/Venom.jpg" alt="Venom">
             </div>
             <div class="pelicula-info">
                 <h2></h2>
@@ -76,19 +78,7 @@
         </div>
     </div>
 
-    <script>
-        function mostrarHorarioSala(horario, sala) {
-            document.getElementById('info-horario').textContent = `Horario: ${horario}`;
-            document.getElementById('info-sala').textContent = `Sala: ${sala}`;
-            document.getElementById('modal-info').classList.add('mostrar');
-        }
-
-        function cerrarModal() {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.classList.remove('mostrar');
-            });
-        }
-    </script>
+    
 
     <footer class="footer">
         <div class="footer_links">
