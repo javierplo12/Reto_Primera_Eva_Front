@@ -9,8 +9,8 @@
         href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Raleway:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/build/styles.css">
-    <script src="/Js/home.js"></script>
-    <script src="/Js/butacas.js"></script>
+    <!-- Asegúrate de que los scripts se carguen en el orden correcto -->
+    <script src="/Js/butacas.js" defer></script> <!-- Este archivo tiene la lógica actualizada -->
 </head>
 
 <body>
@@ -43,10 +43,7 @@
         </div>
     </header>
 
-
-    
     <h1>Selección de Butacas</h1>
-
 
     <div class="sala-cine-container">
         <div class="pantalla">
@@ -56,20 +53,19 @@
         <div class="butacas-seleccionadas-container">
             <h3>Butacas Seleccionadas:</h3>
             <ul id="butacas-seleccionadas"></ul>
-    </div>
-   
+        </div>
         
-       
+        <p id="precio-total"></p>
+        
+        <button id="boton-comprar" class="btn-comprar" disabled>Comprar</button>
     </div>
-    <button id="boton-comprar" class="btn-comprar" disabled>Comprar</button>
-    
 
     <footer class="footer">
         <div class="footer_links">
             <a href="#">Política de Privacidad</a>
             <a href="#">Cookies</a>
             <a href="#">Aviso Legal</a>
-
         </div>
     </footer>
 </body>
+</html>
