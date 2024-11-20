@@ -1,0 +1,103 @@
+// Contenedor general de la sala
+.sala-cine-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; // Espacio entre elementos (pantalla y butacas)
+    width: 95%;
+  
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #1d2733;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  // Pantalla
+  .pantalla {
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-transform: uppercase;
+    box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.1);
+  }
+  
+  // Contenedor de filas de butacas
+  .sala-cine {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; // Espacio reducido entre filas
+    width: 100%;
+    align-items: center;
+  }
+  
+  // Filas de butacas
+  .fila {
+    display: flex;
+    justify-content: center;
+    gap: 4px; // Espaciado reducido entre butacas
+    width: 100%;
+    flex-wrap: wrap; // Ajustar contenido si hay muchas butacas
+  }
+  
+  // Butacas individuales
+  .butaca {
+    width: 15px; // Tamaño reducido para caber más filas
+    height: 15px;
+    background-color: #d9d9d9;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  
+    &:hover {
+      transform: scale(1.1);
+      background-color: #c4c4c4; // Cambio de color al pasar el mouse
+    }
+  }
+  
+  // Estado seleccionada (butaca azul)
+  .butaca.seleccionada {
+    background-color: #4169b8;
+    box-shadow: 0 2px 4px rgba(65, 105, 184, 0.4);
+  }
+  
+  // Estado no disponible (butaca roja)
+  .butaca.no-disponible {
+    background-color: #e74c3c;
+    cursor: not-allowed;
+    box-shadow: none;
+  
+    &:hover {
+      transform: none; // Sin escala al pasar el mouse
+    }
+  }
+  
+  // Responsividad para pantallas más grandes
+  @media (min-width: 768px) {
+    .pantalla {
+      font-size: 18px;
+      padding: 12px;
+    }
+  
+    .butaca {
+      width: 30px;
+      height: 30px;
+    }
+  
+    .sala-cine-container {
+      max-width: 600px;
+      padding: 20px;
+    }
+  
+    .fila {
+      gap: 8px; // Espaciado mayor en pantallas grandes
+    }
+  }
+  
