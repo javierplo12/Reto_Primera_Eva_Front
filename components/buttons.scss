@@ -59,4 +59,35 @@
     transform: translateY(1px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
+  .btn-comprar {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background: #2d6cdf;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background: #1e4c9f;
+    }
+  }
+  .btn-comprar-entrada{
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background: #2ecc71;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background: #2729ae;
+    }
+  }
+
   
