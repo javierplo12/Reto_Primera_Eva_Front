@@ -416,20 +416,16 @@ h2 {
 }
 
 @media (min-width: 768px) {
-  .pantalla {
-    font-size: 18px;
-    padding: 12px;
-  }
-  .butaca {
-    width: 30px;
-    height: 30px;
-  }
-  .sala-cine-container {
-    max-width: 600px;
+  .butacas-seleccionadas-container {
+    max-width: 500px;
+    margin: 20px auto 0;
     padding: 20px;
   }
-  .fila {
-    gap: 8px;
+  .butacas-seleccionadas-container h3 {
+    font-size: 20px;
+  }
+  .butacas-seleccionadas-container ul li {
+    font-size: 16px;
   }
 }
 .pelicula-detalle {

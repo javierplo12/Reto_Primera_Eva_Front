@@ -60,3 +60,64 @@ function seleccionarButaca(butacaElemento) {
 
 // Llamar a la función para generar las butacas al cargar la página
 document.addEventListener('DOMContentLoaded', generarButacas);
+
+// Lista para almacenar las butacas seleccionadas
+const butacasSeleccionadas = [];
+
+// Función para manejar la selección de butacas
+function seleccionarButaca(butacaElemento) {
+    // Prevenir múltiples clics rápidos
+    if (butacaElemento.dataset.bloqueado === "true") return;
+    butacaElemento.dataset.bloqueado = "true";
+
+    const filaIndex = Array.from(butacaElemento.parentNode.parentNode.children).indexOf(butacaElemento.parentNode) + 1;
+    const butacaIndex = Array.from(butacaElemento.parentNode.children).indexOf(butacaElemento) + 1;
+
+    const butacaId = `${filaIndex} - ${butacaIndex}`;
+
+    // Alternar selección
+    if (!butacaElemento.classList.contains('seleccionada')) {
+        butacaElemento.classList.add('seleccionada');
+        butacaElemento.setAttribute('aria-pressed', 'true');
+        butacasSeleccionadas.push(butacaId); // Añadir a la lista de seleccionadas
+    } else {
+        butacaElemento.classList.remove('seleccionada');
+        butacaElemento.setAttribute('aria-pressed', 'false');
+        // Eliminar de la lista de seleccionadas
+        const index = butacasSeleccionadas.indexOf(butacaId);
+        if (index > -1) {
+            butacasSeleccionadas.splice(index, 1);
+        }
+    }
+
+    // Actualizar la lista en pantalla
+    actualizarButacasSeleccionadas();
+
+    // Desbloquear clics tras una breve pausa
+    setTimeout(() => (butacaElemento.dataset.bloqueado = "false"), 300);
+}
+
+// Función para actualizar el listado de butacas seleccionadas en pantalla
+function actualizarButacasSeleccionadas() {
+    const lista = document.getElementById('butacas-seleccionadas');
+    lista.innerHTML = ''; // Limpiar lista previa
+
+    if (butacasSeleccionadas.length > 0) {
+        butacasSeleccionadas.forEach((butaca) => {
+            const li = document.createElement('li');
+            li.textContent = butaca;
+            lista.appendChild(li);
+        });
+    } else {
+        const li = document.createElement('li');
+        li.textContent = 'Ninguna butaca seleccionada.';
+        lista.appendChild(li);
+    }
+}
+
+// Llamar a la función para generar las butacas al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    generarButacas();
+    actualizarButacasSeleccionadas(); // Inicializar lista vacía
+});
+
