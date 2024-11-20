@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "https://localhost:7185/api"; 
+    const API_URL = "https://localhost:7185/api";
 
-    const fetchFunciones = async () => {
+    const fetchFuncionesPorDia = async (dia, containerSelector, idsFunciones) => {
         try {
             const response = await fetch(`${API_URL}/Funcion`);
             if (!response.ok) {
@@ -32,9 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             const funciones = await response.json();
 
-            const funcionesFiltradas = funciones.filter(funcion => [1, 2, 3].includes(funcion.id));
+            // Filtrar funciones por IDs específicos
+            const funcionesFiltradas = funciones.filter(funcion => idsFunciones.includes(funcion.id));
 
-            const botones = document.querySelectorAll(".pelicula-botones .btn-opcion");
+            // Asignar las funciones a los botones
+            const botones = document.querySelectorAll(containerSelector + " .btn-opcion");
             funcionesFiltradas.forEach((funcion, index) => {
                 if (botones[index]) {
                     botones[index].textContent = `${funcion.dia} - ${funcion.horaFormatted} - ${funcion.sala}`;
@@ -45,9 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         } catch (error) {
-            console.error("Hubo un problema con el fetch de funciones:", error);
+            console.error(`Hubo un problema con el fetch de funciones para el día ${dia}:`, error);
         }
     };
 
-    fetchFunciones();
+    // Llamadas para los 3 días
+    fetchFuncionesPorDia(1, ".pelicula-botones-dia-1", [1, 2, 3]); // Día 1
+    fetchFuncionesPorDia(2, ".pelicula-botones-dia-2", [52, 53, 54]); // Día 2
+    fetchFuncionesPorDia(3, ".pelicula-botones-dia-3", [64, 65, 66]); // Día 3
 });

@@ -434,6 +434,8 @@ h2 {
   padding: 15px;
   font-size: 1rem;
   font-weight: bold;
+  font-family: "Raleway", sans-serif;
+  margin-top: 15px;
   text-transform: uppercase;
   color: #fff;
   background: linear-gradient(145deg, #2d6cdf, #1e4c9f);
@@ -452,6 +454,19 @@ h2 {
 
 .desplegable-dia select:active {
   transform: translateY(2px);
+}
+
+.desplegable-dia select option {
+  background-color: #1e4c9f;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: normal;
+  padding: 10px;
+}
+
+.desplegable-dia select option:hover {
+  background-color: #2d6cdf;
+  color: #e0e0e0;
 }
 
 .modal {
