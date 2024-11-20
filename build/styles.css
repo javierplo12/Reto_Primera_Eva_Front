@@ -430,6 +430,30 @@ h2 {
   transform: translateY(2px);
 }
 
+.desplegable-dia select {
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(145deg, #2d6cdf, #1e4c9f);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  appearance: none;
+}
+
+.desplegable-dia select:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(45, 108, 223, 0.4);
+}
+
+.desplegable-dia select:active {
+  transform: translateY(2px);
+}
+
 .modal {
   display: none;
   position: fixed;
