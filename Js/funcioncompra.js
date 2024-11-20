@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("JS cargado correctamente");
 
     function mostrarModal(horario, sala) {
-        console.log(`Mostrando modal: Horario - ${horario}, Sala - ${sala}`);
+        console.log(`Mostrando modal: Horario - ${horario}, ${sala}`);
         document.getElementById("info-horario").innerText = `Horario: ${horario}`;
-        document.getElementById("info-sala").innerText = `Sala: ${sala}`;
+        document.getElementById("info-sala").innerText = sala;
         const modal = document.getElementById("modal-info");
         modal.classList.add("mostrar");
     }
