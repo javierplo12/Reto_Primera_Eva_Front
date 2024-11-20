@@ -301,34 +301,6 @@ h2 {
   font-size: 14px;
   color: #000000;
 }
-.peliculas .carrusel {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-}
-@media (min-width: 1024px) {
-  .peliculas .carrusel {
-    max-width: 40%;
-  }
-}
-.peliculas .carrusel .carousel__slide {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-}
-.peliculas .carrusel .carousel__slide img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-@media (min-width: 1024px) {
-  .peliculas .carrusel .carousel__slide {
-    max-width: 50%;
-  }
-  .peliculas .carrusel .carousel__slide img {
-    width: 100%;
-  }
-}
 
 .pelicula-detalle {
   display: flex;
@@ -609,7 +581,6 @@ h2 {
 .carousel {
   position: relative;
   width: 100%;
-  max-width: 100%;
   overflow: hidden;
   border-radius: 12px;
 }
@@ -664,6 +635,18 @@ h2 {
   .carousel__control {
     font-size: 14px;
     padding: 6px;
+  }
+}
+@media (min-width: 1024px) {
+  .carousel {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .carousel__slide {
+    min-width: 80%;
+  }
+  .carousel__slide img {
+    width: 100%;
   }
 }
 

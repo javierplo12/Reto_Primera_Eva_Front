@@ -1,6 +1,5 @@
 @use '../base/variables.scss';
 
-// Sección de películas
 .peliculas {
   padding: 20px;
   text-align: center;
@@ -13,21 +12,21 @@
 
   .grid-peliculas {
     display: grid;
-    grid-template-columns: 1fr; // Una columna en móviles por defecto
+    grid-template-columns: 1fr;
     gap: 20px;
 
     @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr); // Dos columnas en pantallas medianas
+      grid-template-columns: repeat(2, 1fr);
     }
 
     @media (min-width: 1024px) {
-      grid-template-columns: repeat(4, 1fr); // Cuatro columnas en pantallas grandes (ordenador)
-      gap: 15px; // Reducir espacio entre columnas en pantallas grandes
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
     }
 
     .pelicula {
       background: #fff;
-      padding: 10px; // Reducir el padding para que las películas sean más pequeñas
+      padding: 10px;
       border: 1px solid #ddd;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -55,48 +54,19 @@
       }
 
       h3 {
-        font-size: 16px; // Reducir el tamaño del texto del título en pantallas grandes
+        font-size: 16px;
         margin: 8px 0;
         color: black;
         font-family: 'Raleway', sans-serif;
       }
 
       p {
-        font-size: 14px; // Reducir el tamaño del texto de la descripción
+        font-size: 14px;
         color: #000000;
       }
     }
   }
 
-  // Carrusel (ajustar para pantallas grandes)
-  .carrusel {
-    width: 100%; // Ajustamos el carrusel al 100% en dispositivos pequeños
-    max-width: 100%; // Asegura que ocupe todo el espacio disponible en dispositivos pequeños
-    margin: 0 auto; // Centra el carrusel en pantallas pequeñas y medianas
-
-    @media (min-width: 1024px) {
-      max-width: 40%; // Ajustamos el tamaño del carrusel en pantallas grandes a 40% del ancho
-    }
-
-    .carousel__slide {
-      width: 100%;  // Asegura que cada slide ocupe todo el ancho en pantallas pequeñas
-      max-width: 100%; // Ocupa todo el espacio disponible en dispositivos pequeños
-      margin: 0 auto;  // Centra el slide en pantallas pequeñas y medianas
-
-      img {
-        width: 100%;  // Las imágenes dentro de cada slide ocupan todo el ancho
-        height: auto; // Mantiene la proporción de la imagen
-        object-fit: cover; // Hace que la imagen cubra todo el contenedor
-      }
-
-      @media (min-width: 1024px) {
-        max-width: 50%;  // Ajusta el tamaño de cada slide al 50% del contenedor en pantallas grandes
-
-        img {
-          width: 100%;  // Asegura que la imagen se ajuste al tamaño del slide
-        }
-      }
-    }
-  }
-
+  
+  
 }
