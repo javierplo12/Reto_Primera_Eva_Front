@@ -1,4 +1,4 @@
-@use '../base/variables.scss';
+@import '../base/variables.scss';
 
 .imagenes_home {
   display: flex;
@@ -33,7 +33,7 @@
     }
 
     .texto_bajo_imagen {
-      margin-top: 20px; 
+      margin-top: 20px;
       text-align: center;
       color: #fff;
 
@@ -47,7 +47,7 @@
         font-size: 16px;
         font-weight: normal;
         line-height: 1.5;
-        max-width: 600px;  
+        max-width: 600px;
         margin: 0 auto;
       }
     }
@@ -55,6 +55,7 @@
 
   .imagen-centro {
     position: relative; // Permite el posicionamiento absoluto de .overlay
+    width: 100%; // Asegura que ocupe el 100% del contenedor
 
     img {
       width: 100%;
@@ -73,18 +74,50 @@
       justify-content: center;
       z-index: 1;
     }
-}
+  }
 
+  // Ajustes para pantallas más grandes (a partir de 768px)
   @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;  // Centra todo el contenido
 
-    .imagen {
-      width: 28%;
+    .imagen-centro {
+      width: 60%;  // Aumenta el tamaño de la imagen principal en pantallas grandes
+      margin: 0 auto;  // Centra la imagen horizontalmente
     }
 
-    .texto-central {
-      font-size: 27px;
+    .entrada_cine {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;  // Centra las imágenes de las entradas
+      width: 60%;  // Ajuste del tamaño de las entradas
+
+      img {
+        width: 80%;  // Aumenta el tamaño de las imágenes de las entradas
+      }
+
+      .texto_bajo_imagen {
+        margin-top: 20px;
+        text-align: center;  // Alinear el texto al centro
+        font-size: 18px;  // Ajustar tamaño del texto
+      }
+    }
+  }
+
+  // Ajustes para pantallas muy grandes (por encima de 1200px)
+  @media (min-width: 1200px) {
+    .imagen-centro {
+      width: 70%;  // Hacer la imagen principal aún más grande en pantallas grandes
+    }
+
+    .entrada_cine {
+      width: 40%;  // Ajuste del tamaño de las entradas en pantallas grandes
+
+      img {
+        width: 90%;  // Aumentar el tamaño de la imagen de la entrada en pantallas grandes
+      }
     }
   }
 }
