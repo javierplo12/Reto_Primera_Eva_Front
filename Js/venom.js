@@ -19,3 +19,35 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         });
 ;
+
+document.addEventListener("DOMContentLoaded", () => {
+    const API_URL = "https://localhost:7185/api"; 
+
+    const fetchFunciones = async () => {
+        try {
+            const response = await fetch(`${API_URL}/Funcion`);
+            if (!response.ok) {
+                throw new Error("Error al obtener las funciones.");
+            }
+            const funciones = await response.json();
+
+            const funcionesFiltradas = funciones.filter(funcion => [25, 26, 27].includes(funcion.id));
+
+            const botones = document.querySelectorAll(".pelicula-botones .btn-opcion");
+            funcionesFiltradas.forEach((funcion, index) => {
+                if (botones[index]) {
+                    botones[index].textContent = `${funcion.dia} - ${funcion.horaFormatted} - ${funcion.sala}`;
+                    botones[index].setAttribute("data-id", funcion.id);
+                    botones[index].setAttribute("data-horario", funcion.horaFormatted);
+                    botones[index].setAttribute("data-dia", funcion.dia);
+                    botones[index].setAttribute("data-sala", funcion.sala);
+                }
+            });
+        } catch (error) {
+            console.error("Hubo un problema con el fetch de funciones:", error);
+        }
+    };
+
+    fetchFunciones();
+});
+
