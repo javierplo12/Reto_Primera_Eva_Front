@@ -41,20 +41,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Función para comprar entrada
     function comprarEntrada() {
-        // Obtén el contenido del horario y la sala desde el modal
-        const horario = document.getElementById("info-horario").innerText.replace("Horario: ", "").trim();
-        const sala = document.getElementById("info-sala").innerText.trim();
+        // Obtén el contenido del horario, sala e id de función desde el modal
+        const horario = document.getElementById("info-horario").innerText.replace("Horario: ", "").trim(); 
+        const sala = document.getElementById("info-sala").innerText.trim(); 
+        const id = document.getElementById("data-id");
+
     
-        // Construye la URL para redirigir
-        const url = `/butacas.html?horario=${encodeURIComponent(horario)}&sala=${encodeURIComponent(sala)}`;
+        // Construye la URL con los parámetros de la función
+        const url = `/butacas.html?horario=${encodeURIComponent(horario)}&sala=${encodeURIComponent(sala)}&id=${encodeURIComponent(id)}`;
+    
+        // Muestra la URL en la consola (útil para depuración)
+        console.log(`Redirigiendo a: ${url}`);
     
         // Redirige a la página de butacas
-        console.log(`Redirigiendo a: ${url}`);
         window.location.href = url;
     }
     
+    
 
-    // Asignar eventos a los botones de opciones
     document.querySelectorAll(".btn-opcion").forEach((boton) => {
         boton.addEventListener("click", () => {
             const horario = boton.getAttribute("data-horario");

@@ -1,53 +1,40 @@
 let precioButaca = 0;
 
-const butacas = [
-    [1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-];
+const butacasSeleccionadas = new Set(); 
 
-const butacasSeleccionadas = new Set(); // Cambiado a Set para evitar duplicados y mejorar eficiencia
-
-async function cargarPrecioButaca() {
+async function cargarButacas() {
     try {
-        const response = await fetch('https://localhost:7185/api/Entrada');
+        const response = await fetch('https://localhost:7185/api/Funcion/53'); 
         if (response.ok) {
-            const entradas = await response.json();
-            precioButaca = entradas[0]?.Precio || 5;
-            console.log('Precio cargado:', precioButaca);
+            const datos = await response.json();
+            generarButacas(datos.butacas); 
+            precioButaca = datos.precio || 5; 
+            console.log('Butacas cargadas:', datos.butacas);
         } else {
-            throw new Error('No se pudo obtener el precio.');
+            console.error('Error al cargar las butacas');
         }
     } catch (error) {
-        precioButaca = 5;
-        console.error('Error al cargar el precio:', error);
+        console.error('Error al cargar las butacas:', error);
     }
 }
 
-function generarButacas() {
+function generarButacas(butacas) {
     const salaCine = document.getElementById('sala-cine');
-    salaCine.innerHTML = ''; // Limpiar contenido previo
+    salaCine.innerHTML = ''; 
 
-    butacas.forEach((fila, filaIndex) => {
+    const filas = agruparPorFilas(butacas);
+
+    filas.forEach((fila, filaIndex) => {
         const filaDiv = document.createElement('div');
         filaDiv.classList.add('fila');
 
-        fila.forEach((butaca, butacaIndex) => {
+        fila.forEach((butaca) => {
             const butacaDiv = document.createElement('div');
             butacaDiv.className = 'butaca';
-            butacaDiv.dataset.id = `${filaIndex + 1}-${butacaIndex + 1}`;
+            butacaDiv.dataset.id = butaca;
             butacaDiv.setAttribute('role', 'button');
-            butacaDiv.setAttribute('aria-disabled', butaca === 0);
 
-            if (butaca === 1) {
-                butacaDiv.addEventListener('click', () => seleccionarButaca(butacaDiv));
-            } else {
-                butacaDiv.classList.add('no-disponible');
-            }
+            butacaDiv.addEventListener('click', () => seleccionarButaca(butacaDiv));
 
             filaDiv.appendChild(butacaDiv);
         });
@@ -56,9 +43,21 @@ function generarButacas() {
     });
 }
 
+function agruparPorFilas(butacas) {
+    const filas = {};
+
+    butacas.forEach((butaca) => {
+        const [fila] = butaca.split('-');
+        if (!filas[fila]) filas[fila] = [];
+        filas[fila].push(butaca);
+    });
+
+    return Object.values(filas);
+}
+
 function seleccionarButaca(butacaElemento) {
-    if (butacaElemento.dataset.bloqueado === "true") return;
-    butacaElemento.dataset.bloqueado = "true";
+    if (butacaElemento.dataset.bloqueado === 'true') return;
+    butacaElemento.dataset.bloqueado = 'true';
 
     const id = butacaElemento.dataset.id;
 
@@ -71,7 +70,7 @@ function seleccionarButaca(butacaElemento) {
     actualizarButacasSeleccionadas();
     actualizarPrecioTotal();
 
-    setTimeout(() => (butacaElemento.dataset.bloqueado = "false"), 300);
+    setTimeout(() => (butacaElemento.dataset.bloqueado = 'false'), 300);
 }
 
 function actualizarButacasSeleccionadas() {
@@ -96,7 +95,6 @@ function actualizarPrecioTotal() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    await cargarPrecioButaca();
-    generarButacas();
+    await cargarButacas();
     actualizarButacasSeleccionadas();
 });
