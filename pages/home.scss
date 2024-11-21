@@ -7,6 +7,7 @@
   padding: 20px 0;
   background-color: #071325;
 
+  // Estilo de cada imagen genérica
   .imagen {
     position: relative;
     width: 90%;
@@ -18,13 +19,13 @@
     }
   }
 
+  // Contenedor para las entradas de cine
   .entrada_cine {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 95%;
-    height: auto;
     margin-top: 20px;
 
     img {
@@ -32,6 +33,7 @@
       height: auto;
     }
 
+    // Texto debajo de las imágenes
     .texto_bajo_imagen {
       margin-top: 20px;
       text-align: center;
@@ -53,8 +55,9 @@
     }
   }
 
+  // Imagen central con superposición (overlay)
   .imagen-centro {
-    position: relative; // Permite el posicionamiento absoluto de .overlay
+    position: relative; // Permite el posicionamiento absoluto de la overlay
     width: 100%; // Asegura que ocupe el 100% del contenedor
 
     img {
@@ -76,47 +79,51 @@
     }
   }
 
-  // Ajustes para pantallas más grandes (a partir de 768px)
+  // Responsividad para pantallas medianas (>= 768px)
   @media (min-width: 768px) {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;  // Centra todo el contenido
-
-    .imagen-centro {
-      width: 60%;  // Aumenta el tamaño de la imagen principal en pantallas grandes
-      margin: 0 auto;  // Centra la imagen horizontalmente
-    }
-
     .entrada_cine {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;  // Centra las imágenes de las entradas
-      width: 60%;  // Ajuste del tamaño de las entradas
+      flex-direction: row; // Cambia a diseño horizontal
+      align-items: flex-start; // Alinea el texto con la parte superior de las imágenes
 
-      img {
-        width: 80%;  // Aumenta el tamaño de las imágenes de las entradas
+      .imagenes {
+        img {
+          max-width: 300px; // Ajusta el tamaño de las imágenes
+        }
       }
 
       .texto_bajo_imagen {
-        margin-top: 20px;
-        text-align: center;  // Alinear el texto al centro
-        font-size: 18px;  // Ajustar tamaño del texto
+        h2 {
+          font-size: 28px; // Tamaño del título
+        }
+
+        p {
+          font-size: 18px; // Tamaño del texto
+        }
       }
     }
   }
 
-  // Ajustes para pantallas muy grandes (por encima de 1200px)
+  // Responsividad para pantallas grandes (>= 1200px)
   @media (min-width: 1200px) {
-    .imagen-centro {
-      width: 70%;  // Hacer la imagen principal aún más grande en pantallas grandes
+    .entrada_cine {
+      .imagenes {
+        img {
+          max-width: 350px; // Aumenta el tamaño de las imágenes
+        }
+      }
     }
 
-    .entrada_cine {
-      width: 40%;  // Ajuste del tamaño de las entradas en pantallas grandes
+    .imagen-centro {
+      width: 70%; // Mantiene el 100% del contenedor
 
-      img {
-        width: 90%;  // Aumentar el tamaño de la imagen de la entrada en pantallas grandes
+      .texto_bajo_imagen {
+        h2 {
+          font-size: 32px; // Tamaño del título
+        }
+
+        p {
+          font-size: 20px; // Tamaño del texto
+        }
       }
     }
   }
