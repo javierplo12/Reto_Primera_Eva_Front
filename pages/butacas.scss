@@ -1,4 +1,5 @@
 @import '../base/variables.scss';
+
 .sala-cine-container {
   position: relative;
   display: flex;
@@ -13,9 +14,9 @@
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
-  button{
-    font-size: 18px; 
-    font-weight: bold; 
+  button {
+    font-size: 18px;
+    font-weight: bold;
     margin-top: 10px;
   }
 }
@@ -50,6 +51,12 @@
   gap: 4px; // Espaciado reducido entre butacas
   width: 100%;
   flex-wrap: wrap; // Ajustar contenido si hay muchas butacas
+}
+
+h1 {
+  margin-left: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 // Butacas individuales
@@ -88,16 +95,16 @@
 
 @media (min-width: 768px) {
   .butacas-seleccionadas-container {
-      max-width: 500px;
-      margin: 20px auto 0;
-      padding: 20px;
+    max-width: 500px;
+    margin: 20px auto 0;
+    padding: 20px;
 
-      h3 {
-          font-size: 20px;
-      }
+    h3 {
+      font-size: 20px;
+    }
 
-      ul li {
-          font-size: 16px;
-      }
+    ul li {
+      font-size: 16px;
+    }
   }
 }

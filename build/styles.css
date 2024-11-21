@@ -4,6 +4,7 @@
   background-color: #071325;
   color: #ffffff;
   display: flex;
+  margin-top: 15px;
   flex-direction: column;
   align-items: center;
   padding: 10px 0;
@@ -390,6 +391,12 @@ h2 {
   gap: 4px;
   width: 100%;
   flex-wrap: wrap;
+}
+
+h1 {
+  margin-left: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .butaca {
