@@ -59,10 +59,6 @@ function comprarEntrada() {
     window.location.href = url;
 }
 
-
-    
-    
-
     document.querySelectorAll(".btn-opcion").forEach((boton) => {
         boton.addEventListener("click", () => {
             const horario = boton.getAttribute("data-horario");

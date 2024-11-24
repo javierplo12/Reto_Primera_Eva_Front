@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         modal.setAttribute("data-id", funcion.id); // Configurar el ID de función en el modal
                         document.getElementById("info-horario").innerText = `Horario: ${funcion.horaFormatted}`;
                         document.getElementById("info-sala").innerText = `${funcion.sala}`;
-                        modal.style.display = "block"; // Mostrar el modal
                     });
                 }
             });
