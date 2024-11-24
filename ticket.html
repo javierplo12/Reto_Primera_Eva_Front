@@ -10,74 +10,75 @@
         rel="stylesheet">
     <link rel="stylesheet" href="/build/styles.css">
     <script src="/Js/home.js"></script>
-
-
-
 </head>
-<header class="header">
-    <div class="logo">
-        <a href="home.html">
-            <img src="/img/LogoBlanco_SinFondo.png" alt="Cine Deluxe">
-        </a>
-    </div>
-    <nav class="nav_header">
-        <ul class="menu_header">
-            <li class="titulo_header"><a href="#">Cartelera</a></li>
 
-        </ul>
-    </nav>
-    <div class="cuenta_header">
-        <div class="menu-icon" onclick="toggleMenu()">
-            <!-- Boton desplegable -->
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="home.html">
+                <img src="/img/LogoBlanco_SinFondo.png" alt="Cine Deluxe">
+            </a>
         </div>
-        <!-- Menú desplegable -->
-        <div class="dropdown-menu">
-            <a href="peliculas.html">Cartelera</a>
+        <nav class="nav_header">
+            <ul class="menu_header">
+                <li class="titulo_header"><a href="#">Cartelera</a></li>
+            </ul>
+        </nav>
+        <div class="cuenta_header">
+            <div class="menu-icon" onclick="toggleMenu()">
+                <!-- Boton desplegable -->
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <!-- Menú desplegable -->
+            <div class="dropdown-menu">
+                <a href="peliculas.html">Cartelera</a>
+            </div>
         </div>
+    </header>
+    <div class="ticket-container">
+        <div class="ticket-info">
+            <h2 id="nombre-pelicula"></h2>
+            <h3 id="nombre-sala"></h3>
+            <h3 id="hora"></h3>
+            <h3>Butacas Seleccionadas:</h3>
+            <ul id="lista-butacas"></ul>
+        </div>
+        <button onclick="window.location.href='home.html'" class="btn-regresar">Volver al inicio</button>
     </div>
-</header>
-<div class="ticket-container">
-    <div class="ticket-info">
-        <h2 id="nombre-pelicula"></h2>
-        <h3>Butacas Seleccionadas:</h3>
-        <ul id="lista-butacas"></ul>
-    </div>
-    <button onclick="window.location.href='home.html'" class="btn-regresar">Volver al inicio</button>
-</div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
 
+            const pelicula = params.get('pelicula') || 'Película no especificada';
+            const horario = params.get('horario') || 'Horario no especificado';
+            const sala = params.get('sala') || 'Sala no especificada';
 
-<script>
-    // Recuperar datos de localStorage
-    const pelicula = localStorage.getItem('pelicula');
-    const butacas = JSON.parse(localStorage.getItem('butacas'));
+            // Insertar en el DOM
+            document.getElementById('nombre-pelicula').textContent = `Película: ${pelicula}`;
+            document.getElementById('nombre-sala').textContent = `Sala: ${sala}`;
+            document.getElementById('hora').textContent = `Hora: ${horario}`;
 
-    // Insertar los datos en el HTML
-    document.getElementById('nombre-pelicula').textContent = pelicula || 'Película no seleccionada';
-
-    const listaButacas = document.getElementById('lista-butacas');
-    if (butacas && butacas.length > 0) {
-        butacas.forEach(butaca => {
-            const li = document.createElement('li');
-            li.textContent = butaca;
-            listaButacas.appendChild(li);
+            // Cargar las butacas del localStorage
+            const butacas = JSON.parse(localStorage.getItem('butacas')) || [];
+            const listaButacas = document.getElementById('lista-butacas');
+            butacas.forEach(butaca => {
+                const li = document.createElement('li');
+                li.textContent = butaca;
+                listaButacas.appendChild(li);
+            });
         });
-    } else {
-        listaButacas.textContent = 'No se seleccionaron butacas.';
-    }
-</script>
+    </script>
 
-
-<footer class="footer">
-    <div class="footer_links">
-        <a href="#">Política de Privacidad</a>
-        <a href="#">Cookies</a>
-        <a href="#">Aviso Legal</a>
-    </div>
-</footer>
+    <footer class="footer">
+        <div class="footer_links">
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Cookies</a>
+            <a href="#">Aviso Legal</a>
+        </div>
+    </footer>
 </body>
 
 </html>

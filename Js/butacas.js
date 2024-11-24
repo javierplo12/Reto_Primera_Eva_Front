@@ -1,14 +1,34 @@
 let precioButaca = 0;
+const butacasSeleccionadas = new Set();
 
-const butacasSeleccionadas = new Set(); 
+// Recuperar las variables de la URL
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+
+    // Recuperar las variables de la URL
+    const pelicula = params.get('pelicula');
+    const horario = params.get('horario');
+    const sala = params.get('sala');
+
+    // Mostrar en consola para verificar
+    console.log('Pelicula:', pelicula);
+    console.log('Horario:', horario);
+    console.log('Sala:', sala);
+
+    // Aquí podrías usar las variables para mostrarlas en el DOM si es necesario
+    const peliculaElement = document.getElementById('nombre-pelicula');
+    if (peliculaElement) {
+        peliculaElement.textContent = `Película: ${pelicula}`;
+    }
+});
 
 async function cargarButacas() {
     try {
-        const response = await fetch('https://localhost:7185/api/Funcion/53'); 
+        const response = await fetch('https://localhost:7185/api/Funcion/53');
         if (response.ok) {
             const datos = await response.json();
-            generarButacas(datos.butacas); 
-            precioButaca = datos.precio || 5; 
+            generarButacas(datos.butacas);
+            precioButaca = datos.precio || 5;
             console.log('Butacas cargadas:', datos.butacas);
         } else {
             console.error('Error al cargar las butacas');
@@ -20,7 +40,7 @@ async function cargarButacas() {
 
 function generarButacas(butacas) {
     const salaCine = document.getElementById('sala-cine');
-    salaCine.innerHTML = ''; 
+    salaCine.innerHTML = '';
 
     const filas = agruparPorFilas(butacas);
 
@@ -98,20 +118,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     await cargarButacas();
     actualizarButacasSeleccionadas();
 });
+
 document.addEventListener('DOMContentLoaded', () => {
     const botonComprar = document.getElementById('boton-comprar');
-    const nombrePelicula = "Nombre de la película"; // Cambia por el título dinámico si lo tienes
     const butacasSeleccionadas = document.getElementById('butacas-seleccionadas');
 
     botonComprar.addEventListener('click', () => {
-        // Recoge las butacas seleccionadas
         const butacas = Array.from(butacasSeleccionadas.children).map(li => li.textContent);
-
-        // Guarda los datos en localStorage
-        localStorage.setItem('pelicula', nombrePelicula);
         localStorage.setItem('butacas', JSON.stringify(butacas));
 
-        // Redirige a ticket.html
-        window.location.href = 'ticket.html';
+        const params = new URLSearchParams(window.location.search);
+        const pelicula = params.get('pelicula');
+        const horario = params.get('horario');
+        const sala = params.get('sala');
+
+        // Construir URL para redirigir a ticket.html
+        const newUrl = `/ticket.html?pelicula=${encodeURIComponent(pelicula)}&horario=${encodeURIComponent(horario)}&sala=${encodeURIComponent(sala)}`;
+        window.location.href = newUrl;
     });
 });
