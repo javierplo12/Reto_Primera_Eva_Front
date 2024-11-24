@@ -39,23 +39,27 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.classList.remove("mostrar");
     }
 
-    // Función para comprar entrada
-    function comprarEntrada() {
-        // Obtén el contenido del horario, sala e id de función desde el modal
-        const horario = document.getElementById("info-horario").innerText.replace("Horario: ", "").trim(); 
-        const sala = document.getElementById("info-sala").innerText.trim(); 
-        const id = document.getElementById("data-id");
+// Función para comprar entrada
+function comprarEntrada() {
+    // Obtén el contenido del horario y sala desde el modal
+    const horario = document.getElementById("info-horario").innerText.replace("Horario: ", "").trim();
+    const sala = document.getElementById("info-sala").innerText.trim();
+    const modal = document.getElementById("modal-info");
+    const id = modal.getAttribute("data-id");
 
-    
-        // Construye la URL con los parámetros de la función
-        const url = `/butacas.html?horario=${encodeURIComponent(horario)}&sala=${encodeURIComponent(sala)}&id=${encodeURIComponent(id)}`;
-    
-        // Muestra la URL en la consola (útil para depuración)
-        console.log(`Redirigiendo a: ${url}`);
-    
-        // Redirige a la página de butacas
-        window.location.href = url;
+    if (!id) {
+        console.error("ID de función no encontrado. Asegúrate de que 'data-id' esté configurado correctamente.");
+        return;
     }
+
+    const url = `/butacas.html?horario=${encodeURIComponent(horario)}&sala=${encodeURIComponent(sala)}&id=${encodeURIComponent(id)}`;
+
+    console.log(`Redirigiendo a: ${url}`);
+
+    window.location.href = url;
+}
+
+
     
     
 

@@ -3,6 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     botonComprar.addEventListener('click', () => {
         alert('¡Las entradas han sido compradas con éxito!');
-        window.location.href = 'ticket.html'; // Cambia 'home.html' al enlace correcto de tu página de inicio
+        window.location.href = 'ticket.html';
     });
 });

@@ -43,6 +43,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     botones[index].setAttribute("data-horario", funcion.horaFormatted);
                     botones[index].setAttribute("data-dia", funcion.dia);
                     botones[index].setAttribute("data-sala", funcion.sala);
+
+                    // Agregar evento para abrir el modal con la información correcta
+                    botones[index].addEventListener("click", () => {
+                        const modal = document.getElementById("modal-info");
+                        modal.setAttribute("data-id", funcion.id); // Configurar el ID de función en el modal
+                        document.getElementById("info-horario").innerText = `Horario: ${funcion.horaFormatted}`;
+                        document.getElementById("info-sala").innerText = `Sala: ${funcion.sala}`;
+                        modal.style.display = "block"; // Mostrar el modal
+                    });
                 }
             });
         } catch (error) {
