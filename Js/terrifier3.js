@@ -47,9 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     // Agregar evento para abrir el modal con la información correcta
                     botones[index].addEventListener("click", () => {
                         const modal = document.getElementById("modal-info");
-                        modal.setAttribute("data-id", funcion.id); // Configurar el ID de función en el modal
+                        modal.setAttribute("data-id", funcion.id);
                         document.getElementById("info-horario").innerText = `Horario: ${funcion.horaFormatted}`;
-                        document.getElementById("info-sala").innerText = `Sala: ${funcion.sala}`;
+                        document.getElementById("info-sala").innerText = `${funcion.sala}`;
                         modal.style.display = "block"; // Mostrar el modal
                     });
                 }
