@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Función para comprar entrada
 function comprarEntrada() {
     // Obtén el contenido del horario y sala desde el modal
+    const pelicula = document.querySelector("h2").innerText.trim();;
     const horario = document.getElementById("info-horario").innerText.replace("Horario: ", "").trim();
     const sala = document.getElementById("info-sala").innerText.trim();
     const modal = document.getElementById("modal-info");
@@ -52,7 +53,7 @@ function comprarEntrada() {
         return;
     }
 
-    const url = `/butacas.html?horario=${encodeURIComponent(horario)}&sala=${encodeURIComponent(sala)}&id=${encodeURIComponent(id)}`;
+    const url = `/butacas.html?pelicula=${encodeURIComponent(pelicula)}&horario=${encodeURIComponent(horario)}&sala=${encodeURIComponent(sala)}&id=${encodeURIComponent(id)}`;
 
     console.log(`Redirigiendo a: ${url}`);
 
