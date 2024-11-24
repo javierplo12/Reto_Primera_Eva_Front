@@ -10,9 +10,9 @@
         rel="stylesheet">
     <link rel="stylesheet" href="/build/styles.css">
     <script src="/Js/home.js"></script>
-    <script src="/Js/ticket.js"></script>
-   
-    
+
+
+
 </head>
 <header class="header">
     <div class="logo">
@@ -23,7 +23,7 @@
     <nav class="nav_header">
         <ul class="menu_header">
             <li class="titulo_header"><a href="#">Cartelera</a></li>
-            
+
         </ul>
     </nav>
     <div class="cuenta_header">
@@ -50,7 +50,25 @@
 
 
 
+<script>
+    // Recuperar datos de localStorage
+    const pelicula = localStorage.getItem('pelicula');
+    const butacas = JSON.parse(localStorage.getItem('butacas'));
 
+    // Insertar los datos en el HTML
+    document.getElementById('nombre-pelicula').textContent = pelicula || 'Película no seleccionada';
+
+    const listaButacas = document.getElementById('lista-butacas');
+    if (butacas && butacas.length > 0) {
+        butacas.forEach(butaca => {
+            const li = document.createElement('li');
+            li.textContent = butaca;
+            listaButacas.appendChild(li);
+        });
+    } else {
+        listaButacas.textContent = 'No se seleccionaron butacas.';
+    }
+</script>
 
 
 <footer class="footer">
@@ -61,4 +79,5 @@
     </div>
 </footer>
 </body>
+
 </html>
