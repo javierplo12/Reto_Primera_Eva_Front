@@ -44,23 +44,24 @@
             <h3 id="hora"></h3>
             <h3>Butacas Seleccionadas:</h3>
             <ul id="lista-butacas"></ul>
+            <h3 id="precio-total"></h3>
         </div>
-        <button onclick="window.location.href='home.html'" class="btn-regresar">Volver al inicio</button>
+        <button onclick="window.location.href='home.html'" class="button-atras">Volver al inicio</button>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
-
-            const pelicula = params.get('pelicula') || 'Película no especificada';
-            const horario = params.get('horario') || 'Horario no especificado';
-            const sala = params.get('sala') || 'Sala no especificada';
-
+    
+            const pelicula = params.get('pelicula');
+            const horario = params.get('horario');
+            const sala = params.get('sala');
+    
             // Insertar en el DOM
             document.getElementById('nombre-pelicula').textContent = `Película: ${pelicula}`;
             document.getElementById('nombre-sala').textContent = `Sala: ${sala}`;
             document.getElementById('hora').textContent = `Hora: ${horario}`;
-
+    
             // Cargar las butacas del localStorage
             const butacas = JSON.parse(localStorage.getItem('butacas')) || [];
             const listaButacas = document.getElementById('lista-butacas');
@@ -69,8 +70,14 @@
                 li.textContent = butaca;
                 listaButacas.appendChild(li);
             });
+    
+            // Cargar el precio total del localStorage
+            const precioTotal = localStorage.getItem('precioTotal') || '0.00 €';
+            const precioTotalElement = document.getElementById('precio-total');
+            precioTotalElement.textContent = `Precio Total: ${precioTotal}`;
         });
     </script>
+    
 
     <footer class="footer">
         <div class="footer_links">

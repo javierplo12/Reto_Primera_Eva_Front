@@ -111,8 +111,12 @@ function actualizarPrecioTotal() {
     const precioElement = document.getElementById('precio-total');
     precioElement.textContent = `Precio Total: ${totalPrecio.toFixed(2)} €`;
 
+    // Guardar el precio en localStorage
+    localStorage.setItem('precioTotal', totalPrecio.toFixed(2));
+
     document.getElementById('boton-comprar').disabled = butacasSeleccionadas.size === 0;
 }
+
 
 document.addEventListener('DOMContentLoaded', async () => {
     await cargarButacas();
@@ -127,6 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const butacas = Array.from(butacasSeleccionadas.children).map(li => li.textContent);
         localStorage.setItem('butacas', JSON.stringify(butacas));
 
+        // Recuperar y guardar el precio en localStorage
+        const precioTotal = document.getElementById('precio-total').textContent.split(': ')[1];
+        localStorage.setItem('precioTotal', precioTotal);
+
         const params = new URLSearchParams(window.location.search);
         const pelicula = params.get('pelicula');
         const horario = params.get('horario');
@@ -137,3 +145,4 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = newUrl;
     });
 });
+
