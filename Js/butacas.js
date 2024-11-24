@@ -98,3 +98,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     await cargarButacas();
     actualizarButacasSeleccionadas();
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const botonComprar = document.getElementById('boton-comprar');
+    const nombrePelicula = "Nombre de la película"; // Cambia por el título dinámico si lo tienes
+    const butacasSeleccionadas = document.getElementById('butacas-seleccionadas');
+
+    botonComprar.addEventListener('click', () => {
+        // Recoge las butacas seleccionadas
+        const butacas = Array.from(butacasSeleccionadas.children).map(li => li.textContent);
+
+        // Guarda los datos en localStorage
+        localStorage.setItem('pelicula', nombrePelicula);
+        localStorage.setItem('butacas', JSON.stringify(butacas));
+
+        // Redirige a ticket.html
+        window.location.href = 'ticket.html';
+    });
+});
