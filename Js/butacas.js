@@ -30,6 +30,9 @@ async function cargarButacas() {
             generarButacas(datos.butacas);
             precioButaca = datos.precio || 5;
             console.log('Butacas cargadas:', datos.butacas);
+
+            // Cargar el estado de las butacas desde localStorage
+            cargarEstadoButacas();
         } else {
             console.error('Error al cargar las butacas');
         }
@@ -90,7 +93,43 @@ function seleccionarButaca(butacaElemento) {
     actualizarButacasSeleccionadas();
     actualizarPrecioTotal();
 
+    // Guardar el estado actualizado en localStorage
+    actualizarEstadoButacas();
+
     setTimeout(() => (butacaElemento.dataset.bloqueado = 'false'), 300);
+}
+
+// Función para almacenar el estado de las butacas (ocupadas o no)
+function actualizarEstadoButacas() {
+    const butacasEstado = [];
+    const allButacas = document.querySelectorAll('.butaca');
+
+    allButacas.forEach((butaca) => {
+        // Verificamos si la butaca está ocupada
+        butacasEstado.push({
+            id: butaca.dataset.id,
+            ocupada: butaca.classList.contains('seleccionada') || butaca.dataset.bloqueado === 'true'
+        });
+    });
+
+    // Guardamos el estado de las butacas en localStorage
+    localStorage.setItem('estadoButacas', JSON.stringify(butacasEstado));
+}
+
+// Cargar el estado de las butacas desde localStorage
+function cargarEstadoButacas() {
+    const estadoButacas = JSON.parse(localStorage.getItem('estadoButacas')) || [];
+
+    // Recorremos todas las butacas y las marcamos según el estado guardado
+    estadoButacas.forEach(({ id, ocupada }) => {
+        const butaca = document.querySelector(`.butaca[data-id="${id}"]`);
+        if (butaca) {
+            if (ocupada) {
+                butaca.classList.add('seleccionada');
+                butaca.dataset.bloqueado = 'true';  // Para evitar que se seleccione de nuevo
+            }
+        }
+    });
 }
 
 function actualizarButacasSeleccionadas() {
@@ -116,7 +155,6 @@ function actualizarPrecioTotal() {
 
     document.getElementById('boton-comprar').disabled = butacasSeleccionadas.size === 0;
 }
-
 
 document.addEventListener('DOMContentLoaded', async () => {
     await cargarButacas();
@@ -155,3 +193,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Función para reiniciar el estado de las butacas (vaciar todas)
+function reiniciarButacas() {
+    // Limpiar las butacas seleccionadas
+    butacasSeleccionadas.clear();
+
+    // Limpiar localStorage
+    localStorage.removeItem('estadoButacas');
+    localStorage.removeItem('butacas');
+    localStorage.removeItem('precioTotal');
+
+    // Eliminar la clase 'seleccionada' de todas las butacas
+    const allButacas = document.querySelectorAll('.butaca');
+    allButacas.forEach((butaca) => {
+        butaca.classList.remove('seleccionada');
+        butaca.dataset.bloqueado = 'false'; // Asegurar que las butacas estén desbloqueadas
+    });
+
+    // Limpiar la lista de butacas seleccionadas
+    actualizarButacasSeleccionadas();
+    actualizarPrecioTotal();
+}
+
+// Llamar a esta función cuando quieras reiniciar el estado, por ejemplo con un botón:
+const botonReiniciar = document.getElementById('boton-reiniciar');
+if (botonReiniciar) {
+    botonReiniciar.addEventListener('click', reiniciarButacas);
+}
