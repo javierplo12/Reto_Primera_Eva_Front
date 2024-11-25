@@ -45,15 +45,8 @@ function comprarEntrada() {
     const pelicula = document.querySelector("h2").innerText.trim();;
     const horario = document.getElementById("info-horario").innerText.replace("Horario: ", "").trim();
     const sala = document.getElementById("info-sala").innerText.trim();
-    const modal = document.getElementById("modal-info");
-    const id = modal.getAttribute("data-id");
 
-    if (!id) {
-        console.error("ID de función no encontrado. Asegúrate de que 'data-id' esté configurado correctamente.");
-        return;
-    }
-
-    const url = `/butacas.html?pelicula=${encodeURIComponent(pelicula)}&horario=${encodeURIComponent(horario)}&sala=${encodeURIComponent(sala)}&id=${encodeURIComponent(id)}`;
+    const url = `/butacas.html?pelicula=${encodeURIComponent(pelicula)}&horario=${encodeURIComponent(horario)}&sala=${encodeURIComponent(sala)}`;
 
     console.log(`Redirigiendo a: ${url}`);
 

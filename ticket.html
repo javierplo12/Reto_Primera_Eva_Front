@@ -39,7 +39,7 @@
     </header>
     <div class="ticket-container">
         <div class="ticket-info">
-            <h2 id="nombre-pelicula"></h2>
+            <h3 id="nombre-pelicula"></h3>
             <h3 id="nombre-sala"></h3>
             <h3 id="hora"></h3>
             <h3>Butacas Seleccionadas:</h3>
@@ -51,33 +51,40 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-    
-            const pelicula = params.get('pelicula');
-            const horario = params.get('horario');
-            const sala = params.get('sala');
-    
-            // Insertar en el DOM
+            // Recuperar los datos desde localStorage
+            const pelicula = localStorage.getItem('pelicula');
+            const horario = localStorage.getItem('horario');
+            const sala = localStorage.getItem('sala');
+            const butacas = JSON.parse(localStorage.getItem('butacas'));
+            const precioTotal = localStorage.getItem('precioTotal');
+
+            console.log('Datos recuperados desde localStorage:', {
+                pelicula,
+                horario,
+                sala,
+                butacas,
+                precioTotal
+            });
+
+            // Mostrar los valores en el DOM
             document.getElementById('nombre-pelicula').textContent = `Película: ${pelicula}`;
-            document.getElementById('nombre-sala').textContent = `Sala: ${sala}`;
             document.getElementById('hora').textContent = `Hora: ${horario}`;
-    
-            // Cargar las butacas del localStorage
-            const butacas = JSON.parse(localStorage.getItem('butacas')) || [];
+            document.getElementById('nombre-sala').textContent = `${sala}`;
+
+            // Mostrar las butacas seleccionadas
             const listaButacas = document.getElementById('lista-butacas');
-            butacas.forEach(butaca => {
+            butacas.forEach((butaca) => {
                 const li = document.createElement('li');
                 li.textContent = butaca;
                 listaButacas.appendChild(li);
             });
-    
-            // Cargar el precio total del localStorage
-            const precioTotal = localStorage.getItem('precioTotal') || '0.00 €';
-            const precioTotalElement = document.getElementById('precio-total');
-            precioTotalElement.textContent = `Precio Total: ${precioTotal}`;
+
+            // Mostrar el precio total
+                document.getElementById('precio-total').textContent = `Precio Total: ${precioTotal}`;
         });
+
     </script>
-    
+
 
     <footer class="footer">
         <div class="footer_links">

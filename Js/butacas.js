@@ -125,24 +125,33 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const botonComprar = document.getElementById('boton-comprar');
-    const butacasSeleccionadas = document.getElementById('butacas-seleccionadas');
 
     botonComprar.addEventListener('click', () => {
-        const butacas = Array.from(butacasSeleccionadas.children).map(li => li.textContent);
-        localStorage.setItem('butacas', JSON.stringify(butacas));
-
-        // Recuperar y guardar el precio en localStorage
-        const precioTotal = document.getElementById('precio-total').textContent.split(': ')[1];
-        localStorage.setItem('precioTotal', precioTotal);
-
+        // Recuperar los parámetros actuales de la URL
         const params = new URLSearchParams(window.location.search);
         const pelicula = params.get('pelicula');
         const horario = params.get('horario');
         const sala = params.get('sala');
 
-        // Construir URL para redirigir a ticket.html
-        const newUrl = `/ticket.html?pelicula=${encodeURIComponent(pelicula)}&horario=${encodeURIComponent(horario)}&sala=${encodeURIComponent(sala)}`;
-        window.location.href = newUrl;
+        // Guardar los datos de la URL en localStorage
+        localStorage.setItem('pelicula', pelicula);
+        localStorage.setItem('horario', horario);
+        localStorage.setItem('sala', sala);
+
+        // Guardar las butacas seleccionadas
+        const butacas = Array.from(
+            document.getElementById('butacas-seleccionadas').children
+        ).map((li) => li.textContent);
+        localStorage.setItem('butacas', JSON.stringify(butacas));
+
+        // Guardar el precio total
+        const precioTotal = document
+            .getElementById('precio-total')
+            .textContent.split(': ')[1];
+        localStorage.setItem('precioTotal', precioTotal);
+
+        // Redirigir a la nueva página
+        window.location.href = `/ticket.html`;
     });
 });
 
