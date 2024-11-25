@@ -207,7 +207,7 @@ function reiniciarButacas() {
     const allButacas = document.querySelectorAll('.butaca');
     allButacas.forEach((butaca) => {
         butaca.classList.remove('seleccionada');
-        butaca.dataset.bloqueado = 'false'; // Asegurar que las butacas estén desbloqueadas
+        butaca.dataset.bloqueado = 'false';
     });
 
     // Limpiar la lista de butacas seleccionadas
