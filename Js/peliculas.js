@@ -9,9 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         fetch(`${API_URL}/pelicula/${peliculaId}`)
             .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error al obtener la información de la película con ID ${peliculaId}`);
-                }
                 return response.json();
             })
             .then(pelicula => {
