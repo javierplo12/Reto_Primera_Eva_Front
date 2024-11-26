@@ -4,14 +4,12 @@ const params = new URLSearchParams(window.location.search);
 
 // Recuperar las variables de la URL
 const pelicula = params.get('pelicula');
-const idFuncion = params.get('id'); // Esto debería obtener el valor "20"
+const idFuncion = params.get('id'); // Obtener el valor "id"
 console.log('ID de función:', idFuncion);
 
 // Recuperar las variables de la URL
 document.addEventListener('DOMContentLoaded', () => {
-
-
-    // Aquí podrías usar las variables para mostrarlas en el DOM si es necesario
+    // Mostrar nombre de la película
     const peliculaElement = document.getElementById('nombre-pelicula');
     if (peliculaElement) {
         peliculaElement.textContent = `Película: ${pelicula}`;
@@ -37,10 +35,9 @@ async function cargarButacas() {
     }
 }
 
-
 function generarButacas(butacas) {
     const salaCine = document.getElementById('sala-cine');
-    salaCine.innerHTML = '';
+    salaCine.innerHTML = ''; // Limpiar la sala antes de generar las butacas
 
     const filas = agruparPorFilas(butacas);
 
@@ -109,13 +106,13 @@ function actualizarEstadoButacas() {
         });
     });
 
-    // Guardamos el estado de las butacas en localStorage
-    localStorage.setItem('estadoButacas', JSON.stringify(butacasEstado));
+    // Guardamos el estado de las butacas en localStorage, incluyendo el idFuncion
+    localStorage.setItem(`estadoButacas-${idFuncion}`, JSON.stringify(butacasEstado));
 }
 
 // Cargar el estado de las butacas desde localStorage
 function cargarEstadoButacas() {
-    const estadoButacas = JSON.parse(localStorage.getItem('estadoButacas')) || [];
+    const estadoButacas = JSON.parse(localStorage.getItem(`estadoButacas-${idFuncion}`)) || [];
 
     // Recorremos todas las butacas y las marcamos según el estado guardado
     estadoButacas.forEach(({ id, ocupada }) => {
@@ -148,7 +145,7 @@ function actualizarPrecioTotal() {
     precioElement.textContent = `Precio Total: ${totalPrecio.toFixed(2)} €`;
 
     // Guardar el precio en localStorage
-    localStorage.setItem('precioTotal', totalPrecio.toFixed(2));
+    localStorage.setItem(`precioTotal-${idFuncion}`, totalPrecio.toFixed(2));
 
     document.getElementById('boton-comprar').disabled = butacasSeleccionadas.size === 0;
 }
@@ -197,10 +194,10 @@ function reiniciarButacas() {
     // Limpiar las butacas seleccionadas
     butacasSeleccionadas.clear();
 
-    // Limpiar localStorage
-    localStorage.removeItem('estadoButacas');
+    // Limpiar localStorage para la función actual
+    localStorage.removeItem(`estadoButacas-${idFuncion}`);
+    localStorage.removeItem(`precioTotal-${idFuncion}`);
     localStorage.removeItem('butacas');
-    localStorage.removeItem('precioTotal');
 
     // Eliminar la clase 'seleccionada' de todas las butacas
     const allButacas = document.querySelectorAll('.butaca');
