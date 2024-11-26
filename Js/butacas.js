@@ -1,14 +1,15 @@
 let precioButaca = 0;
 const butacasSeleccionadas = new Set();
+const params = new URLSearchParams(window.location.search);
+
+// Recuperar las variables de la URL
+const pelicula = params.get('pelicula');
+const idFuncion = params.get('id'); // Esto debería obtener el valor "20"
+console.log('ID de función:', idFuncion);
 
 // Recuperar las variables de la URL
 document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
 
-    // Recuperar las variables de la URL
-    const pelicula = params.get('pelicula');
-    const horario = params.get('horario');
-    const sala = params.get('sala');
 
     // Aquí podrías usar las variables para mostrarlas en el DOM si es necesario
     const peliculaElement = document.getElementById('nombre-pelicula');
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function cargarButacas() {
     try {
-        const response = await fetch('https://localhost:7185/api/Funcion/53');
+        const response = await fetch(`https://localhost:7185/api/Funcion/${idFuncion}`);
         if (response.ok) {
             const datos = await response.json();
             generarButacas(datos.butacas);
@@ -29,12 +30,13 @@ async function cargarButacas() {
             // Cargar el estado de las butacas desde localStorage
             cargarEstadoButacas();
         } else {
-            console.error('Error al cargar las butacas');
+            console.error('Error al cargar las butacas:', response.status);
         }
     } catch (error) {
         console.error('Error al cargar las butacas:', error);
     }
 }
+
 
 function generarButacas(butacas) {
     const salaCine = document.getElementById('sala-cine');
