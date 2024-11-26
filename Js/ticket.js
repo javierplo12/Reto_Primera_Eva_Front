@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             if (data) {
                 console.log('Pedido creado exitosamente:', data);
-                alert('El pedido se ha guardado exitosamente en el servidor.');
             }
         })
         .catch(error => {
