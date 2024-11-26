@@ -31,5 +31,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Mostrar el precio total
-        document.getElementById('precio-total').textContent = `Precio Total: ${precioTotal}`;
+    document.getElementById('precio-total').textContent = `Precio Total: ${precioTotal}`;
+
+    const nuevoPedido = {
+        pelicula: pelicula || "Sin título", 
+        dia: dia || "Sin día",
+        hora: horario || "Sin hora",
+        butacasSeleccionadas: butacas.join(', ') || "Sin butacas",
+        precio: parseFloat(precioTotal) || 0
+    };
+
+    console.log('Datos a enviar al servidor:', nuevoPedido);
+
+    fetch('https://localhost:7185/api/Pedido', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(nuevoPedido)
+    })
+        .then(response => {
+            if (!response.ok) {
+                return Promise.reject('Error en la respuesta del servidor: ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data) {
+                console.log('Pedido creado exitosamente:', data);
+                alert('El pedido se ha guardado exitosamente en el servidor.');
+            }
+        })
+        .catch(error => {
+            console.error('Error al crear el pedido:', error);
+            alert('Hubo un error al guardar el pedido.');
+        });
+    
 });
+    
