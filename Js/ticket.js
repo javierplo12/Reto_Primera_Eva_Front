@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Recuperar los datos desde localStorage
     const pelicula = localStorage.getItem('pelicula');
+    const dia = localStorage.getItem('dia');
     const horario = localStorage.getItem('horario');
     const sala = localStorage.getItem('sala');
     const butacas = JSON.parse(localStorage.getItem('butacas'));
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('Datos recuperados desde localStorage:', {
         pelicula,
+        dia,
         horario,
         sala,
         butacas,
@@ -16,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mostrar los valores en el DOM
     document.getElementById('nombre-pelicula').textContent = `Película: ${pelicula}`;
+    document.getElementById('dia').textContent = `Día: ${dia}`;
     document.getElementById('hora').textContent = `Hora: ${horario}`;
     document.getElementById('nombre-sala').textContent = `${sala}`;
 

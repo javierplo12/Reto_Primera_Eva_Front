@@ -10,11 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const horario = params.get('horario');
     const sala = params.get('sala');
 
-    // Mostrar en consola para verificar
-    console.log('Pelicula:', pelicula);
-    console.log('Horario:', horario);
-    console.log('Sala:', sala);
-
     // Aquí podrías usar las variables para mostrarlas en el DOM si es necesario
     const peliculaElement = document.getElementById('nombre-pelicula');
     if (peliculaElement) {
@@ -168,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Recuperar los parámetros actuales de la URL
         const params = new URLSearchParams(window.location.search);
         const pelicula = params.get('pelicula');
+        const dia = params.get('dia');
         const horario = params.get('horario');
         const sala = params.get('sala');
 
@@ -175,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('pelicula', pelicula);
         localStorage.setItem('horario', horario);
         localStorage.setItem('sala', sala);
+        localStorage.setItem('dia', dia);
 
         // Guardar las butacas seleccionadas
         const butacas = Array.from(

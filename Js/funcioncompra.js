@@ -39,19 +39,22 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.classList.remove("mostrar");
     }
 
-// Función para comprar entrada
-function comprarEntrada() {
-    // Obtén el contenido del horario y sala desde el modal
-    const pelicula = document.querySelector("h2").innerText.trim();;
-    const horario = document.getElementById("info-horario").innerText.replace("Horario: ", "").trim();
-    const sala = document.getElementById("info-sala").innerText.trim();
+    // Función para comprar entrada
+    function comprarEntrada() {
+        // Obtén el contenido del horario y sala desde el modal
+        const pelicula = document.querySelector("h2").innerText.trim();
+        const dia = document.getElementById("select-dia").value.trim();
+        const horario = document.getElementById("info-horario").innerText.replace("Horario: ", "").trim();
+        const sala = document.getElementById("info-sala").innerText.trim();
+        const modal = document.getElementById("modal-info");
+        const id = modal.getAttribute("data-id");
 
-    const url = `/butacas.html?pelicula=${encodeURIComponent(pelicula)}&horario=${encodeURIComponent(horario)}&sala=${encodeURIComponent(sala)}`;
+        const url = `/butacas.html?pelicula=${encodeURIComponent(pelicula)}&dia=${encodeURIComponent(dia)}&horario=${encodeURIComponent(horario)}&sala=${encodeURIComponent(sala)}&id=${encodeURIComponent(id)}`;
 
-    console.log(`Redirigiendo a: ${url}`);
+        console.log(`Redirigiendo a: ${url}`);
 
-    window.location.href = url;
-}
+        window.location.href = url;
+    }
 
     document.querySelectorAll(".btn-opcion").forEach((boton) => {
         boton.addEventListener("click", () => {
