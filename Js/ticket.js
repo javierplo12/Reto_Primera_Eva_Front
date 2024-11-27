@@ -41,8 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         precio: parseFloat(precioTotal) || 0
     };
 
-    console.log('Datos a enviar al servidor:', nuevoPedido);
-
     fetch('https://localhost:7185/api/Pedido', {
         method: 'POST',
         headers: {
@@ -51,15 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         body: JSON.stringify(nuevoPedido)
     })
-        .then(response => {
-            if (!response.ok) {
-                return Promise.reject('Error en la respuesta del servidor: ' + response.statusText);
-            }
-            return response.json();
-        })
         .then(data => {
             if (data) {
-                console.log('Pedido creado exitosamente:', data);
+                console.log('Pedido creado exitosamente en la API:', data);
             }
         })
         .catch(error => {
