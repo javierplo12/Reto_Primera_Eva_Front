@@ -204,7 +204,6 @@ h2 {
 @media (min-width: 768px) {
   .imagenes_home .entrada_cine {
     flex-direction: row;
-    align-items: flex-start;
   }
   .imagenes_home .entrada_cine .imagenes img {
     max-width: 300px;
@@ -217,11 +216,12 @@ h2 {
   }
 }
 @media (min-width: 1200px) {
-  .imagenes_home .entrada_cine .imagenes img {
-    max-width: 350px;
+  .imagenes_home .entrada_cine img {
+    max-width: 33%;
+    height: auto;
   }
   .imagenes_home .imagen-centro {
-    width: 70%;
+    width: 59%;
   }
   .imagenes_home .imagen-centro .texto_bajo_imagen h2 {
     font-size: 32px;
