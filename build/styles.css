@@ -427,6 +427,40 @@ h1 {
   transform: none;
 }
 
+.info-comprador {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: #0f2950;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.info-comprador label {
+  display: block;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+.info-comprador input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #0b1e3a;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+.info-comprador input:focus {
+  outline: none;
+  border-color: "Cinzel Decorative", serif;
+}
+
 @media (min-width: 768px) {
   .butacas-seleccionadas-container {
     max-width: 500px;
