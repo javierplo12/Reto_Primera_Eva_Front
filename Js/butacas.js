@@ -22,7 +22,7 @@ async function cargarButacas() {
         if (response.ok) {
             const datos = await response.json();
             generarButacas(datos.butacas);
-            precioButaca = datos.precio || 5;
+            precioButaca = 5;
             console.log('Butacas cargadas:', datos.butacas);
 
             // Cargar el estado de las butacas desde localStorage

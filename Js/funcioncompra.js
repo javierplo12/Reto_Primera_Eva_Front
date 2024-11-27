@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function mostrarModal(horario, sala) {
-        console.log(`Mostrando modal: Horario - ${horario}, Sala - ${sala}`);
+        console.log(`Horario - ${horario}, Sala - ${sala}`);
         document.getElementById("info-horario").innerText = `Horario: ${horario}`;
         document.getElementById("info-sala").innerText = sala;
         const modal = document.getElementById("modal-info");
@@ -48,9 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const sala = document.getElementById("info-sala").innerText.trim();
         const modal = document.getElementById("modal-info");
         const id = modal.getAttribute("data-id");
-
+        
+        // Guardamos en la URL las variables 
         const url = `/butacas.html?pelicula=${encodeURIComponent(pelicula)}&dia=${encodeURIComponent(dia)}&horario=${encodeURIComponent(horario)}&sala=${encodeURIComponent(sala)}&id=${encodeURIComponent(id)}`;
 
+        // Redirigimios a la url
         console.log(`Redirigiendo a: ${url}`);
 
         window.location.href = url;
