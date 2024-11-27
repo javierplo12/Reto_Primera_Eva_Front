@@ -37,7 +37,7 @@ async function cargarButacas() {
 
 function generarButacas(butacas) {
     const salaCine = document.getElementById('sala-cine');
-    salaCine.innerHTML = ''; // Limpiar la sala antes de generar las butacas
+    salaCine.innerHTML = '';
 
     const filas = agruparPorFilas(butacas);
 
@@ -90,8 +90,35 @@ function seleccionarButaca(butacaElemento) {
     // Guardar el estado actualizado en localStorage
     actualizarEstadoButacas();
 
+    // Verificar el estado del botón "Comprar"
+    verificarEstadoBoton();
+
     setTimeout(() => (butacaElemento.dataset.bloqueado = 'false'), 300);
 }
+
+// Función para verificar si el botón "Comprar" debe estar habilitado
+function verificarEstadoBoton() {
+    const nombre = document.getElementById('nombre').value.trim();
+    const correo = document.getElementById('correo').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+
+    // Comprobar que los tres campos estén rellenados y haya al menos una butaca seleccionada
+    const formularioCompleto = nombre !== '' && correo !== '' && telefono !== '';
+    const hayButacasSeleccionadas = butacasSeleccionadas.size > 0;
+
+    // Habilitar o deshabilitar el botón "Comprar"
+    const botonComprar = document.getElementById('boton-comprar');
+    botonComprar.disabled = !(formularioCompleto && hayButacasSeleccionadas);
+}
+
+// Eventos para verificar el formulario al rellenar los campos
+document.getElementById('nombre').addEventListener('input', verificarEstadoBoton);
+document.getElementById('correo').addEventListener('input', verificarEstadoBoton);
+document.getElementById('telefono').addEventListener('input', verificarEstadoBoton);
+
+// Verificar el estado del botón al cargar la página
+document.addEventListener('DOMContentLoaded', verificarEstadoBoton);
+
 
 // Función para almacenar el estado de las butacas (ocupadas o no)
 function actualizarEstadoButacas() {
