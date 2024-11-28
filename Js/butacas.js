@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (peliculaElement) {
         peliculaElement.textContent = `Película: ${pelicula}`;
     }
+    // Verificar el estado del botón al cargar la página
+    verificarEstadoBoton();
 });
 
 async function cargarButacas() {
@@ -89,7 +91,7 @@ function seleccionarButaca(butacaElemento) {
     actualizarButacasSeleccionadas();
     actualizarPrecioTotal();
     actualizarEstadoButacas();
-    verificarEstadoBoton();
+    verificarEstadoBoton();  // Verifica el estado del botón después de seleccionar una butaca
 }
 
 function verificarEstadoBoton() {
@@ -149,16 +151,25 @@ function actualizarPrecioTotal() {
 document.addEventListener('DOMContentLoaded', async () => {
     await cargarButacas();
     actualizarButacasSeleccionadas();
+
+    // Agregar listeners a los inputs del formulario
+    const formularioInputs = document.querySelectorAll('#nombre, #correo, #telefono');
+    formularioInputs.forEach(input => {
+        input.addEventListener('input', verificarEstadoBoton);  // Verificar el estado del botón cada vez que el usuario interactúe
+    });
 });
+
+// Evento para el botón "Comprar"
 const botonComprar = document.getElementById('boton-comprar');
 
-document.getElementById('boton-comprar').addEventListener('click', () => {
+botonComprar.addEventListener('click', () => {
     const params = new URLSearchParams(window.location.search);
     const pelicula = params.get('pelicula');
     const dia = params.get('dia');
     const horario = params.get('horario');
     const sala = params.get('sala');
 
+    // Guardar los datos en localStorage
     localStorage.setItem('pelicula', pelicula);
     localStorage.setItem('horario', horario);
     localStorage.setItem('sala', sala);
@@ -174,5 +185,6 @@ document.getElementById('boton-comprar').addEventListener('click', () => {
         .textContent.split(': ')[1];
     localStorage.setItem('precioTotal', precioTotal);
 
-    window.location.href = `ticket.html`;
+    // Redirigir a la página de ticket.html
+    window.location.href = 'ticket.html';
 });
