@@ -51,9 +51,15 @@ function generarButacas(butacas) {
             butacaDiv.dataset.id = butaca.nombre;
             butacaDiv.setAttribute('role', 'button');
 
+            // Bloquear las butacas ocupadas
             if (butaca.estaOcupada) {
                 butacaDiv.classList.add('ocupada');
                 butacaDiv.dataset.bloqueado = 'true';
+            }
+
+            // Deshabilitar la interacción con las butacas ocupadas
+            if (butacaDiv.dataset.bloqueado === 'true') {
+                butacaDiv.style.pointerEvents = 'none'; // Deshabilitar clics en butacas bloqueadas
             }
 
             butacaDiv.addEventListener('click', () => seleccionarButaca(butacaDiv));
@@ -78,7 +84,7 @@ function agruparPorFilas(butacas) {
 }
 
 function seleccionarButaca(butacaElemento) {
-    if (butacaElemento.dataset.bloqueado === 'true') return;
+    if (butacaElemento.dataset.bloqueado === 'true') return;  // No hacer nada si está bloqueada
 
     const id = butacaElemento.dataset.id;
 
@@ -116,6 +122,29 @@ function actualizarEstadoButacas() {
     });
 
     localStorage.setItem(`estadoButacas-${idFuncion}`, JSON.stringify(butacasEstado));
+
+    // Llamada PUT para actualizar el estado de las butacas en el servidor
+    actualizarEstadoEnServidor(butacasEstado);
+}
+
+async function actualizarEstadoEnServidor(butacasEstado) {
+    try {
+        const response = await fetch(`https://localhost:7185/api/Funcion/${idFuncion}/actualizarButacas`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(butacasEstado)
+        });
+
+        if (response.ok) {
+            console.log('Estado de las butacas actualizado en el servidor');
+        } else {
+            console.error('Error al actualizar las butacas en el servidor:', response.status);
+        }
+    } catch (error) {
+        console.error('Error al enviar la solicitud PUT:', error);
+    }
 }
 
 function cargarEstadoButacas() {
@@ -126,6 +155,7 @@ function cargarEstadoButacas() {
         if (butaca) {
             if (ocupada) {
                 butaca.classList.add('seleccionada');
+                butaca.style.pointerEvents = 'none'; // Bloquear la butaca al cargarla como seleccionada
             }
         }
     });
