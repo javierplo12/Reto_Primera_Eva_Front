@@ -1,147 +1,193 @@
-@import '../base/variables.scss';
+  @import '../base/variables.scss';
 
-.sala-cine-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px; // Espacio entre elementos (pantalla y butacas)
-  width: 95%;
+  .sala-cine-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; // Espacio entre elementos (pantalla y butacas)
+    width: 95%;
 
-  margin: 0 auto;
-  padding: 10px;
-  background-color: #1d2733;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #1d2733;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
-  button {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-}
-
-// Pantalla
-.pantalla {
-  background-color: #000;
-  color: #fff;
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 6px;
-  text-transform: uppercase;
-  box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.1);
-}
-
-// Contenedor de filas de butacas
-.sala-cine {
-  display: flex;
-  flex-direction: column;
-  gap: 5px; // Espacio reducido entre filas
-  width: 100%;
-  align-items: center;
-}
-
-// Filas de butacas
-.fila {
-  display: flex;
-  justify-content: center;
-  gap: 4px; // Espaciado reducido entre butacas
-  width: 100%;
-  flex-wrap: wrap; // Ajustar contenido si hay muchas butacas
-}
-
-h1 {
-  margin-left: 25px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-// Butacas individuales
-.butaca {
-  width: 15px; // Tamaño reducido para caber más filas
-  height: 15px;
-  background-color: #d9d9d9;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-
-  &:hover {
-    transform: scale(1.1);
-    background-color: #c4c4c4; // Cambio de color al pasar el mouse
-  }
-}
-
-// Estado seleccionada (butaca azul)
-.butaca.seleccionada {
-  background-color: #4169b8;
-  box-shadow: 0 2px 4px rgba(65, 105, 184, 0.4);
-}
-
-// Estado no disponible (butaca roja)
-.butaca.no-disponible {
-  background-color: #e74c3c;
-  cursor: not-allowed;
-  box-shadow: none;
-
-  &:hover {
-    transform: none; // Sin escala al pasar el mouse
-  }
-}
-
-.info-comprador {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  background-color: lighten($background-color, 10%); // Fondo ligeramente más claro que el fondo principal
-  border: 1px solid $text-color;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Sombra para un diseño más dinámico
-
-  label {
-    display: block;
-    font-family: $font-primary;
-    font-weight: bold;
-    font-size: 1rem;
-    color: $text-color;
-    margin-bottom: 0.5rem;
+    button {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
   }
 
-  input {
-    display: block;
+  // Pantalla
+  .pantalla {
+    background-color: #000;
+    color: #fff;
     width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1.5rem;
-    font-family: $font-primary;
-    font-size: 1rem;
-    border: 1px solid lighten($text-color, 20%);
-    border-radius: 5px;
-    background-color: lighten($background-color, 5%);
-    color: $text-color;
-    transition: all 0.3s ease;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-transform: uppercase;
+    box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.1);
+  }
 
-    &:focus {
-      outline: none;
-      border-color: $font-secondary;
+  // Contenedor de filas de butacas
+  .sala-cine {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; // Espacio reducido entre filas
+    width: 100%;
+    align-items: center;
+  }
+
+  // Filas de butacas
+  .fila {
+    display: flex;
+    justify-content: center;
+    gap: 4px; // Espaciado reducido entre butacas
+    width: 100%;
+    flex-wrap: wrap; // Ajustar contenido si hay muchas butacas
+  }
+
+  h1 {
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  // Butacas individuales
+  .butaca {
+    width: 15px; // Tamaño reducido para caber más filas
+    height: 15px;
+    background-color: #d9d9d9;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: #c4c4c4; // Cambio de color al pasar el mouse
     }
   }
-}
 
+  // Estado seleccionada (butaca azul)
+  .butaca.seleccionada {
+    background-color: #4169b8;
+    box-shadow: 0 2px 4px rgba(65, 105, 184, 0.4);
+  }
 
-@media (min-width: 768px) {
-  .butacas-seleccionadas-container {
-    max-width: 500px;
-    margin: 20px auto 0;
-    padding: 20px;
+  // Estado no disponible (butaca roja)
+  .butaca.no-disponible {
+    background-color: #e74c3c;
+    cursor: not-allowed;
+    box-shadow: none;
 
-    h3 {
-      font-size: 20px;
-    }
-
-    ul li {
-      font-size: 16px;
+    &:hover {
+      transform: none; // Sin escala al pasar el mouse
     }
   }
-}
+
+  .info-comprador {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: lighten($background-color, 13%); // Fondo ligeramente más claro que el fondo principal
+    border: 1px solid $text-color;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Sombra para un diseño más dinámico
+
+    label {
+      display: block;
+      font-family: $font-primary;
+      font-weight: bold;
+      font-size: 1rem;
+      color: $text-color;
+      margin-bottom: 0.5rem;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      font-family: $font-primary;
+      font-size: 1rem;
+      border: 1px solid lighten($text-color, 20%);
+      border-radius: 5px;
+      background-color: lighten($background-color, 5%);
+      color: $text-color;
+      transition: all 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: $font-secondary;
+      }
+    }
+  }
+
+
+  @media (min-width: 1024px) {
+    .sala-cine-container {
+      width: 70%; // Reducir el ancho al 70%
+      gap: 10px; // Ajustar el espaciado entre elementos a un tamaño menor
+      padding: 15px; // Reducir el padding para mantener proporciones
+   
+  
+      button {
+        font-size: 18px; // Mantener tamaño de botón consistente con el diseño más compacto
+        margin-top: 15px; // Reducir margen superior del botón
+      }
+    }
+  
+    .pantalla {
+      font-size: 14px; // Disminuir ligeramente el tamaño de texto
+      padding: 10px; // Reducir el relleno para mantener la proporcionalidad
+      width: 85%; // Reducir el ancho para ajustarlo al contenedor más pequeño
+    }
+  
+    .sala-cine {
+      width: 85%; // Reducir el ancho del contenedor de butacas
+      gap: 8px; // Disminuir el espacio entre filas
+    }
+  
+    .fila {
+      gap: 5px; // Ajustar el espacio entre butacas
+      flex-wrap: nowrap;
+    }
+  
+    .butaca {
+      width: 30px; // Butacas ligeramente más pequeñas
+      height: 30px;
+  
+      &:hover {
+        transform: scale(1.1); // Disminuir efecto de escala para mantener diseño compacto
+      }
+    }
+  
+    h1 {
+      font-size: 24px; // Reducir el tamaño del título
+      margin-left: 0;
+      text-align: center;
+    }
+  
+    .info-comprador {
+      max-width: 600px; // Más pequeño que antes para coincidir con el diseño general
+      margin: 1.5rem auto;
+      padding: 1.5rem;
+      width: 50%;
+  
+      label {
+        font-size: 1rem; // Reducir tamaño de las etiquetas
+      }
+  
+      input {
+        font-size: 1rem; // Ajustar tamaño del texto
+        padding: 0.75rem; // Disminuir el padding para mantener la escala
+      }
+    }
+  }
+  

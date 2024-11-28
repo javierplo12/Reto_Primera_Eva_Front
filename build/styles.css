@@ -430,9 +430,9 @@ h1 {
 .info-comprador {
   margin: 2rem 0;
   padding: 1.5rem;
-  background-color: #0f2950;
+  background-color: #12305d;
   border: 1px solid #ffffff;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 .info-comprador label {
@@ -461,17 +461,53 @@ h1 {
   border-color: "Cinzel Decorative", serif;
 }
 
-@media (min-width: 768px) {
-  .butacas-seleccionadas-container {
-    max-width: 500px;
-    margin: 20px auto 0;
-    padding: 20px;
+@media (min-width: 1024px) {
+  .sala-cine-container {
+    width: 70%;
+    gap: 10px;
+    padding: 15px;
   }
-  .butacas-seleccionadas-container h3 {
-    font-size: 20px;
+  .sala-cine-container button {
+    font-size: 18px;
+    margin-top: 15px;
   }
-  .butacas-seleccionadas-container ul li {
-    font-size: 16px;
+  .pantalla {
+    font-size: 14px;
+    padding: 10px;
+    width: 85%;
+  }
+  .sala-cine {
+    width: 85%;
+    gap: 8px;
+  }
+  .fila {
+    gap: 5px;
+    flex-wrap: nowrap;
+  }
+  .butaca {
+    width: 30px;
+    height: 30px;
+  }
+  .butaca:hover {
+    transform: scale(1.1);
+  }
+  h1 {
+    font-size: 24px;
+    margin-left: 0;
+    text-align: center;
+  }
+  .info-comprador {
+    max-width: 600px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    width: 50%;
+  }
+  .info-comprador label {
+    font-size: 1rem;
+  }
+  .info-comprador input {
+    font-size: 1rem;
+    padding: 0.75rem;
   }
 }
 .pelicula-detalle {
