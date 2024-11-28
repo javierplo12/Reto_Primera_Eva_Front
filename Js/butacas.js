@@ -1,15 +1,14 @@
-let precioButaca = 0;
+let precioButaca;
 const butacasSeleccionadas = new Set();
 const params = new URLSearchParams(window.location.search);
 
 // Recuperar las variables de la URL
 const pelicula = params.get('pelicula');
-const idFuncion = params.get('id'); // Obtener el valor "id"
+const idFuncion = params.get('id');
 console.log('ID de función:', idFuncion);
 
 // Recuperar las variables de la URL
 document.addEventListener('DOMContentLoaded', () => {
-    // Mostrar nombre de la película
     const peliculaElement = document.getElementById('nombre-pelicula');
     if (peliculaElement) {
         peliculaElement.textContent = `Película: ${pelicula}`;
@@ -25,8 +24,7 @@ async function cargarButacas() {
             precioButaca = 5;
             console.log('Butacas cargadas:', datos.butacas);
 
-            // Cargar el estado de las butacas desde localStorage
-            cargarEstadoButacas();
+            cargarEstadoButacas(); // Cargar el estado de las butacas desde localStorage
         } else {
             console.error('Error al cargar las butacas:', response.status);
         }
@@ -41,15 +39,20 @@ function generarButacas(butacas) {
 
     const filas = agruparPorFilas(butacas);
 
-    filas.forEach((fila, filaIndex) => {
+    filas.forEach((fila) => {
         const filaDiv = document.createElement('div');
         filaDiv.classList.add('fila');
 
         fila.forEach((butaca) => {
             const butacaDiv = document.createElement('div');
             butacaDiv.className = 'butaca';
-            butacaDiv.dataset.id = butaca;
+            butacaDiv.dataset.id = butaca.nombre;
             butacaDiv.setAttribute('role', 'button');
+
+            if (butaca.estaOcupada) {
+                butacaDiv.classList.add('ocupada');
+                butacaDiv.dataset.bloqueado = 'true';
+            }
 
             butacaDiv.addEventListener('click', () => seleccionarButaca(butacaDiv));
 
@@ -64,7 +67,7 @@ function agruparPorFilas(butacas) {
     const filas = {};
 
     butacas.forEach((butaca) => {
-        const [fila] = butaca.split('-');
+        const [fila] = butaca.nombre.split('-');
         if (!filas[fila]) filas[fila] = [];
         filas[fila].push(butaca);
     });
@@ -74,7 +77,6 @@ function agruparPorFilas(butacas) {
 
 function seleccionarButaca(butacaElemento) {
     if (butacaElemento.dataset.bloqueado === 'true') return;
-    butacaElemento.dataset.bloqueado = 'true';
 
     const id = butacaElemento.dataset.id;
 
@@ -86,68 +88,42 @@ function seleccionarButaca(butacaElemento) {
 
     actualizarButacasSeleccionadas();
     actualizarPrecioTotal();
-
-    // Guardar el estado actualizado en localStorage
     actualizarEstadoButacas();
-
-    // Verificar el estado del botón "Comprar"
     verificarEstadoBoton();
-
-    setTimeout(() => (butacaElemento.dataset.bloqueado = 'false'), 300);
 }
 
-// Función para verificar si el botón "Comprar" debe estar habilitado
 function verificarEstadoBoton() {
     const nombre = document.getElementById('nombre').value.trim();
     const correo = document.getElementById('correo').value.trim();
     const telefono = document.getElementById('telefono').value.trim();
-
-    // Comprobar que los tres campos estén rellenados y haya al menos una butaca seleccionada
     const formularioCompleto = nombre !== '' && correo !== '' && telefono !== '';
     const hayButacasSeleccionadas = butacasSeleccionadas.size > 0;
-
-    // Habilitar o deshabilitar el botón "Comprar"
     const botonComprar = document.getElementById('boton-comprar');
     botonComprar.disabled = !(formularioCompleto && hayButacasSeleccionadas);
 }
 
-// Eventos para verificar el formulario al rellenar los campos
-document.getElementById('nombre').addEventListener('input', verificarEstadoBoton);
-document.getElementById('correo').addEventListener('input', verificarEstadoBoton);
-document.getElementById('telefono').addEventListener('input', verificarEstadoBoton);
-
-// Verificar el estado del botón al cargar la página
-document.addEventListener('DOMContentLoaded', verificarEstadoBoton);
-
-
-// Función para almacenar el estado de las butacas (ocupadas o no)
 function actualizarEstadoButacas() {
     const butacasEstado = [];
     const allButacas = document.querySelectorAll('.butaca');
 
     allButacas.forEach((butaca) => {
-        // Verificamos si la butaca está ocupada
         butacasEstado.push({
             id: butaca.dataset.id,
-            ocupada: butaca.classList.contains('seleccionada') || butaca.dataset.bloqueado === 'true'
+            ocupada: butaca.classList.contains('seleccionada') || butaca.classList.contains('ocupada')
         });
     });
 
-    // Guardamos el estado de las butacas en localStorage, incluyendo el idFuncion
     localStorage.setItem(`estadoButacas-${idFuncion}`, JSON.stringify(butacasEstado));
 }
 
-// Cargar el estado de las butacas desde localStorage
 function cargarEstadoButacas() {
     const estadoButacas = JSON.parse(localStorage.getItem(`estadoButacas-${idFuncion}`)) || [];
 
-    // Recorremos todas las butacas y las marcamos según el estado guardado
     estadoButacas.forEach(({ id, ocupada }) => {
         const butaca = document.querySelector(`.butaca[data-id="${id}"]`);
         if (butaca) {
             if (ocupada) {
                 butaca.classList.add('seleccionada');
-                butaca.dataset.bloqueado = 'true';  // Para evitar que se seleccione de nuevo
             }
         }
     });
@@ -157,12 +133,10 @@ function actualizarButacasSeleccionadas() {
     const lista = document.getElementById('butacas-seleccionadas');
     lista.innerHTML = '';
 
-    if (butacasSeleccionadas.size > 0) {
-        for (const butaca of butacasSeleccionadas) {
-            const li = document.createElement('li');
-            li.textContent = butaca;
-            lista.appendChild(li);
-        }
+    for (const butaca of butacasSeleccionadas) {
+        const li = document.createElement('li');
+        li.textContent = butaca;
+        lista.appendChild(li);
     }
 }
 
@@ -170,76 +144,35 @@ function actualizarPrecioTotal() {
     const totalPrecio = butacasSeleccionadas.size * precioButaca;
     const precioElement = document.getElementById('precio-total');
     precioElement.textContent = `Precio Total: ${totalPrecio.toFixed(2)} €`;
-
-    // Guardar el precio en localStorage
-    localStorage.setItem(`precioTotal-${idFuncion}`, totalPrecio.toFixed(2));
-
-    document.getElementById('boton-comprar').disabled = butacasSeleccionadas.size === 0;
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
     await cargarButacas();
     actualizarButacasSeleccionadas();
 });
+const botonComprar = document.getElementById('boton-comprar');
 
-document.addEventListener('DOMContentLoaded', () => {
-    const botonComprar = document.getElementById('boton-comprar');
+document.getElementById('boton-comprar').addEventListener('click', () => {
+    const params = new URLSearchParams(window.location.search);
+    const pelicula = params.get('pelicula');
+    const dia = params.get('dia');
+    const horario = params.get('horario');
+    const sala = params.get('sala');
 
-    botonComprar.addEventListener('click', () => {
-        // Recuperar los parámetros actuales de la URL
-        const params = new URLSearchParams(window.location.search);
-        const pelicula = params.get('pelicula');
-        const dia = params.get('dia');
-        const horario = params.get('horario');
-        const sala = params.get('sala');
+    localStorage.setItem('pelicula', pelicula);
+    localStorage.setItem('horario', horario);
+    localStorage.setItem('sala', sala);
+    localStorage.setItem('dia', dia);
 
-        // Guardar los datos de la URL en localStorage
-        localStorage.setItem('pelicula', pelicula);
-        localStorage.setItem('horario', horario);
-        localStorage.setItem('sala', sala);
-        localStorage.setItem('dia', dia);
+    const butacas = Array.from(
+        document.getElementById('butacas-seleccionadas').children
+    ).map((li) => li.textContent);
+    localStorage.setItem('butacas', JSON.stringify(butacas));
 
-        // Guardar las butacas seleccionadas
-        const butacas = Array.from(
-            document.getElementById('butacas-seleccionadas').children
-        ).map((li) => li.textContent);
-        localStorage.setItem('butacas', JSON.stringify(butacas));
+    const precioTotal = document
+        .getElementById('precio-total')
+        .textContent.split(': ')[1];
+    localStorage.setItem('precioTotal', precioTotal);
 
-        // Guardar el precio total
-        const precioTotal = document
-            .getElementById('precio-total')
-            .textContent.split(': ')[1];
-        localStorage.setItem('precioTotal', precioTotal);
-
-        // Redirigir a la nueva página
-        window.location.href = `/ticket.html`;
-    });
+    window.location.href = `ticket.html`;
 });
-
-// Función para reiniciar el estado de las butacas (vaciar todas)
-function reiniciarButacas() {
-    // Limpiar las butacas seleccionadas
-    butacasSeleccionadas.clear();
-
-    // Limpiar localStorage para la función actual
-    localStorage.removeItem(`estadoButacas-${idFuncion}`);
-    localStorage.removeItem(`precioTotal-${idFuncion}`);
-    localStorage.removeItem('butacas');
-
-    // Eliminar la clase 'seleccionada' de todas las butacas
-    const allButacas = document.querySelectorAll('.butaca');
-    allButacas.forEach((butaca) => {
-        butaca.classList.remove('seleccionada');
-        butaca.dataset.bloqueado = 'false';
-    });
-
-    // Limpiar la lista de butacas seleccionadas
-    actualizarButacasSeleccionadas();
-    actualizarPrecioTotal();
-}
-
-// Llamar a esta función cuando quieras reiniciar el estado, por ejemplo con un botón:
-const botonReiniciar = document.getElementById('boton-reiniciar');
-if (botonReiniciar) {
-    botonReiniciar.addEventListener('click', reiniciarButacas);
-}
