@@ -89,5 +89,25 @@
       background: #2729ae;
     }
   }
+  .button-atras-ticket {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #4169e1, #1e3a8a);
+    border: none;
+    border-radius: 8px;
+    margin-left: 117px;
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
 
   

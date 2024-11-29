@@ -1,0 +1,29 @@
+@use '../base/variables.scss';
+
+.ticket-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+
+
+ 
+
+}
+
+
+
+// Media Query para ordenadores
+@media (min-width: 1024px) {
+    .ticket-info {
+       
+        max-width: 100%; // Ajuste del ancho en pantallas grandes
+        padding: 40px;
+
+        h3 {
+            font-size: 20px;
+        }
+    }
+}
