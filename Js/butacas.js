@@ -149,14 +149,14 @@ function actualizarListaButacasSeleccionadas() {
     const listaElement = document.getElementById('butacas-seleccionadas');
     listaElement.innerHTML = ''; // Limpiar la lista actual
 
-    // Agregar cada butaca seleccionada a la lista como <li>
+    // Agregar cada butaca seleccionada a la lista
     butacasSeleccionadas.forEach((butaca) => {
         const li = document.createElement('li');
-        li.textContent = butaca; // Ejemplo: "A1", "B2"
+        li.textContent = butaca; 
         listaElement.appendChild(li);
     });
 
-    // Si no hay butacas seleccionadas, mostrar un mensaje vacío
+    // Si no hay butacas seleccionadas, mostrar este mensaje
     if (butacasSeleccionadas.size === 0) {
         listaElement.innerHTML = '<li>No has seleccionado ninguna butaca.</li>';
     }
@@ -218,6 +218,6 @@ botonComprar.addEventListener('click', async () => {
     // Actualizar las butacas seleccionadas en el servidor
     await actualizarEstadoButacas();
 
-    // Redirigir a la página de ticket.html
+    // Redirigir a la página a ticket.html
     window.location.href = 'ticket.html';
 });
