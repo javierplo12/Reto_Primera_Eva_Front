@@ -25,8 +25,6 @@ async function cargarButacas() {
             generarButacas(datos.butacas);
             precioButaca = 5;
             console.log('Butacas cargadas:', datos.butacas);
-
-            cargarEstadoButacas(); // Cargar el estado de las butacas desde localStorage
         } else {
             console.error('Error al cargar las butacas:', response.status);
         }
@@ -37,7 +35,7 @@ async function cargarButacas() {
 
 function generarButacas(butacas) {
     const salaCine = document.getElementById('sala-cine');
-    salaCine.innerHTML = '';
+    salaCine.innerHTML = ''; // Limpiar cualquier contenido anterior
 
     const filas = agruparPorFilas(butacas);
 
@@ -51,16 +49,12 @@ function generarButacas(butacas) {
             butacaDiv.dataset.id = butaca.nombre;
             butacaDiv.setAttribute('role', 'button');
 
-            // Bloquear las butacas ocupadas
+            // Marcar las butacas ocupadas según el estado de la API
             if (butaca.estaOcupada) {
-                butacaDiv.classList.add('ocupada');
+                butacaDiv.classList.add('no-disponible');
                 butacaDiv.dataset.bloqueado = 'true';
-            }
-
-            // Deshabilitar la interacción con las butacas ocupadas
-            if (butacaDiv.dataset.bloqueado === 'true') {
-                butacaDiv.style.pointerEvents = 'none'; // Deshabilitar clics en butacas bloqueadas
-            }
+                butacaDiv.style.pointerEvents = 'none'; // Deshabilitar clics
+            }            
 
             butacaDiv.addEventListener('click', () => seleccionarButaca(butacaDiv));
 
@@ -84,7 +78,7 @@ function agruparPorFilas(butacas) {
 }
 
 function seleccionarButaca(butacaElemento) {
-    if (butacaElemento.dataset.bloqueado === 'true') return;  // No hacer nada si está bloqueada
+    if (butacaElemento.dataset.bloqueado === 'true') return; // No hacer nada si está bloqueada
 
     const id = butacaElemento.dataset.id;
 
@@ -94,12 +88,9 @@ function seleccionarButaca(butacaElemento) {
         butacasSeleccionadas.add(id);
     }
 
-    actualizarButacasSeleccionadas();
     actualizarPrecioTotal();
-    actualizarEstadoButacas();
-    verificarEstadoBoton();  // Verifica el estado del botón después de seleccionar una butaca
+    verificarEstadoBoton();
 }
-
 function verificarEstadoBoton() {
     const nombre = document.getElementById('nombre').value.trim();
     const correo = document.getElementById('correo').value.trim();
@@ -110,89 +101,64 @@ function verificarEstadoBoton() {
     botonComprar.disabled = !(formularioCompleto && hayButacasSeleccionadas);
 }
 
-function actualizarEstadoButacas() {
-    const butacasEstado = [];
-    const allButacas = document.querySelectorAll('.butaca');
-
-    allButacas.forEach((butaca) => {
-        butacasEstado.push({
-            id: butaca.dataset.id,
-            ocupada: butaca.classList.contains('seleccionada') || butaca.classList.contains('ocupada')
-        });
-    });
-
-    localStorage.setItem(`estadoButacas-${idFuncion}`, JSON.stringify(butacasEstado));
-
-    // Llamada PUT para actualizar el estado de las butacas en el servidor
-    actualizarEstadoEnServidor(butacasEstado);
-}
-
-async function actualizarEstadoEnServidor(butacasEstado) {
-    try {
-        const response = await fetch(`https://localhost:7185/api/Funcion/${idFuncion}/actualizarButacas`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(butacasEstado)
-        });
-
-        if (response.ok) {
-            console.log('Estado de las butacas actualizado en el servidor');
-        } else {
-            console.error('Error al actualizar las butacas en el servidor:', response.status);
-        }
-    } catch (error) {
-        console.error('Error al enviar la solicitud PUT:', error);
-    }
-}
-
-function cargarEstadoButacas() {
-    const estadoButacas = JSON.parse(localStorage.getItem(`estadoButacas-${idFuncion}`)) || [];
-
-    estadoButacas.forEach(({ id, ocupada }) => {
-        const butaca = document.querySelector(`.butaca[data-id="${id}"]`);
-        if (butaca) {
-            if (ocupada) {
-                butaca.classList.add('seleccionada');
-                butaca.style.pointerEvents = 'none'; // Bloquear la butaca al cargarla como seleccionada
-            }
-        }
-    });
-}
-
-function actualizarButacasSeleccionadas() {
-    const lista = document.getElementById('butacas-seleccionadas');
-    lista.innerHTML = '';
-
-    for (const butaca of butacasSeleccionadas) {
-        const li = document.createElement('li');
-        li.textContent = butaca;
-        lista.appendChild(li);
-    }
-}
-
 function actualizarPrecioTotal() {
     const totalPrecio = butacasSeleccionadas.size * precioButaca;
     const precioElement = document.getElementById('precio-total');
     precioElement.textContent = `Precio Total: ${totalPrecio.toFixed(2)} €`;
 }
 
+async function actualizarEstadoButacas() {
+    const allButacas = Array.from(document.querySelectorAll('.butaca'));
+    const butacasEstado = allButacas.map((butaca) => {
+        const estaOcupadaOriginal = butaca.classList.contains('no-disponible'); // Verificar si estaba originalmente ocupada
+        return {
+            nombre: butaca.dataset.id,
+            estaOcupada: estaOcupadaOriginal || butaca.classList.contains('seleccionada'), // Mantener ocupado si ya lo estaba
+        };
+    });
+
+    console.log('Datos enviados al servidor:', JSON.stringify(butacasEstado)); // Depuración
+
+    // Llamada PUT para actualizar el estado de las butacas en el servidor
+    await actualizarEstadoEnServidor(butacasEstado);
+}
+
+
+async function actualizarEstadoEnServidor(butacasEstado) {
+    try {
+        const response = await fetch(`https://localhost:7185/api/Funcion/${idFuncion}/butacas`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(butacasEstado),
+        });
+
+        if (response.ok) {
+            console.log('Estado de las butacas actualizado en el servidor');
+        } else {
+            const errorText = await response.text();
+            console.error('Error al actualizar las butacas en el servidor:', response.status, errorText);
+        }
+    } catch (error) {
+        console.error('Error al enviar la solicitud PUT:', error);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     await cargarButacas();
-    actualizarButacasSeleccionadas();
 
     // Agregar listeners a los inputs del formulario
     const formularioInputs = document.querySelectorAll('#nombre, #correo, #telefono');
-    formularioInputs.forEach(input => {
-        input.addEventListener('input', verificarEstadoBoton);  // Verificar el estado del botón cada vez que el usuario interactúe
+    formularioInputs.forEach((input) => {
+        input.addEventListener('input', verificarEstadoBoton); // Verificar el estado del botón cada vez que el usuario interactúe
     });
 });
 
 // Evento para el botón "Comprar"
 const botonComprar = document.getElementById('boton-comprar');
 
-botonComprar.addEventListener('click', () => {
+botonComprar.addEventListener('click', async () => {
     const params = new URLSearchParams(window.location.search);
     const pelicula = params.get('pelicula');
     const dia = params.get('dia');
@@ -214,6 +180,9 @@ botonComprar.addEventListener('click', () => {
         .getElementById('precio-total')
         .textContent.split(': ')[1];
     localStorage.setItem('precioTotal', precioTotal);
+
+    // Actualizar las butacas seleccionadas en el servidor
+    await actualizarEstadoButacas();
 
     // Redirigir a la página de ticket.html
     window.location.href = 'ticket.html';
