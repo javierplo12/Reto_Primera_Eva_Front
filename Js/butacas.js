@@ -54,7 +54,7 @@ function generarButacas(butacas) {
                 butacaDiv.classList.add('no-disponible');
                 butacaDiv.dataset.bloqueado = 'true';
                 butacaDiv.style.pointerEvents = 'none'; // Deshabilitar clics
-            }            
+            }
 
             butacaDiv.addEventListener('click', () => seleccionarButaca(butacaDiv));
 
@@ -78,19 +78,21 @@ function agruparPorFilas(butacas) {
 }
 
 function seleccionarButaca(butacaElemento) {
-    if (butacaElemento.dataset.bloqueado === 'true') return; // No hacer nada si está bloqueada
+    if (butacaElemento.dataset.bloqueado === 'true') return;
 
     const id = butacaElemento.dataset.id;
 
+    // Alternar la clase seleccionada
     if (!butacaElemento.classList.toggle('seleccionada')) {
         butacasSeleccionadas.delete(id);
     } else {
         butacasSeleccionadas.add(id);
     }
 
+    actualizarListaButacasSeleccionadas();
     actualizarPrecioTotal();
-    verificarEstadoBoton();
 }
+
 function verificarEstadoBoton() {
     const nombre = document.getElementById('nombre').value.trim();
     const correo = document.getElementById('correo').value.trim();
@@ -122,6 +124,24 @@ async function actualizarEstadoButacas() {
     // Llamada PUT para actualizar el estado de las butacas en el servidor
     await actualizarEstadoEnServidor(butacasEstado);
 }
+
+function actualizarListaButacasSeleccionadas() {
+    const listaElement = document.getElementById('butacas-seleccionadas');
+    listaElement.innerHTML = ''; // Limpiar la lista actual
+
+    // Agregar cada butaca seleccionada a la lista como <li>
+    butacasSeleccionadas.forEach((butaca) => {
+        const li = document.createElement('li');
+        li.textContent = butaca; // Ejemplo: "A1", "B2"
+        listaElement.appendChild(li);
+    });
+
+    // Si no hay butacas seleccionadas, mostrar un mensaje vacío
+    if (butacasSeleccionadas.size === 0) {
+        listaElement.innerHTML = '<li>No has seleccionado ninguna butaca.</li>';
+    }
+}
+
 
 
 async function actualizarEstadoEnServidor(butacasEstado) {

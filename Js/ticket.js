@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const horario = localStorage.getItem('horario');
     const sala = localStorage.getItem('sala');
     const butacas = JSON.parse(localStorage.getItem('butacas'));
+    localStorage.setItem('butacas', JSON.stringify(butacas));
+
     const precioTotal = localStorage.getItem('precioTotal');
 
     console.log('Datos recuperados desde localStorage:', {
@@ -26,19 +28,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const listaButacas = document.getElementById('lista-butacas');
     butacas.forEach((butaca) => {
         const li = document.createElement('li');
-        li.textContent = butaca;
+        li.textContent = butaca;    
         listaButacas.appendChild(li);
     });
+
 
     // Mostrar el precio total
     document.getElementById('precio-total').textContent = `Precio Total: ${precioTotal}`;
 
     const nuevoPedido = {
-        pelicula: pelicula || "Sin título", 
-        dia: dia || "Sin día",
-        hora: horario || "Sin hora",
-        butacasSeleccionadas: butacas.join(', ') || "Sin butacas",
-        precio: parseFloat(precioTotal) || 0
+        pelicula: pelicula,
+        dia: dia,
+        hora: horario,
+        butacasSeleccionadas: butacas.join(', '),
+        precio: parseFloat(precioTotal)
     };
 
     fetch('https://localhost:7185/api/Pedido', {
@@ -58,6 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error al crear el pedido:', error);
             alert('Hubo un error al guardar el pedido.');
         });
-    
+
 });
-    
+
