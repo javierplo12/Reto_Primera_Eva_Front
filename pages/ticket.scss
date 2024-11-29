@@ -8,10 +8,14 @@
     padding: 20px;
     border-radius: 10px;
 
-
- 
-
+    h3 {
+        &.reserva-completada, 
+        &#precio-total {
+            margin-bottom: 20px;
+        }
+    }
 }
+
 
 
 
@@ -19,7 +23,7 @@
 @media (min-width: 1024px) {
     .ticket-info {
        
-        max-width: 100%; // Ajuste del ancho en pantallas grandes
+        max-width: 100%; 
         padding: 40px;
 
         h3 {

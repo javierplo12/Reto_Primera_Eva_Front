@@ -1,19 +1,39 @@
 let precioButaca;
 const butacasSeleccionadas = new Set();
-const params = new URLSearchParams(window.location.search);
 
 // Recuperar las variables de la URL
+const params = new URLSearchParams(window.location.search);
 const pelicula = params.get('pelicula');
+const dia = params.get('dia');
+const horario = params.get('horario');
+const sala = params.get('sala');
 const idFuncion = params.get('id');
 console.log('ID de función:', idFuncion);
 
-// Recuperar las variables de la URL
-document.addEventListener('DOMContentLoaded', () => {
-    const peliculaElement = document.getElementById('nombre-pelicula');
-    if (peliculaElement) {
+// Mostrar la información de la película al cargar la página
+document.addEventListener('DOMContentLoaded', async () => {
+    // Asignamos los valores de las variables a los elementos correspondientes en el HTML
+    const peliculaElement = document.querySelector(".pelicula-seleccionada");
+    const diaElement = document.querySelector(".dia-pelicula");
+    const horaElement = document.querySelector(".hora-pelicula");
+    const salaElement = document.querySelector(".sala-pelicula");
+
+    if (peliculaElement && diaElement && horaElement && salaElement) {
         peliculaElement.textContent = `Película: ${pelicula}`;
+        diaElement.textContent = `Día: ${dia}`;
+        horaElement.textContent = `Hora: ${horario}`;
+        salaElement.textContent = `Sala: ${sala}`;
     }
-    // Verificar el estado del botón al cargar la página
+
+    // Cargar las butacas
+    await cargarButacas();
+
+    // Agregar listeners a los inputs del formulario
+    const formularioInputs = document.querySelectorAll('#nombre, #correo, #telefono');
+    formularioInputs.forEach((input) => {
+        input.addEventListener('input', verificarEstadoBoton); 
+    });
+
     verificarEstadoBoton();
 });
 
@@ -35,7 +55,6 @@ async function cargarButacas() {
 
 function generarButacas(butacas) {
     const salaCine = document.getElementById('sala-cine');
-    salaCine.innerHTML = ''; // Limpiar cualquier contenido anterior
 
     const filas = agruparPorFilas(butacas);
 
@@ -96,6 +115,7 @@ function seleccionarButaca(butacaElemento) {
 function verificarEstadoBoton() {
     const nombre = document.getElementById('nombre').value.trim();
     const correo = document.getElementById('correo').value.trim();
+    localStorage.setItem('correo', correo); // Guardamos el valor correo en un localstorage para mostrarlo en ticket
     const telefono = document.getElementById('telefono').value.trim();
     const formularioCompleto = nombre !== '' && correo !== '' && telefono !== '';
     const hayButacasSeleccionadas = butacasSeleccionadas.size > 0;
@@ -142,8 +162,6 @@ function actualizarListaButacasSeleccionadas() {
     }
 }
 
-
-
 async function actualizarEstadoEnServidor(butacasEstado) {
     try {
         const response = await fetch(`https://localhost:7185/api/Funcion/${idFuncion}/butacas`, {
@@ -165,31 +183,27 @@ async function actualizarEstadoEnServidor(butacasEstado) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    await cargarButacas();
-
-    // Agregar listeners a los inputs del formulario
-    const formularioInputs = document.querySelectorAll('#nombre, #correo, #telefono');
-    formularioInputs.forEach((input) => {
-        input.addEventListener('input', verificarEstadoBoton); // Verificar el estado del botón cada vez que el usuario interactúe
-    });
-});
-
 // Evento para el botón "Comprar"
 const botonComprar = document.getElementById('boton-comprar');
 
 botonComprar.addEventListener('click', async () => {
-    const params = new URLSearchParams(window.location.search);
-    const pelicula = params.get('pelicula');
-    const dia = params.get('dia');
-    const horario = params.get('horario');
-    const sala = params.get('sala');
-
-    // Guardar los datos en localStorage
+    // Guardar los datos en localStorage para mostrarlos en ticket.html
     localStorage.setItem('pelicula', pelicula);
     localStorage.setItem('horario', horario);
     localStorage.setItem('sala', sala);
     localStorage.setItem('dia', dia);
+
+    // Asignamos los valores a butacas.html para mostrar la informacion de la pelicula ahi tambien
+    const peliculaElement = document.querySelector(".pelicula-seleccionada");
+    const diaElement = document.querySelector(".dia-pelicula");
+    const horaElement = document.querySelector(".hora-pelicula");
+
+    // Verificamos que los elementos existan y asignamos los valores
+    if (peliculaElement && diaElement && horaElement) {
+        peliculaElement.textContent = `Película: ${pelicula}`;
+        diaElement.textContent = `Día: ${dia}`;
+        horaElement.textContent = `Hora: ${horario} - Sala: ${sala}`;
+    }
 
     const butacas = Array.from(
         document.getElementById('butacas-seleccionadas').children
