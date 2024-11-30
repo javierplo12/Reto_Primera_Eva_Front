@@ -21,7 +21,7 @@
       a {
         color: $text-color;
         text-decoration: none;
-        font-size: 14px; // Tamaño de fuente reducido para mobile
+        font-size: 14px; 
         transition: color 0.3s;
   
         &:hover {
@@ -30,13 +30,13 @@
       }
     }
   
-    // Breakpoint para pantallas más grandes (tablet y escritorio)
+
     @media (min-width: 768px) {
       flex-direction: row;
       justify-content: center;
   
       .footer_links {
-        flex-direction: row; // Fila en pantallas grandes
+        flex-direction: row; 
         gap: 20px;
   
         a {

@@ -1,96 +1,5 @@
 @use '../base/variables.scss';
 
-// Página de home 
-.imagenes_home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0;
-  background-color: #071325;
-
-  .imagen {
-    position: relative;
-    width: 90%;
-    max-width: 280px;
-
-    img {
-      width: 100%;
-      height: auto;
-    }
-  }
-
-  .entrada_cine {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 95%;
-    height: auto;
-    margin-top: 20px;
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .texto_bajo_imagen {
-      margin-top: 20px; 
-      text-align: center;
-      color: #ffffff;
-
-      h2 {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-
-      p {
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 1.5;
-        max-width: 600px;  
-        margin: 0 auto;
-      }
-    }
-  }
-
-  .imagen-centro {
-    position: relative; // Permite el posicionamiento absoluto de .overlay
-
-    img {
-      width: 100%;
-      height: auto;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 1;
-    }
-  }
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-evenly;
-
-    .imagen {
-      width: 28%;
-    }
-
-    .texto-central {
-      font-size: 27px;
-    }
-  }
-}
-
-// Sección de películas
 .peliculas {
   padding: 20px;
   text-align: center;
@@ -103,16 +12,21 @@
 
   .grid-peliculas {
     display: grid;
-    grid-template-columns: 1fr; // Una columna en móvil
+    grid-template-columns: 1fr;
     gap: 20px;
 
     @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr); // Dos columnas en pantallas más grandes
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
     }
 
     .pelicula {
       background: #fff;
-      padding: 15px;
+      padding: 10px;
       border: 1px solid #ddd;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -125,7 +39,6 @@
         padding: 0;
         cursor: pointer;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-
 
         &:hover {
           transform: scale(1.05);
@@ -141,28 +54,19 @@
       }
 
       h3 {
-        font-size: 18px;
-        margin: 10px 0;
+        font-size: 16px;
+        margin: 8px 0;
         color: black;
         font-family: 'Raleway', sans-serif;
       }
 
       p {
-        font-size: 16px;
+        font-size: 14px;
         color: #000000;
       }
     }
   }
-}
 
-@media (min-width: 768px) {
-  .grid-peliculas {
-    grid-template-columns: 1fr 1fr; // Dos columnas en tablet y escritorio
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid-peliculas {
-    grid-template-columns: repeat(2, 1fr); // Mantener dos columnas
-  }
+  
+  
 }

@@ -14,6 +14,7 @@
   .pelicula {
     &-imagen {
       width: 100%;
+
       img {
         width: 100%;
         border-radius: 12px;
@@ -101,7 +102,7 @@
   }
 }
 
-//Desplegable dia
+// Desplegable día
 .desplegable-dia select {
   padding: 15px;
   font-size: 1rem;
@@ -116,32 +117,30 @@
   cursor: pointer;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  appearance: none; 
+  appearance: none;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(45, 108, 223, 0.4);
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+  option {
+    background-color: #1e4c9f;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: normal;
+    padding: 10px;
+
+    &:hover {
+      background-color: #2d6cdf;
+      color: #e0e0e0;
+    }
+  }
 }
-
-.desplegable-dia select:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(45, 108, 223, 0.4);
-}
-
-.desplegable-dia select:active {
-  transform: translateY(2px);
-}
-
-.desplegable-dia select option {
-  background-color: #1e4c9f; 
-  color: #fff; 
-  font-size: 1rem;
-  font-weight: normal;
-  padding: 10px;
-}
-
-.desplegable-dia select option:hover {
-  background-color: #2d6cdf;
-  color: #e0e0e0;
-}
-
-
 
 // Modal para la información de la película
 .modal {
@@ -184,18 +183,30 @@
     .btn-cerrar {
       padding: 10px 20px;
       font-size: 1rem;
-      color: #fff;
+      color: $text-color;
       background: #e74c3c;
       border: none;
       border-radius: 12px;
       cursor: pointer;
       transition: background-color 0.3s ease;
 
-      &:hover {
-        background: #c0392b;
+      &.btn-cerrar {
+        background: #e74c3c;
+
+        &:hover {
+          background: #c0392b;
+        }
+      }
+
+      &.btn-comprar {
+        background: #2ecc71;
+        margin-left: 10px;
+
+        &:hover {
+          background: #27ae60;
+        }
       }
     }
-
   }
 }
 
@@ -203,7 +214,7 @@
 @media (min-width: 768px) {
   .pelicula-detalle {
     flex-direction: row;
-    max-width: 700px;
+    max-width: 40%;
 
     .pelicula {
       &-imagen {

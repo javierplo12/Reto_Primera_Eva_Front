@@ -1,4 +1,4 @@
-@use '../base/variables.scss';
+@import '../base/variables.scss';
 
 .imagenes_home {
   display: flex;
@@ -7,6 +7,7 @@
   padding: 20px 0;
   background-color: #071325;
 
+  // Estilo de cada imagen genérica
   .imagen {
     position: relative;
     width: 90%;
@@ -18,13 +19,13 @@
     }
   }
 
+  // Contenedor para las entradas de cine
   .entrada_cine {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 95%;
-    height: auto;
     margin-top: 20px;
 
     img {
@@ -32,8 +33,9 @@
       height: auto;
     }
 
+    // Texto debajo de las imágenes
     .texto_bajo_imagen {
-      margin-top: 20px; 
+      margin-top: 20px;
       text-align: center;
       color: #fff;
 
@@ -47,14 +49,16 @@
         font-size: 16px;
         font-weight: normal;
         line-height: 1.5;
-        max-width: 600px;  
+        max-width: 600px;
         margin: 0 auto;
       }
     }
   }
 
+  // Imagen central con superposición (overlay)
   .imagen-centro {
-    position: relative; // Permite el posicionamiento absoluto de .overlay
+    position: relative; // Permite el posicionamiento absoluto de la overlay
+    width: 100%; // Asegura que ocupe el 100% del contenedor
 
     img {
       width: 100%;
@@ -71,20 +75,57 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      z-index: 1;
+      z-index: 1; // Garantiza que la superposición esté por encima de la imagen
     }
-}
+  }
 
+  // Responsividad para pantallas medianas (>= 768px)
   @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-evenly;
+    .entrada_cine {
+      flex-direction: row; // Cambia a diseño horizontal
+     
 
-    .imagen {
-      width: 28%;
+      .imagenes {
+        img {
+          max-width: 300px; // Ajusta el tamaño de las imágenes
+        }
+      }
+
+      .texto_bajo_imagen {
+        h2 {
+          font-size: 28px; // Tamaño del título
+        }
+
+        p {
+          font-size: 18px; // Tamaño del texto
+        }
+      }
+    }
+  }
+
+  // Responsividad para pantallas grandes (>= 1200px)
+  @media (min-width: 1200px) {
+
+    // Contenedor para las entradas de cine
+    .entrada_cine {
+      img {
+        max-width: 33%;
+        height: auto;
+      }
     }
 
-    .texto-central {
-      font-size: 27px;
+    .imagen-centro {
+      width: 59%; // Ajusta el ancho del contenedor central
+
+      .texto_bajo_imagen {
+        h2 {
+          font-size: 32px; // Tamaño del título
+        }
+
+        p {
+          font-size: 20px; // Tamaño del texto
+        }
+      }
     }
   }
 }
