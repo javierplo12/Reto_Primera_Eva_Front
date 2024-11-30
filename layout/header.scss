@@ -1,38 +1,39 @@
 @import '../base/variables.scss';
 
-
-//HEADER
+// HEADER
+// HEADER
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: $background-color;
-  padding: 8px 10px;
-  border-bottom: 1px solid $text-color;
-
-  .logo img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $background-color;
+    padding: 8px 10px;
+    border-bottom: 1px solid $text-color;
+  
+    .logo img {
       width: 150px;
-  }
-
-  .nav_header {
+    }
+  
+    .nav_header {
       display: none; // Ocultar en dispositivos móviles
-  }
-
-  .menu-icon {
+    }
+  
+    .menu-icon {
       display: flex;
       flex-direction: column;
       cursor: pointer;
+  
       .bar {
-          width: 25px;
-          height: 3px;
-          background-color: $text-color;
-          margin: 4px 0;
-          transition: 0.3s;
-          margin-right: 20px;
+        width: 25px;
+        height: 3px;
+        background-color: $text-color;
+        margin: 4px 0;
+        transition: 0.3s ease;
+        margin-right: 20px;
       }
-  }
-
-  .dropdown-menu {
+    }
+  
+    .dropdown-menu {
       display: none;
       position: absolute;
       top: 60px;
@@ -42,33 +43,55 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       z-index: 1000;
-
+      transition: all 0.3s ease;
+  
       a {
-          color: $text-color;
-          text-decoration: none;
-          padding: 8px 0;
-          font-size: 16px;
-          display: block;
-          &:hover {
-              background-color: darken($background-color, 10%);
-              border-radius: 5px;
-          }
+        color: $text-color;
+        text-decoration: none;
+        padding: 8px 0;
+        font-size: 16px;
+        display: block;
+  
+        &:hover {
+          background-color: darken($background-color, 10%);
+          border-radius: 5px;
+        }
       }
-  }
-
-  // Mostrar el menú desplegable con la clase "show"
-  .dropdown-menu.show {
+    }
+  
+    // Mostrar el menú desplegable con la clase "show"
+    .dropdown-menu.show {
       display: flex;
       flex-direction: column;
+    }
+
+  // Mostrar el menú desplegable con la clase "show" (en móviles)
+  .dropdown-menu.show {
+    display: flex;
+    flex-direction: column;
   }
 
-  // Configuración para pantallas más grandes
+  // Estilos para pantallas de escritorio (a partir de 768px)
   @media (min-width: 768px) {
-      .nav_header {
-          display: flex;
+    .logo {
+      .logo img {
+        width: 180px; // Tamaño del logo en pantallas grandes
       }
-      .menu-icon, .dropdown-menu {
-          display: none;
-      }
+    }
+
+    .nav_header {
+      display: flex; // Mostrar la barra de navegación
+      gap: 20px; // Espacio entre los elementos
+      align-items: center;
+      margin-left: auto; // Empuja los enlaces hacia la derecha
+    }
+
+    .menu-icon {
+      display: none; // Ocultar el icono de menú en pantallas grandes
+    }
+
+    .dropdown-menu {
+      display: none; // Ocultar el menú desplegable en pantallas grandes
+    }
   }
 }

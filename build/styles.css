@@ -63,7 +63,7 @@
   height: 3px;
   background-color: #ffffff;
   margin: 4px 0;
-  transition: 0.3s;
+  transition: 0.3s ease;
   margin-right: 20px;
 }
 .header .dropdown-menu {
@@ -76,6 +76,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  transition: all 0.3s ease;
 }
 .header .dropdown-menu a {
   color: #ffffff;
@@ -92,11 +93,24 @@
   display: flex;
   flex-direction: column;
 }
+.header .dropdown-menu.show {
+  display: flex;
+  flex-direction: column;
+}
 @media (min-width: 768px) {
+  .header .logo .logo img {
+    width: 180px;
+  }
   .header .nav_header {
     display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-left: auto;
   }
-  .header .menu-icon, .header .dropdown-menu {
+  .header .menu-icon {
+    display: none;
+  }
+  .header .dropdown-menu {
     display: none;
   }
 }
@@ -117,7 +131,7 @@ h2 {
   font-family: "Raleway", sans-serif;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1920px) {
   body {
     font-size: 1rem;
     line-height: 1.6;
@@ -145,7 +159,6 @@ h2 {
   justify-content: center;
   align-items: center;
   width: 95%;
-  height: auto;
   margin-top: 20px;
 }
 .imagenes_home .entrada_cine img {
@@ -171,6 +184,7 @@ h2 {
 }
 .imagenes_home .imagen-centro {
   position: relative;
+  width: 100%;
 }
 .imagenes_home .imagen-centro img {
   width: 100%;
@@ -189,93 +203,32 @@ h2 {
   z-index: 1;
 }
 @media (min-width: 768px) {
-  .imagenes_home {
+  .imagenes_home .entrada_cine {
     flex-direction: row;
-    justify-content: space-evenly;
   }
-  .imagenes_home .imagen {
-    width: 28%;
+  .imagenes_home .entrada_cine .imagenes img {
+    max-width: 300px;
   }
-  .imagenes_home .texto-central {
-    font-size: 27px;
+  .imagenes_home .entrada_cine .texto_bajo_imagen h2 {
+    font-size: 28px;
+  }
+  .imagenes_home .entrada_cine .texto_bajo_imagen p {
+    font-size: 18px;
   }
 }
-
-.imagenes_home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0;
-  background-color: #071325;
-}
-.imagenes_home .imagen {
-  position: relative;
-  width: 90%;
-  max-width: 280px;
-}
-.imagenes_home .imagen img {
-  width: 100%;
-  height: auto;
-}
-.imagenes_home .entrada_cine {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 95%;
-  height: auto;
-  margin-top: 20px;
-}
-.imagenes_home .entrada_cine img {
-  max-width: 100%;
-  height: auto;
-}
-.imagenes_home .entrada_cine .texto_bajo_imagen {
-  margin-top: 20px;
-  text-align: center;
-  color: #ffffff;
-}
-.imagenes_home .entrada_cine .texto_bajo_imagen h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-.imagenes_home .entrada_cine .texto_bajo_imagen p {
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 1.5;
-  max-width: 600px;
-  margin: 0 auto;
-}
-.imagenes_home .imagen-centro {
-  position: relative;
-}
-.imagenes_home .imagen-centro img {
-  width: 100%;
-  height: auto;
-}
-.imagenes_home .imagen-centro .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-}
-@media (min-width: 768px) {
-  .imagenes_home {
-    flex-direction: row;
-    justify-content: space-evenly;
+@media (min-width: 1200px) {
+  .imagenes_home .entrada_cine img {
+    max-width: 33%;
+    height: auto;
   }
-  .imagenes_home .imagen {
-    width: 28%;
+  .imagenes_home .imagen-centro {
+    width: 59%;
   }
-  .imagenes_home .texto-central {
-    font-size: 27px;
+  .imagenes_home .imagen-centro .texto_bajo_imagen h2 {
+    font-size: 32px;
+  }
+  .imagenes_home .imagen-centro .texto_bajo_imagen p {
+    font-size: 20px;
   }
 }
 
@@ -298,9 +251,15 @@ h2 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+@media (min-width: 1024px) {
+  .peliculas .grid-peliculas {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+}
 .peliculas .grid-peliculas .pelicula {
   background: #fff;
-  padding: 15px;
+  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -325,26 +284,16 @@ h2 {
   margin-bottom: 10px;
 }
 .peliculas .grid-peliculas .pelicula h3 {
-  font-size: 18px;
-  margin: 10px 0;
+  font-size: 16px;
+  margin: 8px 0;
   color: black;
   font-family: "Raleway", sans-serif;
 }
 .peliculas .grid-peliculas .pelicula p {
-  font-size: 16px;
+  font-size: 14px;
   color: #000000;
 }
 
-@media (min-width: 768px) {
-  .grid-peliculas {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (min-width: 1024px) {
-  .grid-peliculas {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 .sala-cine-container {
   position: relative;
   display: flex;
@@ -542,16 +491,13 @@ h1 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   appearance: none;
 }
-
 .desplegable-dia select:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(45, 108, 223, 0.4);
 }
-
 .desplegable-dia select:active {
   transform: translateY(2px);
 }
-
 .desplegable-dia select option {
   background-color: #1e4c9f;
   color: #fff;
@@ -559,7 +505,6 @@ h1 {
   font-weight: normal;
   padding: 10px;
 }
-
 .desplegable-dia select option:hover {
   background-color: #2d6cdf;
   color: #e0e0e0;
@@ -602,21 +547,31 @@ h1 {
 .modal .modal-content .btn-cerrar {
   padding: 10px 20px;
   font-size: 1rem;
-  color: #fff;
+  color: #ffffff;
   background: #e74c3c;
   border: none;
   border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.modal .modal-content .btn-cerrar:hover {
+.modal .modal-content .btn-cerrar.btn-cerrar {
+  background: #e74c3c;
+}
+.modal .modal-content .btn-cerrar.btn-cerrar:hover {
   background: #c0392b;
+}
+.modal .modal-content .btn-cerrar.btn-comprar {
+  background: #2ecc71;
+  margin-left: 10px;
+}
+.modal .modal-content .btn-cerrar.btn-comprar:hover {
+  background: #27ae60;
 }
 
 @media (min-width: 768px) {
   .pelicula-detalle {
     flex-direction: row;
-    max-width: 700px;
+    max-width: 40%;
   }
   .pelicula-detalle .pelicula-imagen {
     flex: 1;
@@ -735,7 +690,6 @@ h1 {
 .carousel {
   position: relative;
   width: 100%;
-  max-width: 100%;
   overflow: hidden;
   border-radius: 12px;
 }
@@ -790,6 +744,18 @@ h1 {
   .carousel__control {
     font-size: 14px;
     padding: 6px;
+  }
+}
+@media (min-width: 1024px) {
+  .carousel {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .carousel__slide {
+    min-width: 80%;
+  }
+  .carousel__slide img {
+    width: 100%;
   }
 }
 
