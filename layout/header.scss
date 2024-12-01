@@ -58,6 +58,7 @@
         }
       }
     }
+  }
   
     // Mostrar el menú desplegable con la clase "show"
     .dropdown-menu.show {
@@ -71,27 +72,54 @@
     flex-direction: column;
   }
 
-  // Estilos para pantallas de escritorio (a partir de 768px)
-  @media (min-width: 768px) {
-    .logo {
-      .logo img {
-        width: 180px; // Tamaño del logo en pantallas grandes
-      }
-    }
+  /* Media Query para pantallas Full HD (1920x1080) */
+@media (min-width: 1920px) {
+  .logo img {
+    width: 220px; /* Incrementa el tamaño del logo */
+    transition: transform 0.3s ease; /* Animación al pasar el ratón */
+  }
 
-    .nav_header {
-      display: flex; // Mostrar la barra de navegación
-      gap: 20px; // Espacio entre los elementos
-      align-items: center;
-      margin-left: auto; // Empuja los enlaces hacia la derecha
-    }
+  .logo img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+  }
 
-    .menu-icon {
-      display: none; // Ocultar el icono de menú en pantallas grandes
-    }
+  .nav_header {
+    display: flex;
+    gap: 30px; /* Más espacio entre los enlaces */
+    align-items: center;
+    margin-left: auto;
+    font-size: 1.2rem; /* Aumenta ligeramente el tamaño del texto */
+  }
 
-    .dropdown-menu {
-      display: none; // Ocultar el menú desplegable en pantallas grandes
-    }
+  .menu-icon {
+    display: none; /* No se muestra el menú hamburguesa */
+  }
+
+  .dropdown-menu {
+    display: none; /* Menú desplegable oculto */
+  }
+
+
+
+  header {
+    padding: 20px 0;
+   
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra elegante */
+  }
+
+  .btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+    background: #4169b8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #274472;
+    transform: translateY(-3px); /* Efecto sutil al pasar el ratón */
   }
 }

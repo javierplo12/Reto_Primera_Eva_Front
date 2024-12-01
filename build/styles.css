@@ -89,32 +89,58 @@
   background-color: black;
   border-radius: 5px;
 }
-.header .dropdown-menu.show {
+
+.dropdown-menu.show {
   display: flex;
   flex-direction: column;
-}
-.header .dropdown-menu.show {
-  display: flex;
-  flex-direction: column;
-}
-@media (min-width: 768px) {
-  .header .logo .logo img {
-    width: 180px;
-  }
-  .header .nav_header {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    margin-left: auto;
-  }
-  .header .menu-icon {
-    display: none;
-  }
-  .header .dropdown-menu {
-    display: none;
-  }
 }
 
+.dropdown-menu.show {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Media Query para pantallas Full HD (1920x1080) */
+@media (min-width: 1920px) {
+  .logo img {
+    width: 220px; /* Incrementa el tamaño del logo */
+    transition: transform 0.3s ease; /* Animación al pasar el ratón */
+  }
+  .logo img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+  }
+  .nav_header {
+    display: flex;
+    gap: 30px; /* Más espacio entre los enlaces */
+    align-items: center;
+    margin-left: auto;
+    font-size: 1.2rem; /* Aumenta ligeramente el tamaño del texto */
+  }
+  .menu-icon {
+    display: none; /* No se muestra el menú hamburguesa */
+  }
+  .dropdown-menu {
+    display: none; /* Menú desplegable oculto */
+  }
+  header {
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra elegante */
+  }
+  .btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+    background: #4169b8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .btn:hover {
+    background: #274472;
+    transform: translateY(-3px); /* Efecto sutil al pasar el ratón */
+  }
+}
 * {
   margin: 0;
   padding: 0;
