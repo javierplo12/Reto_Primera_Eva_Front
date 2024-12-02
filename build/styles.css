@@ -240,6 +240,7 @@ h2 {
   }
   .imagenes_home .entrada_cine .texto_bajo_imagen p {
     font-size: 18px;
+    margin-left: 40px;
   }
 }
 @media (min-width: 1200px) {
