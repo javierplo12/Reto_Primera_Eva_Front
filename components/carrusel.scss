@@ -59,19 +59,24 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .carousel {
-    
-    width: 50%;  // Reducir el ancho del carrusel al 80% en pantallas grandes
-    margin: 0 auto;  // Centrar el carrusel en la pantalla
+    display: flex;
+    gap: 20px; 
+    width: 70%;
+    margin: 0 auto; 
   }
 
   .carousel__slide {
+    flex: 0 0 70%; 
     border-radius: 20px;
     margin-top: 25px;
-    min-width: 80%;  // Hacer cada slide más pequeño en pantallas grandes
+    position: relative; 
+
     img {
       width: 100%;
+      height: auto;
     }
   }
 }
+
