@@ -188,6 +188,8 @@ h2 {
   margin-top: 20px;
 }
 .imagenes_home .entrada_cine img {
+  border: 1px solid #fff;
+  border-radius: 10px;
   max-width: 100%;
   height: auto;
 }
@@ -216,7 +218,7 @@ h2 {
   margin: 0 auto;
 }
 .imagenes_home .fila-imagenes .imagen-pelicula {
-  border: 3px solid #fff;
+  border: 2px solid #fff;
   box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
   width: 300px;
 }
@@ -262,6 +264,7 @@ h2 {
 @media (min-width: 768px) {
   .imagenes_home .fila-imagenes {
     gap: 45px;
+    margin-bottom: 50px;
   }
 }
 @media (min-width: 768px) {
