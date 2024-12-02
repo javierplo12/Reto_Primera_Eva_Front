@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function cargarButacas() {
     try {
-        const response = await fetch(`https://http://100.27.98.53:7185/api/Funcion/${idFuncion}`);
+        const response = await fetch(`http://100.27.98.53:7185/api/Funcion/${idFuncion}`);
         if (response.ok) {
             const datos = await response.json();
             generarButacas(datos.butacas);
@@ -164,7 +164,7 @@ function actualizarListaButacasSeleccionadas() {
 
 async function actualizarEstadoEnServidor(butacasEstado) {
     try {
-        const response = await fetch(`https://http://100.27.98.53:7185/api/Funcion/${idFuncion}/butacas`, {
+        const response = await fetch(`http://100.27.98.53:7185/api/Funcion/${idFuncion}/butacas`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
