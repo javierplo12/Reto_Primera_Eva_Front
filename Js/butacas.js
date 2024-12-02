@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         peliculaElement.textContent = `Película: ${pelicula}`;
         diaElement.textContent = `Día: ${dia}`;
         horaElement.textContent = `Hora: ${horario}`;
-        salaElement.textContent = `Sala: ${sala}`;
+        salaElement.textContent = `${sala}`;
     }
 
     // Cargar las butacas
