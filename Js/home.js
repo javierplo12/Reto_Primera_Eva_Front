@@ -25,3 +25,44 @@ function closeMenuOnClickOutside(event) {
         document.removeEventListener('click', closeMenuOnClickOutside);
     }
 }
+
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        // Selecciona el contenedor principal
+        const imagenesHome = document.querySelector(".imagenes_home");
+
+        // Crea un nuevo contenedor para las imágenes en fila
+        const filaImagenes = document.createElement("div");
+        filaImagenes.className = "fila-imagenes";
+        imagenesHome.insertBefore(filaImagenes, imagenesHome.firstChild);
+
+        // Película izquierda
+        const peliculaIzquierda = await (await fetch("https://localhost:7185/api/pelicula/1")).json();
+        const enlaceIzquierda = document.createElement("a");
+        enlaceIzquierda.href = `/Peliculas/venom.html`; 
+        const imagenIzquierda = document.createElement("div");
+        imagenIzquierda.className = "imagen-pelicula izquierda";
+        imagenIzquierda.innerHTML = `<img src="${peliculaIzquierda.imagen}" alt="Película Izquierda">`;
+        enlaceIzquierda.appendChild(imagenIzquierda);
+        filaImagenes.appendChild(enlaceIzquierda);
+
+        // Imagen central (queda igual)
+        const imagenCentral = document.querySelector(".imagen-centro");
+        filaImagenes.appendChild(imagenCentral);
+
+        // Película derecha
+        const peliculaDerecha = await (await fetch("https://localhost:7185/api/pelicula/3")).json();
+        const enlaceDerecha = document.createElement("a");
+        enlaceDerecha.href = `/Peliculas/gladiator2.html`; 
+        const imagenDerecha = document.createElement("div");
+        imagenDerecha.className = "imagen-pelicula derecha";
+        imagenDerecha.innerHTML = `<img src="${peliculaDerecha.imagen}" alt="Película Derecha">`;
+        enlaceDerecha.appendChild(imagenDerecha);
+        filaImagenes.appendChild(enlaceDerecha);
+    } catch (error) {
+        console.error("Error al obtener la información de las películas:", error);
+    }
+});
+
+
+

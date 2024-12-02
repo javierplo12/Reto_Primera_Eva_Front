@@ -208,15 +208,32 @@ h2 {
   max-width: 600px;
   margin: 0 auto;
 }
-.imagenes_home .imagen-centro {
-  position: relative;
-  width: 100%;
+.imagenes_home .fila-imagenes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 20px;
 }
-.imagenes_home .imagen-centro img {
+.imagenes_home .fila-imagenes .imagen-pelicula {
+  border: 3px solid #fff;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+  width: 300px;
+}
+.imagenes_home .fila-imagenes .imagen-pelicula img {
   width: 100%;
   height: auto;
 }
-.imagenes_home .imagen-centro .overlay {
+.imagenes_home .fila-imagenes .imagen-centro {
+  flex: 1;
+  max-width: 120%;
+  position: relative;
+}
+.imagenes_home .fila-imagenes .imagen-centro img {
+  width: 100%;
+  height: auto;
+}
+.imagenes_home .fila-imagenes .imagen-centro .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -227,6 +244,11 @@ h2 {
   align-items: center;
   justify-content: center;
   z-index: 1;
+}
+@media (max-width: 768px) {
+  .imagenes_home .imagen-pelicula {
+    display: none;
+  }
 }
 @media (min-width: 768px) {
   .imagenes_home .entrada_cine {
@@ -243,7 +265,7 @@ h2 {
     margin-left: 40px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .imagenes_home .entrada_cine img {
     max-width: 33%;
     height: auto;
@@ -299,10 +321,6 @@ h2 {
   padding: 0;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.peliculas .grid-peliculas .pelicula .img-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 .peliculas .grid-peliculas .pelicula .img-button img {
   width: 100%;
