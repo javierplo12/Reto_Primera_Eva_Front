@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "https://localhost:7185/api"; 
+    const API_URL = "https://http://100.27.98.53:7185/api"; 
 
     // Selecciona todas las películas
     const peliculas = document.querySelectorAll(".pelicula");
