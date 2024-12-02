@@ -313,7 +313,7 @@ h2 {
 }
 @media (min-width: 1024px) {
   .peliculas .grid-peliculas {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
   }
 }
@@ -899,7 +899,6 @@ h3 {
   transform: translateY(-50%);
   font-size: 18px;
   border-radius: 50%;
-  transition: background 0.3s ease;
 }
 .carousel__control:hover {
   background: rgba(0, 0, 0, 0.7);
