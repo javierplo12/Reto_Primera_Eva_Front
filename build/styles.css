@@ -290,12 +290,6 @@ h2 {
   .imagenes_home .imagen-centro {
     width: 59%;
   }
-  .imagenes_home .imagen-centro .texto_bajo_imagen h2 {
-    font-size: 32px;
-  }
-  .imagenes_home .imagen-centro .texto_bajo_imagen p {
-    font-size: 20px;
-  }
 }
 
 .peliculas {
