@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Película izquierda
         const peliculaIzquierda = await (await fetch("https://localhost:7185/api/pelicula/1")).json();
         const enlaceIzquierda = document.createElement("a");
-        enlaceIzquierda.href = `/Peliculas/venom.html`; 
+        enlaceIzquierda.href = `/Peliculas/venom.html`; // Redirige a la página de la película
         const imagenIzquierda = document.createElement("div");
         imagenIzquierda.className = "imagen-pelicula izquierda";
         imagenIzquierda.innerHTML = `<img src="${peliculaIzquierda.imagen}" alt="Película Izquierda">`;
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Película derecha
         const peliculaDerecha = await (await fetch("https://localhost:7185/api/pelicula/3")).json();
         const enlaceDerecha = document.createElement("a");
-        enlaceDerecha.href = `/Peliculas/gladiator2.html`; 
+        enlaceDerecha.href = `/Peliculas/gladiator2.html`; // Redirige a la página de la película
         const imagenDerecha = document.createElement("div");
         imagenDerecha.className = "imagen-pelicula derecha";
         imagenDerecha.innerHTML = `<img src="${peliculaDerecha.imagen}" alt="Película Derecha">`;
