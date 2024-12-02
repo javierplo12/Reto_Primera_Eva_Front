@@ -290,6 +290,12 @@ h2 {
   .imagenes_home .imagen-centro {
     width: 59%;
   }
+  .imagenes_home .imagen-centro .texto_bajo_imagen h2 {
+    font-size: 32px;
+  }
+  .imagenes_home .imagen-centro .texto_bajo_imagen p {
+    font-size: 20px;
+  }
 }
 
 .peliculas {
@@ -924,12 +930,11 @@ h3 {
 }
 @media (min-width: 1024px) {
   .carousel {
+    margin-top: 20px;
     width: 50%;
     margin: 0 auto;
   }
   .carousel__slide {
-    border-radius: 20px;
-    margin-top: 25px;
     min-width: 80%;
   }
   .carousel__slide img {
@@ -937,4 +942,4 @@ h3 {
   }
 }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=styles.css%C3%A7.map */

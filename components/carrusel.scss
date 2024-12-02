@@ -63,11 +63,14 @@
 
 @media (min-width: 1024px) {
   .carousel {
+    
     width: 50%;  // Reducir el ancho del carrusel al 80% en pantallas grandes
     margin: 0 auto;  // Centrar el carrusel en la pantalla
   }
 
   .carousel__slide {
+    border-radius: 20px;
+    margin-top: 25px;
     min-width: 80%;  // Hacer cada slide más pequeño en pantallas grandes
     img {
       width: 100%;
