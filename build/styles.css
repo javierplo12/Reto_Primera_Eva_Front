@@ -261,7 +261,7 @@ h2 {
 }
 @media (min-width: 768px) {
   .imagenes_home .fila-imagenes {
-    gap: 50px;
+    gap: 45px;
   }
 }
 @media (min-width: 768px) {
