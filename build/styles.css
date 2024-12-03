@@ -220,7 +220,7 @@ h2 {
 .imagenes_home .fila-imagenes .imagen-pelicula {
   border: 2px solid #fff;
   box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
-  width: 300px;
+  width: 340px;
 }
 .imagenes_home .fila-imagenes .imagen-pelicula img {
   width: 100%;
@@ -263,7 +263,7 @@ h2 {
 }
 @media (min-width: 768px) {
   .imagenes_home .fila-imagenes {
-    gap: 45px;
+    gap: 89px;
     margin-bottom: 50px;
   }
 }
