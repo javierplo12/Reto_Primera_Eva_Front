@@ -72,7 +72,7 @@ function generarButacas(butacas) {
             if (butaca.estaOcupada) {
                 butacaDiv.classList.add('no-disponible');
                 butacaDiv.dataset.bloqueado = 'true';
-                butacaDiv.style.pointerEvents = 'none'; // Deshabilitar clics
+                butacaDiv.style.pointerEvents = 'none';
             }
 
             butacaDiv.addEventListener('click', () => seleccionarButaca(butacaDiv));

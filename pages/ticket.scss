@@ -19,15 +19,16 @@
 
 
 
-// Media Query para ordenadores
+/* Media Query para ordenadores */
 @media (min-width: 1024px) {
     .ticket-info {
-       
         max-width: 100%; 
         padding: 40px;
-
-        h3 {
-            font-size: 20px;
-        }
     }
+    
+    .ticket-info h3 {
+        font-size: 20px;
+    }
+
+    
 }
