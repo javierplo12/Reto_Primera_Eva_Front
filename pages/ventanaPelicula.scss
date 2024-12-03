@@ -250,3 +250,28 @@
     }
   }
 }
+@media (min-width: 1024px) {
+  // Desplegable día
+  .desplegable-dia select {
+    
+    font-size: 1.2rem; 
+    border-radius: 15px; 
+    margin-top: 20px; 
+    margin-left: 36%;
+    margin-bottom: 20px;
+
+    &:hover {
+      transform: translateY(-7px); 
+      box-shadow: 0 12px 24px rgba(45, 108, 223, 0.5); 
+    }
+
+    &:active {
+      transform: translateY(3px);
+    }
+
+    option {
+      font-size: 1.1rem; 
+      padding: 12px; 
+    }
+  }
+}
