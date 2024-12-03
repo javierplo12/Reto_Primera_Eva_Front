@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const correo = localStorage.getItem('correo');
     if (correo) {
         const correoElemento = document.querySelector('.correo-confirmacion');
-        correoElemento.textContent = `Recibirás un correo de confirmación en: ${correo}`;
+        correoElemento.textContent = `Recibirás un correo con las entradas en: ${correo}`;
     } else {
         console.log('No se encontró el correo del cliente.');
     }
