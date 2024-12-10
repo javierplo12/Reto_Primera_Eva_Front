@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "https://localhost:7185/api"; 
+    const API_URL = "http://localhost:7185/api"; 
 
     fetch(`${API_URL}/pelicula/1`)
         .then(response => {
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 ;
 
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "https://localhost:7185/api";
+    const API_URL = "http://localhost:7185/api";
 
     const fetchFuncionesPorDia = async (dia, containerSelector, idsFunciones) => {
         try {

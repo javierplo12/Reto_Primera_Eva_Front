@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Enviar el pedido a la API
-    fetch('https://localhost:7185/api/Pedido', {
+    fetch('http://localhost:7185/api/Pedido', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
