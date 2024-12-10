@@ -504,16 +504,16 @@ h3 {
     margin-left: 0;
     text-align: center;
   }
-  .info-comprador {
+  .formulario {
     max-width: 600px;
     margin: 1.5rem auto;
     padding: 1.5rem;
     width: 50%;
   }
-  .info-comprador label {
+  .formulario label {
     font-size: 1rem;
   }
-  .info-comprador input {
+  .formulario input {
     font-size: 1rem;
     padding: 0.75rem;
   }

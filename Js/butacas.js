@@ -115,13 +115,20 @@ function seleccionarButaca(butacaElemento) {
 function verificarEstadoBoton() {
     const nombre = document.getElementById('nombre').value.trim();
     const correo = document.getElementById('correo').value.trim();
-    localStorage.setItem('correo', correo); // Guardamos el valor correo en un localstorage para mostrarlo en ticket
     const telefono = document.getElementById('telefono').value.trim();
-    const formularioCompleto = nombre !== '' && correo !== '' && telefono !== '';
-    const hayButacasSeleccionadas = butacasSeleccionadas.size > 0;
     const botonComprar = document.getElementById('boton-comprar');
+
+    const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
+
+    const telefonoValido = /^[0-9]{9}$/.test(telefono);
+
+    const formularioCompleto = nombre !== '' && correoValido && telefonoValido;
+
+    const hayButacasSeleccionadas = butacasSeleccionadas.size > 0;
+
     botonComprar.disabled = !(formularioCompleto && hayButacasSeleccionadas);
 }
+
 
 function actualizarPrecioTotal() {
     const totalPrecio = butacasSeleccionadas.size * precioButaca;

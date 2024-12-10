@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("JS cargado correctamente");
+    console.log("js cargado correctamente");
 
     // Mostrar solo las sesiones del día seleccionado
     const selectDia = document.getElementById("select-dia");

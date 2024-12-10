@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dia = localStorage.getItem('dia');
     const horario = localStorage.getItem('horario');
     const sala = localStorage.getItem('sala');
-    const butacas = JSON.parse(localStorage.getItem('butacas'));
+    const butacas = jsON.parse(localStorage.getItem('butacas'));
     const precioTotal = localStorage.getItem('precioTotal');
 
     // Si no se encuentran datos, mostramos un mensaje
@@ -64,9 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(nuevoPedido)
+        body: jsON.stringify(nuevoPedido)
     })
-    .then(response => response.json())  // Asegúrate de convertir la respuesta a JSON
+    .then(response => response.json())  // Asegúrate de convertir la respuesta a jsON
     .then(data => {
         if (data) {
             console.log('Pedido creado exitosamente en la API:', data);

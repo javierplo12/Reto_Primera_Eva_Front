@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px; 
+  gap: 15px;
   width: 95%;
   margin: 0 auto;
   padding: 10px;
@@ -46,27 +46,27 @@
 .fila {
   display: flex;
   justify-content: center;
-  gap: 4px; 
+  gap: 4px;
   width: 100%;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
 h1 {
   margin-left: 25px;
   margin-top: 10px;
   margin-bottom: 10px;
-  text-align: center; 
+  text-align: center;
 }
 
 h3 {
-  text-align: center; 
-  color: $text-color; 
-  font-size: 20px; 
-  margin: 5px 0; 
+  text-align: center;
+  color: $text-color;
+  font-size: 20px;
+  margin: 5px 0;
 }
 
 .butaca {
-  width: 15px; 
+  width: 15px;
   height: 15px;
   background-color: #d9d9d9;
   border-radius: 4px;
@@ -96,6 +96,7 @@ h3 {
     transform: none;
   }
 }
+
 
 .info-comprador {
   margin: 2rem 0;
@@ -136,25 +137,25 @@ h3 {
 
 @media (min-width: 1024px) {
   .sala-cine-container {
-    width: 70%; // Reducir el ancho al 70%
-    gap: 10px; // Ajustar el espaciado entre elementos a un tamaño menor
-    padding: 15px; // Reducir el padding para mantener proporciones
+    width: 70%;
+    gap: 10px; 
+    padding: 15px;
 
     button {
-      font-size: 18px; // Mantener tamaño de botón consistente con el diseño más compacto
-      margin-top: 15px; // Reducir margen superior del botón
+      font-size: 18px; 
+      margin-top: 15px; 
     }
   }
 
   .pantalla {
-    font-size: 14px; 
-    padding: 10px; 
+    font-size: 14px;
+    padding: 10px;
     width: 85%;
   }
 
   .sala-cine {
-    width: 85%; 
-    gap: 8px; 
+    width: 85%;
+    gap: 8px;
   }
 
   .fila {
@@ -177,7 +178,7 @@ h3 {
     text-align: center;
   }
 
-  .info-comprador {
+  .formulario {
     max-width: 600px;
     margin: 1.5rem auto;
     padding: 1.5rem;
