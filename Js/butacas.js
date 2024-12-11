@@ -228,3 +228,21 @@ botonComprar.addEventListener('click', async () => {
     // Redirigir a la página a ticket.html
     window.location.href = 'ticket.html';
 });
+
+function reiniciarButacas() {
+    // Limpiar las butacas seleccionadas
+    butacasSeleccionadas.clear();
+
+    // Eliminar la clase 'seleccionada' de todas las butacas
+    const allButacas = document.querySelectorAll('.butaca');
+    allButacas.forEach((butaca) => {
+        butaca.classList.remove('no-disponible');
+        butaca.dataset.bloqueado = 'false';
+    });
+}
+
+// Llamar a esta función cuando quieras reiniciar el estado, por ejemplo con un botón:
+const botonReiniciar = document.getElementById('boton-reiniciar');
+if (botonReiniciar) {
+    botonReiniciar.addEventListener('click', reiniciarButacas);
+}

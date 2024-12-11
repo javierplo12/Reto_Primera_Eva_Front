@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "https://localhost:7185/api"; 
+    const API_URL = "https://localhost:7185/api";
 
     fetch(`${API_URL}/pelicula/2`)
         .then(response => {
@@ -17,10 +17,27 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(".pelicula-info .fecha-estreno").innerHTML = new Date(pelicula.fechaEstreno).toLocaleDateString();
             document.querySelector(".pelicula-info .genero").innerHTML = pelicula.genero;
         })
-        });
+});
 ;
 
+document.addEventListener("DOMContentLoaded", () => {
+    const API_URL = "https://localhost:7185/api";
 
+    fetch(`${API_URL}/OpinionesPelis/1`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error al obtener la información de la opinion de película.");
+            }
+            return response.json();
+        })
+        .then(opinionesPelis => {
+            document.querySelector(".opiniones .nombre-o").innerHTML = opinionesPelis.nombre;
+            document.querySelector(".opiniones .fecha-o").innerHTML = opinionesPelis.fechaFormated;
+            document.querySelector(".opiniones .opinion-o").innerHTML = opinionesPelis.opinion;
+            document.querySelector(".opiniones .puntuacion-o").innerHTML = `Puntuación: ${opinionesPelis.puntuacion}`;
+        })
+});
+;
 document.addEventListener("DOMContentLoaded", () => {
     const API_URL = "https://localhost:7185/api";
 
@@ -63,4 +80,39 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchFuncionesPorDia(1, ".pelicula-botones-dia-1", [1, 2, 3]); // Día 1
     fetchFuncionesPorDia(2, ".pelicula-botones-dia-2", [52, 53, 54]); // Día 2
     fetchFuncionesPorDia(3, ".pelicula-botones-dia-3", [64, 65, 66]); // Día 3
+});
+
+const nombre = document.getElementById('nombre');
+const fechaFormated = document.getElementById('fecha');
+const opinion = document.getElementById('opinion');
+const puntuacion = document.getElementById('puntuacion');
+const nuevaOpinion = {
+    nombre: nombre,
+    fechaFormated: fechaFormated,
+    opinion: opinion,
+    puntuacion: puntuacion
+};  
+
+async function GuardarOpinion() {
+    fetch('https://localhost:7185/api/OpinionesPelis', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: jsON.stringify(nuevaOpinion)
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data) {
+                console.log('Pedido creado exitosamente en la API:', data);
+            }
+        })
+
+}
+const botonOpinion = document.getElementById('btn-enviar');
+
+botonOpinion.addEventListener('click', async () => {
+
+    await GuardarOpinion();
 });
