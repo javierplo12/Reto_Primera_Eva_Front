@@ -82,18 +82,22 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchFuncionesPorDia(3, ".pelicula-botones-dia-3", [64, 65, 66]); // Día 3
 });
 
-const nombre = document.getElementById('nombre');
-const fechaFormated = document.getElementById('fecha');
-const opinion = document.getElementById('opinion');
-const puntuacion = document.getElementById('puntuacion');
-const nuevaOpinion = {
-    nombre: nombre,
-    fechaFormated: fechaFormated,
-    opinion: opinion,
-    puntuacion: puntuacion
-};  
+const botonOpinion = document.getElementById('btn-enviar');
 
-async function GuardarOpinion() {
+botonOpinion.addEventListener('click', async () => {
+
+    const nombre = document.getElementById('nombre');
+    const fechaFormated = document.getElementById('fecha');
+    const opinion = document.getElementById('opinion');
+    const puntuacion = document.getElementById('puntuacion');
+
+    const nuevaOpinion = {
+        nombre: nombre,
+        fecha: fechaFormated,
+        opinion: opinion,
+        puntuacion: puntuacion
+    };
+
     fetch('https://localhost:7185/api/OpinionesPelis', {
         method: 'POST',
         headers: {
@@ -108,11 +112,4 @@ async function GuardarOpinion() {
                 console.log('Pedido creado exitosamente en la API:', data);
             }
         })
-
-}
-const botonOpinion = document.getElementById('btn-enviar');
-
-botonOpinion.addEventListener('click', async () => {
-
-    await GuardarOpinion();
 });
