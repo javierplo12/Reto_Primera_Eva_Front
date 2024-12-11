@@ -72,6 +72,11 @@ function generarButacas(butacas) {
             if (butaca.estaOcupada) {
                 butacaDiv.classList.add('no-disponible');
                 butacaDiv.dataset.bloqueado = 'true';
+        
+            }
+            if (butaca.estaOcupada) {
+                butacaDiv.classList.add('disponible');
+                butacaDiv.dataset.bloqueado = 'true';
                 butacaDiv.style.pointerEvents = 'none';
             }
 
