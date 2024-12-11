@@ -19,25 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
 });
 ;
-
-document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "https://localhost:7185/api";
-
-    fetch(`${API_URL}/OpinionesPelis/1`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Error al obtener la información de la opinion de película.");
-            }
-            return response.json();
-        })
-        .then(opinionesPelis => {
-            document.querySelector(".opiniones .nombre-o").innerHTML = opinionesPelis.nombre;
-            document.querySelector(".opiniones .fecha-o").innerHTML = opinionesPelis.fechaFormated;
-            document.querySelector(".opiniones .opinion-o").innerHTML = opinionesPelis.opinion;
-            document.querySelector(".opiniones .puntuacion-o").innerHTML = `Puntuación: ${opinionesPelis.puntuacion}`;
-        })
-});
-;
 document.addEventListener("DOMContentLoaded", () => {
     const API_URL = "https://localhost:7185/api";
 
@@ -81,6 +62,25 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchFuncionesPorDia(2, ".pelicula-botones-dia-2", [52, 53, 54]); // Día 2
     fetchFuncionesPorDia(3, ".pelicula-botones-dia-3", [64, 65, 66]); // Día 3
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const API_URL = "https://localhost:7185/api";
+
+    fetch(`${API_URL}/OpinionesPelis/1`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error al obtener la información de la opinion de película.");
+            }
+            return response.json();
+        })
+        .then(opinionesPelis => {
+            document.querySelector(".opiniones .nombre-o").innerHTML = opinionesPelis.nombre;
+            document.querySelector(".opiniones .fecha-o").innerHTML = opinionesPelis.fechaFormated;
+            document.querySelector(".opiniones .opinion-o").innerHTML = opinionesPelis.opinion;
+            document.querySelector(".opiniones .puntuacion-o").innerHTML = `Puntuación: ${opinionesPelis.puntuacion}`;
+        })
+});
+;
 
 const nombre = document.getElementById('nombre');
 const fechaFormated = document.getElementById('fecha');
