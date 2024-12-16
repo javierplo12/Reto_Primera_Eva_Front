@@ -345,201 +345,6 @@ h2 {
   color: #000000;
 }
 
-.sala-cine-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  width: 95%;
-  margin: 0 auto;
-  padding: 10px;
-  background-color: #1d2733;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-.sala-cine-container button {
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.pantalla {
-  background-color: #000;
-  color: #fff;
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 6px;
-  text-transform: uppercase;
-  box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.1);
-}
-
-.sala-cine {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  width: 100%;
-  align-items: center;
-}
-
-.fila {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-  width: 100%;
-  flex-wrap: wrap;
-}
-
-h1 {
-  margin-left: 25px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-h3 {
-  text-align: center;
-  color: #ffffff;
-  font-size: 20px;
-  margin: 5px 0;
-}
-
-.butaca {
-  width: 15px;
-  height: 15px;
-  background-color: #d9d9d9;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-.butaca:hover {
-  transform: scale(1.1);
-  background-color: #c4c4c4;
-}
-
-.butaca.seleccionada {
-  background-color: #4169b8;
-  box-shadow: 0 2px 4px rgba(65, 105, 184, 0.4);
-}
-
-.butaca.no-disponible {
-  background-color: #e74c3c;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-.butaca.no-disponible:hover {
-  transform: none;
-}
-
-.info-comprador {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  background-color: #12305d;
-  border: 1px solid #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-.info-comprador label {
-  display: block;
-  font-family: "Raleway", sans-serif;
-  font-weight: bold;
-  font-size: 1rem;
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-}
-.info-comprador input {
-  display: block;
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1.5rem;
-  font-family: "Raleway", sans-serif;
-  font-size: 1rem;
-  border: 1px solid white;
-  border-radius: 5px;
-  background-color: #0b1e3a;
-  color: #ffffff;
-  transition: all 0.3s ease;
-}
-.info-comprador input:focus {
-  outline: none;
-  border-color: "Cinzel Decorative", serif;
-}
-
-@media (min-width: 1024px) {
-  .sala-cine-container {
-    width: 70%;
-    gap: 10px;
-    padding: 15px;
-  }
-  .sala-cine-container button {
-    font-size: 18px;
-    margin-top: 15px;
-  }
-  .pantalla {
-    font-size: 14px;
-    padding: 10px;
-    width: 85%;
-  }
-  .sala-cine {
-    width: 85%;
-    gap: 8px;
-  }
-  .fila {
-    gap: 5px;
-    flex-wrap: nowrap;
-  }
-  .butaca {
-    width: 30px;
-    height: 30px;
-  }
-  .butaca:hover {
-    transform: scale(1.1);
-  }
-  h1 {
-    font-size: 24px;
-    margin-left: 0;
-    text-align: center;
-  }
-  .info-comprador {
-    max-width: 600px;
-    margin: 1.5rem auto;
-    padding: 1.5rem;
-    width: 50%;
-  }
-  .info-comprador label {
-    font-size: 1rem;
-  }
-  .info-comprador input {
-    font-size: 1rem;
-    padding: 0.75rem;
-  }
-}
-.ticket-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  border-radius: 10px;
-}
-.ticket-info h3.reserva-completada, .ticket-info h3#precio-total {
-  margin-bottom: 20px;
-}
-
-/* Media Query para ordenadores */
-@media (min-width: 1024px) {
-  .ticket-info {
-    max-width: 100%;
-    padding: 40px;
-  }
-  .ticket-info h3 {
-    font-size: 20px;
-  }
-}
 .pelicula-detalle {
   display: flex;
   flex-direction: column;
@@ -767,6 +572,201 @@ h3 {
   .desplegable-dia select option {
     font-size: 1.1rem;
     padding: 12px;
+  }
+}
+.sala-cine-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #1d2733;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.sala-cine-container button {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.pantalla {
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  text-transform: uppercase;
+  box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.sala-cine {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  align-items: center;
+}
+
+.fila {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+h1 {
+  margin-left: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+.butaca {
+  width: 15px;
+  height: 15px;
+  background-color: #d9d9d9;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.butaca:hover {
+  transform: scale(1.1);
+  background-color: #c4c4c4;
+}
+
+.butaca.seleccionada {
+  background-color: #4169b8;
+  box-shadow: 0 2px 4px rgba(65, 105, 184, 0.4);
+}
+
+.butaca.no-disponible {
+  background-color: #e74c3c;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.butaca.no-disponible:hover {
+  transform: none;
+}
+
+.info-comprador {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: #12305d;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.info-comprador label {
+  display: block;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+.info-comprador input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #0b1e3a;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+.info-comprador input:focus {
+  outline: none;
+  border-color: "Cinzel Decorative", serif;
+}
+
+@media (min-width: 1024px) {
+  .sala-cine-container {
+    width: 70%;
+    gap: 10px;
+    padding: 15px;
+  }
+  .sala-cine-container button {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+  .pantalla {
+    font-size: 14px;
+    padding: 10px;
+    width: 85%;
+  }
+  .sala-cine {
+    width: 85%;
+    gap: 8px;
+  }
+  .fila {
+    gap: 5px;
+    flex-wrap: nowrap;
+  }
+  .butaca {
+    width: 30px;
+    height: 30px;
+  }
+  .butaca:hover {
+    transform: scale(1.1);
+  }
+  h1 {
+    font-size: 24px;
+    margin-left: 0;
+    text-align: center;
+  }
+  .info-comprador {
+    max-width: 600px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    width: 50%;
+  }
+  .info-comprador label {
+    font-size: 1rem;
+  }
+  .info-comprador input {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+}
+.ticket-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+.ticket-info h3.reserva-completada, .ticket-info h3#precio-total {
+  margin-bottom: 20px;
+}
+
+/* Media Query para ordenadores */
+@media (min-width: 1024px) {
+  .ticket-info {
+    max-width: 100%;
+    padding: 40px;
+  }
+  .ticket-info h3 {
+    font-size: 20px;
   }
 }
 .button-central {
