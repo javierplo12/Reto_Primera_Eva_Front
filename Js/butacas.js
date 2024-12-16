@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Agregar listeners a los inputs del formulario
     const formularioInputs = document.querySelectorAll('#nombre, #correo, #telefono');
     formularioInputs.forEach((input) => {
-        input.addEventListener('input', verificarEstadoBoton); 
+        input.addEventListener('input', verificarEstadoBoton);
     });
 
     verificarEstadoBoton();
@@ -115,8 +115,10 @@ function seleccionarButaca(butacaElemento) {
 function verificarEstadoBoton() {
     const nombre = document.getElementById('nombre').value.trim();
     const correo = document.getElementById('correo').value.trim();
-    localStorage.setItem('correo', correo); // Guardamos el valor correo en un localstorage para mostrarlo en ticket
     const telefono = document.getElementById('telefono').value.trim();
+    localStorage.setItem('nombre', nombre);
+    localStorage.setItem('correo', correo);
+    localStorage.setItem('telefono', telefono);
     const formularioCompleto = nombre !== '' && correo !== '' && telefono !== '';
     const hayButacasSeleccionadas = butacasSeleccionadas.size > 0;
     const botonComprar = document.getElementById('boton-comprar');
@@ -152,7 +154,7 @@ function actualizarListaButacasSeleccionadas() {
     // Agregar cada butaca seleccionada a la lista
     butacasSeleccionadas.forEach((butaca) => {
         const li = document.createElement('li');
-        li.textContent = butaca; 
+        li.textContent = butaca;
         listaElement.appendChild(li);
     });
 

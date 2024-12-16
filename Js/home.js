@@ -60,7 +60,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         enlaceDerecha.appendChild(imagenDerecha);
         filaImagenes.appendChild(enlaceDerecha);
     } catch (error) {
-        console.error("Error al obtener la información de las películas:", error);
     }
 });
 

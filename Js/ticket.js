@@ -1,14 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Recuperar variable corrreo del localStorage
     const correo = localStorage.getItem('correo');
-    if (correo) {
-        const correoElemento = document.querySelector('.correo-confirmacion');
-        correoElemento.textContent = `Recibirás un correo con las entradas en: ${correo}`;
-    } else {
-        console.log('No se encontró el correo del cliente.');
-    }
-
-    // Recuperar los otros datos desde localStorage
+    const nombre = localStorage.getItem('nombre');
+    const telefono = localStorage.getItem('telefono');
+    
     const pelicula = localStorage.getItem('pelicula');
     const dia = localStorage.getItem('dia');
     const horario = localStorage.getItem('horario');
@@ -23,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     console.log('Datos recuperados desde localStorage:', {
+        nombre,
+        correo,
+        telefono,
         pelicula,
         dia,
         horario,
@@ -36,20 +33,23 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('dia').textContent = `Día: ${dia}`;
     document.getElementById('hora').textContent = `Hora: ${horario}`;
     document.getElementById('nombre-sala').textContent = `Sala: ${sala}`;
+    document.getElementById('precio-total').textContent = `Precio Total: ${precioTotal}`;
+    document.querySelector('.correo-confirmacion').textContent = `Recibirás un correo con las entradas en: ${correo}`;
 
     // Mostrar las butacas seleccionadas
     const listaButacas = document.getElementById('lista-butacas');
     butacas.forEach((butaca) => {
         const li = document.createElement('li');
-        li.textContent = butaca;    
+        li.textContent = butaca;
         listaButacas.appendChild(li);
     });
 
-    // Mostrar el precio total
-    document.getElementById('precio-total').textContent = `Precio Total: ${precioTotal}`;
 
     // Crear un objeto con los datos del pedido
     const nuevoPedido = {
+        nombre: nombre,
+        correo: correo,
+        telefono: telefono,
         pelicula: pelicula,
         dia: dia,
         hora: horario,
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         precio: parseFloat(precioTotal)
     };
 
-    // Enviar el pedido a la API
+    // Enviar el pedido a la API        
     fetch('https://localhost:7185/api/Pedido', {
         method: 'POST',
         headers: {
@@ -66,14 +66,19 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         body: JSON.stringify(nuevoPedido)
     })
-    .then(response => response.json())  // Asegúrate de convertir la respuesta a JSON
-    .then(data => {
-        if (data) {
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Error en la respuesta de la API');
+            }
+        })
+        .then(data => {
             console.log('Pedido creado exitosamente en la API:', data);
-        }
-    })
-    .catch(error => {
-        console.error('Error al crear el pedido:', error);
-        alert('Hubo un error al guardar el pedido.');
-    });
+        })
+        .catch(error => {
+            console.error('Error al crear el pedido:', error);
+            alert('Hubo un error al guardar el pedido.');
+        });
+
 });
