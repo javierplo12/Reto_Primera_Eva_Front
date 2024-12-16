@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function mostrarModal(horario, sala, id) {
         console.log(`Mostrando modal - Horario: ${horario}, Sala: ${sala}, ID: ${id}`);
         document.getElementById("info-horario").innerText = `Horario: ${horario}`;
-        document.getElementById("info-sala").innerText = `Sala: ${sala}`;
+        document.getElementById("info-sala").innerText = `${sala}`;
         const modal = document.getElementById("modal-info");
         modal.setAttribute("data-id", id); // Guardar el ID en el modal
         modal.classList.add("mostrar");
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         boton.addEventListener("click", () => {
             const horario = boton.getAttribute("data-horario");
             const sala = boton.getAttribute("data-sala");
-            const id = boton.getAttribute("data-id"); // Asegurar que los botones tienen un atributo data-id
+            const id = boton.getAttribute("data-id"); 
             mostrarModal(horario, sala, id);
         });
     });

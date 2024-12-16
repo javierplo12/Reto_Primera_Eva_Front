@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const botones = document.querySelectorAll(containerSelector + " .btn-opcion");
             funciones.forEach((funcion, index) => {
                 if (botones[index]) {
-                    botones[index].textContent = `${funcion.dia} - ${funcion.horaFormatted} - ${funcion.sala}`;
+                    botones[index].textContent = `${funcion.dia} - ${funcion.horaFormatted}`;
                     botones[index].setAttribute("data-id", funcion.id);
                     botones[index].setAttribute("data-horario", funcion.horaFormatted);
                     botones[index].setAttribute("data-dia", funcion.dia);
