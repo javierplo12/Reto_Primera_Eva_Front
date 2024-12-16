@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine Deluxe - Robot Salvaje</title>
+    <title>Cine Deluxe - Borderlands</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Raleway:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/build/styles.css">
     <script src="/Js/home.js"></script>
-    <script src="/Js/robotsalvaje.js"></script>
+    <script src="/Js/DetallePelicula.js"></script>
     <script src="/Js/funcioncompra.js"></script>
 </head>
 
@@ -42,7 +42,9 @@
     </header>
     <a href="/peliculas.html" class="button-atras">← Atrás</a>
 
+
     <section class="pelicula-detalle">
+        
         <div class="pelicula">
             <div class="pelicula-imagen">
                 <img>
@@ -54,14 +56,15 @@
                 <p class="duracion"></p>
                 <p class="fecha-estreno"></p>
                 <p class="genero"></p>
+
                 <div class="desplegable-dia">
                     <select id="select-dia">
                         <option class="boton-desplegable" value="1/12">Selecciona día</option>
                         <option class="boton-desplegable" value="1/12">1/12</option>
                         <option class="boton-desplegable" value="2/12">2/12</option>
                         <option class="boton-desplegable" value="3/12">3/12</option>
-                    </select>
-                </div> 
+                    </select>                    
+                </div>                
                 <div class="pelicula-botones-dia-1" data-dia="1/12">
                     <div class="pelicula-botones">
                         <button class="btn-opcion"></button>
@@ -85,20 +88,18 @@
                         <button class="btn-opcion"></button>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal para mostrar información -->
-    <div class="modal" id="modal-info">
-        <div class="modal-content"> 
-            <h3 id="info-horario">Horario</h3>
-            <p id="info-sala">Sala</p>
-            <button class="btn-cerrar">Cerrar</button>
-            <button class="btn-comprar-entrada">Comprar</button>
-        </div>
-    </div>
-
+                
+                <div class="modal" id="modal-info">
+                    <div class="modal-content">
+                        <h3 id="info-horario">Horario</h3>
+                        <p id="info-sala">Sala</p>
+                        <div class="modal-botones">
+                            <button class="btn-cerrar">Cerrar</button>
+                            <button class="btn-comprar-entrada">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                
 
     <footer class="footer">
         <div class="footer_links">

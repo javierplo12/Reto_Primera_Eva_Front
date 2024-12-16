@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "http://100.27.98.53:7185/api"; 
+    const API_URL = "https://localhost:7185/api"; 
 
     // Selecciona todas las películas
     const peliculas = document.querySelectorAll(".pelicula");
@@ -26,3 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     });
 });
+
+function redirigirConID(elemento) {
+    // Encuentra el contenedor padre (.pelicula) y obtiene el data-id
+    const peliculaId = elemento.closest('.pelicula').dataset.id;
+
+    // Construye la URL con el parámetro ?id=valor
+    window.location.href = `/Peliculas/DetallePelicula.html?idPelicula=${peliculaId}`;
+}
+
+
+
+
