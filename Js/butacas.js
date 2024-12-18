@@ -25,16 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         salaElement.textContent = `${sala}`;
     }
 
-    // Cargar las butacas
     await cargarButacas();
-
-    // Agregar listeners a los inputs del formulario
-    const formularioInputs = document.querySelectorAll('#nombre, #correo, #telefono');
-    formularioInputs.forEach((input) => {
-        input.addEventListener('input', verificarEstadoBoton);
-    });
-
-    verificarEstadoBoton();
 });
 
 async function cargarButacas() {
@@ -112,19 +103,6 @@ function seleccionarButaca(butacaElemento) {
     actualizarPrecioTotal();
 }
 
-function verificarEstadoBoton() {
-    const nombre = document.getElementById('nombre').value.trim();
-    const correo = document.getElementById('correo').value.trim();
-    const telefono = document.getElementById('telefono').value.trim();
-    localStorage.setItem('nombre', nombre);
-    localStorage.setItem('correo', correo);
-    localStorage.setItem('telefono', telefono);
-    const formularioCompleto = nombre !== '' && correo !== '' && telefono !== '';
-    const hayButacasSeleccionadas = butacasSeleccionadas.size > 0;
-    const botonComprar = document.getElementById('boton-comprar');
-    botonComprar.disabled = !(formularioCompleto && hayButacasSeleccionadas);
-}
-
 function actualizarPrecioTotal() {
     const totalPrecio = butacasSeleccionadas.size * precioButaca;
     const precioElement = document.getElementById('precio-total');
@@ -188,19 +166,45 @@ async function actualizarEstadoEnServidor(butacasEstado) {
 // Evento para el botón "Comprar"
 const botonComprar = document.getElementById('boton-comprar');
 
-botonComprar.addEventListener('click', async () => {
-    // Guardar los datos en localStorage para mostrarlos en ticket.html
+// Evento para el botón "Comprar"
+botonComprar.addEventListener('click', async (event) => {
+    // Verificar si el formulario está completo y hay butacas seleccionadas
+    const nombre = document.getElementById('nombre').value.trim();
+    const correo = document.getElementById('correo').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    const formularioCompleto = nombre !== '' && correo !== '' && telefono !== '';
+    const hayButacasSeleccionadas = butacasSeleccionadas.size > 0;
+    
+    localStorage.setItem('nombre', nombre);
+    localStorage.setItem('correo', correo);
+    localStorage.setItem('telefono', telefono);
+    
+    if (!formularioCompleto || !hayButacasSeleccionadas) {
+        // Evitar que se realice la acción predeterminada (como redirigir a otra página)
+        event.preventDefault();
+
+        // Mostrar alertas correspondientes
+        if (!hayButacasSeleccionadas) {
+            alert("Selecciona al menos una butaca");
+        }
+
+        if (!formularioCompleto) {
+            alert("Rellena todos los campos del formulario para continuar");
+        }
+
+        return; // Detener la ejecución del resto del código
+    }
+
     localStorage.setItem('pelicula', pelicula);
     localStorage.setItem('horario', horario);
     localStorage.setItem('sala', sala);
     localStorage.setItem('dia', dia);
 
-    // Asignamos los valores a butacas.html para mostrar la informacion de la pelicula ahi tambien
+    // Asignamos los valores a butacas.html para mostrar la información de la película ahí también
     const peliculaElement = document.querySelector(".pelicula-seleccionada");
     const diaElement = document.querySelector(".dia-pelicula");
     const horaElement = document.querySelector(".hora-pelicula");
 
-    // Verificamos que los elementos existan y asignamos los valores
     if (peliculaElement && diaElement && horaElement) {
         peliculaElement.textContent = `Película: ${pelicula}`;
         diaElement.textContent = `Día: ${dia}`;
@@ -223,3 +227,4 @@ botonComprar.addEventListener('click', async () => {
     // Redirigir a la página a ticket.html
     window.location.href = 'ticket.html';
 });
+

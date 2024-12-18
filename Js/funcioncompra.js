@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("info-horario").innerText = `Horario: ${horario}`;
         document.getElementById("info-sala").innerText = `${sala}`;
         const modal = document.getElementById("modal-info");
-        modal.setAttribute("data-id", id); // Guardar el ID en el modal
+        modal.setAttribute("data-id", id);
         modal.classList.add("mostrar");
     }
 
