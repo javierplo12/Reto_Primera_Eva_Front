@@ -5,7 +5,7 @@
   text-align: center;
 
   h2 {
-    font-size: 24px;
+    font-size: 30px;
     margin-bottom: 20px;
     font-family: 'Cinzel Decorative', serif;
   }
@@ -14,11 +14,6 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
-
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
 
     .pelicula {
       background: #fff;
@@ -45,7 +40,7 @@
       }
 
       h3 {
-        font-size: 16px;
+        font-size: 22px;
         margin: 8px 0;
         color: black;
         font-family: 'Raleway', sans-serif;
@@ -89,7 +84,7 @@
       padding: 10px 15px;
 
       h2 {
-        font-size: 1.8rem;
+        font-size: 28.8px;
         color: #ffffff;
         margin-bottom: 15px;
         text-transform: uppercase;
@@ -97,7 +92,7 @@
       }
 
       p {
-        font-size: 1rem;
+        font-size: 16px;
         color: #bfc5d3;
         line-height: 1.5;
         margin-bottom: 10px;
@@ -141,7 +136,7 @@
 
   .btn-opcion {
     padding: 15px;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
     color: #fff;
@@ -166,7 +161,7 @@
 // Desplegable día
 .desplegable-dia select {
   padding: 15px;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: bold;
   font-family: 'Raleway', sans-serif;
   margin-top: 15px;
@@ -192,7 +187,7 @@
   option {
     background-color: #1e4c9f;
     color: #fff;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: normal;
     padding: 10px;
 
@@ -230,42 +225,29 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 
     h3 {
-      font-size: 1.5rem;
+      font-size: 24px;
       color: #333333;
       margin-bottom: 15px;
     }
 
     p {
-      font-size: 1rem;
+      font-size: 16px;
       color: #555555;
       margin-bottom: 20px;
     }
 
     .btn-cerrar {
       padding: 10px 20px;
-      font-size: 1rem;
-      color: $text-color;
+      font-size: 16px;
+      color: #ffffff;
       background: #e74c3c;
       border: none;
       border-radius: 12px;
       cursor: pointer;
       transition: background-color 0.3s ease;
 
-      &.btn-cerrar {
-        background: #e74c3c;
-
-        &:hover {
-          background: #c0392b;
-        }
-      }
-
-      &.btn-comprar {
-        background: #2ecc71;
-        margin-left: 10px;
-
-        &:hover {
-          background: #27ae60;
-        }
+      &:hover {
+        background: #c0392b;
       }
     }
   }
@@ -273,6 +255,11 @@
 
 // Responsividad
 @media (min-width: 768px) {
+  .peliculas .grid-peliculas {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
   .pelicula-detalle {
     flex-direction: row;
     max-width: 40%;
@@ -292,11 +279,11 @@
         text-align: center;
 
         h2 {
-          font-size: 2rem;
+          font-size: 32px;
         }
 
         p {
-          font-size: 1.1rem;
+          font-size: 18px;
         }
       }
     }
@@ -310,11 +297,9 @@
       margin: 0 10px;
     }
   }
-}
 
-@media (min-width: 768px) {
   .desplegable-dia select {
-    font-size: 1.2rem;
+    font-size: 19.2px;
     border-radius: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -329,7 +314,7 @@
     }
 
     option {
-      font-size: 1.1rem;
+      font-size: 17.6px;
       padding: 12px;
     }
   }

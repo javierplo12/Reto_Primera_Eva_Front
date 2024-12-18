@@ -297,7 +297,7 @@ h2 {
   text-align: center;
 }
 .peliculas h2 {
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 20px;
   font-family: "Cinzel Decorative", serif;
 }
@@ -305,12 +305,6 @@ h2 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-}
-@media (min-width: 768px) {
-  .peliculas .grid-peliculas {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-  }
 }
 .peliculas .grid-peliculas .pelicula {
   background: #fff;
@@ -335,7 +329,7 @@ h2 {
   margin-bottom: 10px;
 }
 .peliculas .grid-peliculas .pelicula h3 {
-  font-size: 16px;
+  font-size: 22px;
   margin: 8px 0;
   color: black;
   font-family: "Raleway", sans-serif;
@@ -371,14 +365,14 @@ h2 {
   padding: 10px 15px;
 }
 .pelicula-detalle .pelicula-info h2 {
-  font-size: 1.8rem;
+  font-size: 28.8px;
   color: #ffffff;
   margin-bottom: 15px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 .pelicula-detalle .pelicula-info p {
-  font-size: 1rem;
+  font-size: 16px;
   color: #bfc5d3;
   line-height: 1.5;
   margin-bottom: 10px;
@@ -412,7 +406,7 @@ h2 {
 }
 .pelicula-botones .btn-opcion {
   padding: 15px;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
   color: #fff;
@@ -433,7 +427,7 @@ h2 {
 
 .desplegable-dia select {
   padding: 15px;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: bold;
   font-family: "Raleway", sans-serif;
   margin-top: 15px;
@@ -457,7 +451,7 @@ h2 {
 .desplegable-dia select option {
   background-color: #1e4c9f;
   color: #fff;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: normal;
   padding: 10px;
 }
@@ -491,18 +485,18 @@ h2 {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 .modal .modal-content h3 {
-  font-size: 1.5rem;
+  font-size: 24px;
   color: #333333;
   margin-bottom: 15px;
 }
 .modal .modal-content p {
-  font-size: 1rem;
+  font-size: 16px;
   color: #555555;
   margin-bottom: 20px;
 }
 .modal .modal-content .btn-cerrar {
   padding: 10px 20px;
-  font-size: 1rem;
+  font-size: 16px;
   color: #ffffff;
   background: #e74c3c;
   border: none;
@@ -510,21 +504,15 @@ h2 {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.modal .modal-content .btn-cerrar.btn-cerrar {
-  background: #e74c3c;
-}
-.modal .modal-content .btn-cerrar.btn-cerrar:hover {
+.modal .modal-content .btn-cerrar:hover {
   background: #c0392b;
-}
-.modal .modal-content .btn-cerrar.btn-comprar {
-  background: #2ecc71;
-  margin-left: 10px;
-}
-.modal .modal-content .btn-cerrar.btn-comprar:hover {
-  background: #27ae60;
 }
 
 @media (min-width: 768px) {
+  .peliculas .grid-peliculas {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
   .pelicula-detalle {
     flex-direction: row;
     max-width: 40%;
@@ -541,10 +529,10 @@ h2 {
     text-align: center;
   }
   .pelicula-detalle .pelicula-info h2 {
-    font-size: 2rem;
+    font-size: 32px;
   }
   .pelicula-detalle .pelicula-info p {
-    font-size: 1.1rem;
+    font-size: 18px;
   }
   .pelicula-botones {
     flex-direction: row;
@@ -553,10 +541,8 @@ h2 {
     flex: 1;
     margin: 0 10px;
   }
-}
-@media (min-width: 768px) {
   .desplegable-dia select {
-    font-size: 1.2rem;
+    font-size: 19.2px;
     border-radius: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -569,7 +555,7 @@ h2 {
     transform: translateY(3px);
   }
   .desplegable-dia select option {
-    font-size: 1.1rem;
+    font-size: 17.6px;
     padding: 12px;
   }
 }
