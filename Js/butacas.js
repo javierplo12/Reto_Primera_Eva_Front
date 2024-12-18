@@ -178,21 +178,19 @@ botonComprar.addEventListener('click', async (event) => {
     localStorage.setItem('nombre', nombre);
     localStorage.setItem('correo', correo);
     localStorage.setItem('telefono', telefono);
-    
+
     if (!formularioCompleto || !hayButacasSeleccionadas) {
-        // Evitar que se realice la acción predeterminada (como redirigir a otra página)
+        // Evitar que se realice la acción de redirigir a ticket.html
         event.preventDefault();
 
-        // Mostrar alertas correspondientes
         if (!hayButacasSeleccionadas) {
-            alert("Selecciona al menos una butaca");
+            alert("Selecciona al menos una butaca para continuar");
         }
 
         if (!formularioCompleto) {
             alert("Rellena todos los campos del formulario para continuar");
         }
-
-        return; // Detener la ejecución del resto del código
+        return; 
     }
 
     localStorage.setItem('pelicula', pelicula);
@@ -221,10 +219,8 @@ botonComprar.addEventListener('click', async (event) => {
         .textContent.split(': ')[1];
     localStorage.setItem('precioTotal', precioTotal);
 
-    // Actualizar las butacas seleccionadas en el servidor
     await actualizarEstadoButacas();
 
-    // Redirigir a la página a ticket.html
     window.location.href = 'ticket.html';
 });
 
