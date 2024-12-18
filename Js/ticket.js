@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dia: dia,
         hora: horario,
         butacasSeleccionadas: butacas.join(', '),
-        precio: parseFloat(precioTotal)
+        preciototal: parseFloat(precioTotal)
     };
 
     // Enviar el pedido a la API        
