@@ -538,7 +538,7 @@ h2 {
   .pelicula-detalle .pelicula-info {
     flex: 1;
     margin-left: 20px;
-    text-align: left;
+    text-align: center;
   }
   .pelicula-detalle .pelicula-info h2 {
     font-size: 2rem;

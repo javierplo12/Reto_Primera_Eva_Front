@@ -289,7 +289,7 @@
       &-info {
         flex: 1;
         margin-left: 20px;
-        text-align: left;
+        text-align: center;
 
         h2 {
           font-size: 2rem;
@@ -312,13 +312,11 @@
   }
 }
 
-@media (min-width: 1024px) {
-  // Desplegable día
+@media (min-width: 768px) {
   .desplegable-dia select {
     font-size: 1.2rem;
     border-radius: 15px;
     margin-top: 20px;
-    margin-left: 36%;
     margin-bottom: 20px;
 
     &:hover {
